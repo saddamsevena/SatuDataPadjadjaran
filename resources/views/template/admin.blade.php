@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Satu Data Padjadjaran</title>
+        <title>@yield('title')</title>
 
         <!-- Scripts -->
         <!-- CSS only -->
@@ -39,11 +39,33 @@
                 <a class="navbar-brand" href="#"><img src="{{ asset('img/logo/bem-kema2.png') }}" class="navbar-brand" width="40px" alt="Logo"> Satu Data Padjadjaran</a>
                 <div class="offcanvas offcanvas-start" tabindex="-1" id="navbarAdmin" aria-labelledby="navbarAdminLabel">
                     <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="navbarAdminLabel">Dashboard Admin</h5>
+                        <p class="fs-3 fw-bold offcanvas-title text-center" id="navbarAdminLabel">Dashboard Admin</p>
                         <button type="button" class="btn" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fa-solid fa-circle-xmark"></i></button>
                     </div>
                     <div class="offcanvas-body d-flex flex-column border-top border-dark">
-                        <div>
+                        <div class="d-grid col-12">
+                            <a href="{{ route('home') }}" class="p-2 fw-normal fs-5 nav-link text-start">Beranda</a>
+                        </div>
+                        <div class="d-grid col-12">
+                            <a href="{{ route('katalog.home') }}" class="p-2 fw-normal fs-5 nav-link text-start">Katalog Data</a>
+                        </div>
+                        <div class="d-grid col-12">
+                            <a class="p-2 fw-normal fs-5 nav-link text-start btn-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#AdminDashboardCollapse" aria-expanded="false" aria-controls="AdminDashboardCollapse">
+                                Dashboard Admin
+                            </a>
+                            <div class="container collapse" id="AdminDashboardCollapse">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><a href="{{ route('admin.home') }}" class="nav-link">Homepage Admin</a></li>
+                                    <li class="list-group-item"><a href="{{ route('home') }}" class="nav-link">User Database</a></li>
+                                    <li class="list-group-item"><a href="{{ route('home') }}" class="nav-link">Data Catalogue</a></li>
+                                    <li class="list-group-item"><a href="{{ route('home') }}" class="nav-link">Feedback Database</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="d-grid col-12">
+                            <a href="{{ route('about') }}" class="p-2 fw-normal fs-5 nav-link text-start">About</a>
+                        </div>
+                        <!-- <div class="mb-auto">
                             <ul class="list-unstyled">
                                 <li>
                                     <button class="btn btn-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#AdminHomeCollapse" aria-expanded="false" aria-controls="AdminHomeCollapse">
@@ -84,7 +106,7 @@
                                     </div>
                                 </li>
                             </ul>
-                        </div>
+                        </div> -->
                         <div class="mt-auto dropup border-top border-secondary p-2">
                             <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownProfile" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="/img/profile/{{ Auth::user()->image }}" alt="" width="32" height="32" class="rounded-circle me-2">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\Feedback;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -13,10 +14,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Show the application dashboard.
@@ -32,12 +33,26 @@ class HomeController extends Controller
     {
         return view('about');
     }
+
+    public function storeFeedback(Request $request)
+    {
+        $feedbacks = new Feedback;
+        $feedbacks->name = $request->name;
+        $feedbacks->email = $request->email;
+        $feedbacks->message = $request->message;
+        $feedbacks->subject = $request->subject;
+        $feedbacks->save();
+
+        return redirect()->to('home');
+    }
+
     public function editProfile($id)
     {
         $user = User::findOrFail($id);
 
         return view("profile", compact("user"));
     }
+
     public function updateProfile(Request $request) {
 
         $user = User::where('id', Auth::user()->id)->first();
@@ -66,5 +81,10 @@ class HomeController extends Controller
             ]);
         }
         return redirect(route("profile.edit", $user->id))->with(["success" => "User berhasil diupdate!"]);
+    }
+
+    public function katalog()
+    {
+        return view('katalog.home');
     }
 }

@@ -1,5 +1,9 @@
 @extends('template.admin')
 
+@section('title')
+	SDP - Admin Dashboard
+@endsection
+
 @section('css')
 .zoom {
     transition: transform .2s; 
@@ -12,6 +16,11 @@
 @endsection
 
 @section('content')
+<div class="container">
+
+</div>
+
+
 <p class="h3 border-bottom border-dark text-center"><i class="fa-solid fa-address-book"></i> User Database</p>
 <div class="table-responsive">
     <table class="table table-hover table-striped table-bordered text-center align-middle">

@@ -17,18 +17,23 @@ Route::get('/', function () {
     return view('home');
 });
 
+// Page
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
+Route::post('/feedback', [App\Http\Controllers\HomeController::class, 'storeFeedback'])->name('store.feedback');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
+// Katalog Page
+Route::get('/katalog', [App\Http\Controllers\HomeController::class, 'katalog'])->name('katalog.home');
+
 // Admin
-Route::get('admin/home', [App\Http\Controllers\AdminController::class, 'adminHome'])->name('admin.home')->middleware('admin');;
+Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'adminHome'])->name('admin.home')->middleware('admin');;
 Route::post('/home/admin/makeAdmin/{id}', [App\Http\Controllers\AdminController::class, 'makeAdmin'])->name('completedUpdate');
 Route::post('/home/admin/verificateUsers/{id}', [App\Http\Controllers\AdminController::class, 'verificateUsers'])->name('userVerified');
 Route::get('/home/admin/deleteUsers/{id}', [App\Http\Controllers\AdminController::class, 'deleteUsers'])->middleware('isAdmin');
 Route::post('/home/admin/storeUsers', [App\Http\Controllers\AdminController::class, 'storeUsers'])->middleware('isAdmin');
 
 //Profile
-Route::get('/profile/edit/{user}', [App\Http\Controllers\HomeController::class, 'editProfile'])->name('profile.edit');
+Route::get('/profile/{user}', [App\Http\Controllers\HomeController::class, 'editProfile'])->name('profile.edit');
 Route::put('/profile/update/', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('profile.update');

@@ -70,6 +70,6 @@ class LoginController extends Controller
     public function logout ()
     {
         session::flush();
-        return redirect('home')->with('alert', 'Anda Telah Logout');
+        return redirect('login')->with('alert', 'Anda Telah Logout');
     }
 }

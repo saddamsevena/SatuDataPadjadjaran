@@ -1,71 +1,55 @@
 @extends('template.user')
 
+@section('title')
+	SDP - Sign In
+@endsection
+
+@section('css')
+body {
+    background-image: url(/img/bg-1.png);
+	background-size: cover;
+	position: relative;
+	background-repeat: no-repeat;
+    height: 100vh;
+}
+@endsection
+
 @section('content')
-<div class="container mt-5  ">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+<div class="container-fluid py-4">
+    <div class="d-flex justify-content-center">
+        <div class="col-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
+                <span class="text-center fs-3 fw-semibold mt-2">Sign In</span>
+                <hr>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-
-                        <div class="row mb-3">
-                            <label for="npm" class="col-md-4 col-form-label text-md-end">{{ __('NPM') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="npm" type="text" class="form-control @error('npm') is-invalid @enderror" name="npm" value="{{ old('npm') }}" required autocomplete="npm" autofocus>
-                                @error('npm')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                    <div class="row">
+                        <div class="col-6 border-end d-flex justify-content-center align-items-center">
+                            <img src="{{ asset('img/asset2.png') }}" width="100%" alt="Asset">
                         </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
+                        <div class="col-6 border-start d-flex justify-content-center align-items-center">
+                            <form method="POST" action="{{ route('login') }}" class="col-8 needs-validation">
+                                @csrf
+                                <div class="mb-3">
+                                    <label for="npm" class="form-label">NPM</label>
+                                    <input id="npm" type="text" class="form-control @error('npm') is-invalid @enderror" name="npm" required autocomplete="false" autofocus aria-describedby="npmHelp">
+                                    <div id="npmHelp" class="form-text">Masukkan 14 Digin NPM Kamu</div>
                                 </div>
-                            </div>
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input id="password" type="password" class="form-control" name="password" required autofocus>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Sign In</button>
+                                <a class="btn btn-warning" href="{{ route('register') }}" role="button">Buat Akun</a>
+                            </form>
                         </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+
 @endsection

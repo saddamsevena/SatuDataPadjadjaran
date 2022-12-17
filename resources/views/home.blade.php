@@ -1,11 +1,19 @@
 @extends('template.user')
 
+@section('title')
+	Satu Data Padjadjaran
+@endsection
+
 @section('css')
 .head-content {
 	background-image: url(/img/bg-1.png);
 	background-size: cover;
 	position: relative;
 	background-repeat: no-repeat;
+}
+
+.heading {
+    background-color: #1C213C;
 }
 
 .swiper {
@@ -34,7 +42,7 @@
 
 .swiper-slide img {
 	display: block;
-	width: 10rem;
+	width: 10vw;
 	object-fit: cover;
 }
 
@@ -44,26 +52,31 @@
 @endsection
 
 @section('content')
-<div class="container-fluid head-content">
-	<div class="container mt-3">
-		<div class="row justify-content-between align-items-center bg-light bg-opacity-25">
+<div class="container-fluid heading p-4">
+	<div class="container text-light">
+		<div class="row justify-content-between align-items-center">
 			<div class="col-4 p-4">
 				<img src="{{ asset('img/logo/bem-kema2.png') }}" width="70%" alt="BEM Kema">
 			</div>
 			<div class="col-8">
 				<div class="row"><p class="fw-bold h1 mb-3">Satu Data Padjadjaran</p></div>
 				<div class="row"><p class="fw-semibold h3 mb-3">Biro Riset Data dan Analisis BEM Kema Unpad</p></div>
-				<div class="row"><p class="fw-normal h4" style="text-align: justify;">Satu Data Padjadjaran (SDP) merupakan sebuah platform berbasis website yang berisi integrasi data. Data yang diintegrasikan adalah data yang dihimpun dari Kema Unpad dalam berbagai sektor</p></div>
+				<div class="row">
+					<p class="fw-normal h4" style="text-align: justify;">
+						Satu Data Padjadjaran (SDP) merupakan sebuah platform berbasis website yang berisi integrasi data. 
+						Data yang diintegrasikan adalah data yang dihimpun dari Kema Unpad dalam berbagai sektor
+					</p>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
-<div class="p-4 bg-primary bg-gradient bg-opacity-75">
+<div class="container-fluid p-4 head-content">
 	<div class="container gap-3">
-		<p class="text-center text-light fw-bold fs-3">Katalog Data</p>
+		<p class="text-center fw-bold fs-3">Katalog Data</p>
 		<div class="row row-cols-2">
 			<div class="col p-2">
-				<div class="card">
+				<div class="card bg-light bg-opacity-75">
 					<div class="card-body text-center">
 						<i class="fa-solid fa-chart-pie fa-3x"></i>
 						<p class="card-title h3">Infografis</p>
@@ -74,7 +87,7 @@
 				</div>
 			</div>
 			<div class="col p-2">
-				<div class="card">
+				<div class="card bg-light bg-opacity-75">
 					<div class="card-body text-center">
 						<i class="fa-regular fa-folder-open fa-3x"></i>
 						<p class="card-title h3">Arsip Lembaga</p>
@@ -85,7 +98,7 @@
 				</div>
 			</div>
 			<div class="col p-2">
-				<div class="card">
+				<div class="card bg-light bg-opacity-75">
 					<div class="card-body text-center">
 						<i class="fa-solid fa-file-lines fa-3x"></i>
 						<p class="card-title h3"></i>Kajian</p>
@@ -96,7 +109,7 @@
 				</div>
 			</div>
 			<div class="col p-2">
-				<div class="card">
+				<div class="card bg-light bg-opacity-75">
 					<div class="card-body text-center">
 						<i class="fa-solid fa-database fa-3x"></i>
 						<p class="card-title h3"></i>Database</p>
@@ -155,12 +168,16 @@ var swiper = new Swiper(".mySwiper", {
 		prevEl: ".swiper-button-prev",
 	},
 	breakpoints: {
-		640: {
-			slidesPerView: 2,
+		360: {
+			slidesPerView: 3,
+			spaceBetween: 10,
+		},
+		540: {
+			slidesPerView: 4,
 			spaceBetween: 10,
 		},
 		768: {
-			slidesPerView: 4,
+			slidesPerView: 6,
 			spaceBetween: 20,
 		},
 		1024: {
