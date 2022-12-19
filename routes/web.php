@@ -19,16 +19,18 @@ Route::get('/', function () {
 
 // Page
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
 Route::post('/feedback', [App\Http\Controllers\HomeController::class, 'storeFeedback'])->name('store.feedback');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 // Katalog Page
 Route::get('/katalog', [App\Http\Controllers\HomeController::class, 'katalog'])->name('katalog.home');
+Route::get('/listdata', [App\Http\Controllers\HomeController::class, 'listdata'])->name('katalog.list');
+Route::get('/detail{data}', [App\Http\Controllers\DataController::class, 'detailview'])->name('katalog.detail');
 
 // Admin
-Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'adminHome'])->name('admin.home')->middleware('admin');;
+Route::get('/admin', [App\Http\Controllers\AdminController::class, 'adminHome'])->name('admin.home')->middleware('admin');;
 Route::post('/home/admin/makeAdmin/{id}', [App\Http\Controllers\AdminController::class, 'makeAdmin'])->name('completedUpdate');
 Route::post('/home/admin/verificateUsers/{id}', [App\Http\Controllers\AdminController::class, 'verificateUsers'])->name('userVerified');
 Route::get('/home/admin/deleteUsers/{id}', [App\Http\Controllers\AdminController::class, 'deleteUsers'])->middleware('isAdmin');

@@ -73,49 +73,49 @@
 </div>
 <div class="container-fluid p-4 head-content">
 	<div class="container gap-3">
-		<p class="text-center fw-bold fs-3">Katalog Data</p>
+		<p class="text-center fw-bold fs-3">Apa yang kami kumpulkan?</p>
 		<div class="row row-cols-2">
 			<div class="col p-2">
-				<div class="card bg-light bg-opacity-75">
+				<div class="card bg-light bg-opacity-75 shadow">
 					<div class="card-body text-center">
 						<i class="fa-solid fa-chart-pie fa-3x"></i>
 						<p class="card-title h3">Infografis</p>
 						<hr>
 						<p class="card-text h5 fw-normal">Kumpulan informasi mengenai olahan data visual yang telah dilakukan oleh berbagai lembaga kemahasiswaan</p>
-						<a class="stretched-link" href=""></a>
+						<a class="stretched-link" href="{{ route('katalog.list') }}"></a>
 					</div>
 				</div>
 			</div>
 			<div class="col p-2">
-				<div class="card bg-light bg-opacity-75">
+				<div class="card bg-light bg-opacity-75 shadow">
 					<div class="card-body text-center">
 						<i class="fa-regular fa-folder-open fa-3x"></i>
 						<p class="card-title h3">Arsip Lembaga</p>
 						<hr>
 						<p class="card-text h5 fw-normal">Kumpulan data arsip organisasi yang bersifat terbuka untuk umum dari berbagai lembaga kemahasiswaan</p>
-						<a class="stretched-link" href=""></a>
+						<a class="stretched-link" href="{{ route('katalog.list') }}"></a>
 					</div>
 				</div>
 			</div>
 			<div class="col p-2">
-				<div class="card bg-light bg-opacity-75">
+				<div class="card bg-light bg-opacity-75 shadow">
 					<div class="card-body text-center">
 						<i class="fa-solid fa-file-lines fa-3x"></i>
 						<p class="card-title h3"></i>Kajian</p>
 						<hr>
 						<p class="card-text h5 fw-normal">Informasi mengenai kajian-kajian yang telah dilakukan oleh berbagai lembaga kemahasiswan</p>
-						<a class="stretched-link" href=""></a>
+						<a class="stretched-link" href="{{ route('katalog.list') }}"></a>
 					</div>
 				</div>
 			</div>
 			<div class="col p-2">
-				<div class="card bg-light bg-opacity-75">
+				<div class="card bg-light bg-opacity-75 shadow">
 					<div class="card-body text-center">
 						<i class="fa-solid fa-database fa-3x"></i>
 						<p class="card-title h3"></i>Database</p>
 						<hr>
 						<p class="card-text h5 fw-normal">Kumpulan informasi database yang telah dihimpun oleh berbagai lembaga kemahasiswaan</p>
-						<a class="stretched-link" href=""></a>
+						<a class="stretched-link" href="{{ route('katalog.list') }}"></a>
 					</div>
 				</div>
 			</div>

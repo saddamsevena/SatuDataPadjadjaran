@@ -87,4 +87,9 @@ class HomeController extends Controller
     {
         return view('katalog.home');
     }
+
+    public function listdata()
+    {
+        return view('katalog.list');
+    }
 }

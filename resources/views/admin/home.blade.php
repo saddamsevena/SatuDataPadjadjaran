@@ -16,97 +16,164 @@
 @endsection
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
+    <ul class="nav nav-tabs justify-content-center" id="adminTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <a class="nav-link fw-normal fs-5 active" aria-current="page" href="#" role="presentation" id="user-tab" data-bs-toggle="tab" data-bs-target="#user-tab-pane" aria-selected="true" type="button">User</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link fw-normal fs-5" href="#" role="presentation" id="data-tab" data-bs-toggle="tab" data-bs-target="#data-tab-pane" aria-selected="false" type="button">Data</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link fw-normal fs-5" href="#" role="presentation" id="feedback-tab" data-bs-toggle="tab" data-bs-target="#feedback-tab-pane" aria-selected="false" type="button">Feedback</a>
+        </li>
+    </ul>
+</div>
 
+<div class="tab-content" id="adminTabContent">
+    <div class="tab-pane fade my-3 show active" id="user-tab-pane" role="tabpanel" aria-labelledby="user-tab" tabindex="0">
+        <p class="h3 border-dark text-center"><i class="fa-solid fa-address-book"></i> User Database</p>
+        <div class="table-responsive">
+            <table class="table table-hover table-striped table-bordered text-center align-middle">
+                <thead class="table-success">
+                    <tr>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>NPM</th>
+                        <th>Email</th>
+                        <th>Foto Profil</th>
+                        <th>Verifikasi Akun</th>
+                        <th>KTM</th>
+                        <th>Role</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    @foreach($users as $user)
+                    <tr>
+                        <td>{{$loop->iteration}}</td>
+                        <td>{{$user->name}}</td>
+                        <td>{{$user->npm}}</td>
+                        <td>{{$user->email}}</td>
+                        <td>
+                            <img src="/img/profile/{{$user->image}}" alt="Foto {{$user->name}}" width="100vh" class="img-thumbnail rounded zoom">
+                        </td>
+                        @if($user->is_active == 1)
+                            <td>Verified</td>
+                            @else
+                            <td>Unverified</td>
+                        @endif
+                        <td>
+                            <img src="/img/ktm/{{$user->ktm}}" alt="KTM {{$user->name}}" width="200vh" class="img-thumbnail zoom">
+                        </td>
+                        @if($user->role == 1)
+                            <td>Admin</td>
+                            @else
+                            <td>User</td>
+                        @endif
+                        <td>
+                            <div class="row justify-content-center">
+                                @if($user->role == 0)
+                                    <div class="col-sm-auto">
+                                        <form action="/home/admin/makeAdmin/{{$user->id}}" method="POST">
+                                            {{ csrf_field() }}
+                                            <input type="hidden" name="isAdmin" value=1>
+                                            <button type="submit" class="btn btn-success">Jadikan admin</button>
+                                        </form>
+                                    </div>
+                                @else
+                                    <div class="col-sm-auto">
+                                        <form action="/home/admin/makeAdmin/{{$user->id}}" method="POST">
+                                            {{ csrf_field() }}
+                                            <input type="hidden" name="isAdmin" value=0>
+                                            <button type="submit" class="btn btn-danger">Hapus admin</button>
+                                        </form>
+                                    </div>
+                                @endif
+
+                                @if($user->is_active == 0)
+                                    <div class="col-sm-auto">
+                                        <form action="/home/admin/verificateUsers/{{$user->id}}" method="POST">
+                                            {{ csrf_field() }}
+                                            <input type="hidden" name="verified" value=1>
+                                            <button type="submit" class="btn btn-success">Verifikasi Akun</button>
+                                        </form>
+                                    </div>
+                                @else
+                                    <div class="col-sm-auto">
+                                        <form action="/home/admin/verificateUsers/{{$user->id}}" method="POST">
+                                            {{ csrf_field() }}
+                                            <input type="hidden" name="verified" value=0>
+                                            <button type="submit" class="btn btn-danger">Batal Verifikasi Akun</button>
+                                        </form>
+                                    </div>
+                                @endif
+                                <div class="col-sm-auto">
+                                    <a href="/home/admin/deleteUsers/{{$user->id}}" class="btn btn-danger">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="tab-pane fade my-3" id="data-tab-pane" role="tabpanel" aria-labelledby="data-tab" tabindex="0">
+        <p class="h3 border-dark text-center"><i class="fa-regular fa-folder-open"></i> Data Catalogue</p>
+        <div class="table-responsive">
+            <table class="table table-hover table-striped table-bordered text-center align-middle">
+                <thead class="table-success">
+                    <tr>
+                        <th>No</th>
+                        <th>Judul</th>
+                        <th>Deskripsi</th>
+                        <th>Kategori</th>
+                        <th>Penerbit</th>
+                        <th>Tanggal Rilis</th>
+                        <th>Penerbit</th>
+                        <th>Tanggal Diperbaharui</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    <tr>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="tab-pane fade my-3" id="feedback-tab-pane" role="tabpanel" aria-labelledby="feedback-tab" tabindex="0">
+        <p class="h3 border-dark text-center"><i class="fa-regular fa-comment-dots"></i> Feedback Database</p>
+        <div class="table-responsive">
+            <table class="table table-hover table-striped table-bordered text-center align-middle">
+                <thead class="table-success">
+                    <tr>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>Subjek</th>
+                        <th>Isi Pesan</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    @foreach($feedbacks as $feedback)
+                    <tr>
+                        <td>{{$loop->iteration}}</td>
+                        <td>{{$feedback->name}}</td>
+                        <td>{{$feedback->email}}</td>
+                        <td>{{$feedback->subject}}</td>
+                        <td>{{$feedback->message}}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 
 
-<p class="h3 border-bottom border-dark text-center"><i class="fa-solid fa-address-book"></i> User Database</p>
-<div class="table-responsive">
-    <table class="table table-hover table-striped table-bordered text-center align-middle">
-        <thead class="table-success">
-            <tr>
-                <th>No</th>
-                <th>Nama</th>
-                <th>NPM</th>
-                <th>Email</th>
-                <th>Foto Profil</th>
-                <th>Verifikasi Akun</th>
-                <th>KTM</th>
-                <th>Role</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody class="table-group-divider">
-            @foreach($users as $user)
-            <tr>
-                <td>{{$loop->iteration}}</td>
-                <td>{{$user->name}}</td>
-                <td>{{$user->npm}}</td>
-                <td>{{$user->email}}</td>
-                <td>
-                    <img src="/img/profile/{{$user->image}}" alt="Foto {{$user->name}}" width="100vh" class="img-thumbnail rounded zoom">
-                </td>
-                @if($user->is_active == 1)
-                    <td>Verified</td>
-                    @else
-                    <td>Unverified</td>
-                @endif
-                <td>
-                    <img src="/img/ktm/{{$user->ktm}}" alt="KTM {{$user->name}}" width="200vh" class="img-thumbnail zoom">
-                </td>
-                @if($user->role == 1)
-                    <td>Admin</td>
-                    @else
-                    <td>User</td>
-                @endif
-                <td>
-                    <div class="row justify-content-center">
-                        @if($user->role == 0)
-                            <div class="col-sm-auto">
-                                <form action="/home/admin/makeAdmin/{{$user->id}}" method="POST">
-                                    {{ csrf_field() }}
-                                    <input type="hidden" name="isAdmin" value=1>
-                                    <button type="submit" class="btn btn-success">Jadikan admin</button>
-                                </form>
-                            </div>
-                        @else
-                            <div class="col-sm-auto">
-                                <form action="/home/admin/makeAdmin/{{$user->id}}" method="POST">
-                                    {{ csrf_field() }}
-                                    <input type="hidden" name="isAdmin" value=0>
-                                    <button type="submit" class="btn btn-danger">Hapus admin</button>
-                                </form>
-                            </div>
-                        @endif
-
-                        @if($user->is_active == 0)
-                            <div class="col-sm-auto">
-                                <form action="/home/admin/verificateUsers/{{$user->id}}" method="POST">
-                                    {{ csrf_field() }}
-                                    <input type="hidden" name="verified" value=1>
-                                    <button type="submit" class="btn btn-success">Verifikasi Akun</button>
-                                </form>
-                            </div>
-                        @else
-                            <div class="col-sm-auto">
-                                <form action="/home/admin/verificateUsers/{{$user->id}}" method="POST">
-                                    {{ csrf_field() }}
-                                    <input type="hidden" name="verified" value=0>
-                                    <button type="submit" class="btn btn-danger">Batal Verifikasi Akun</button>
-                                </form>
-                            </div>
-                        @endif
-                        <div class="col-sm-auto">
-                            <a href="/home/admin/deleteUsers/{{$user->id}}" class="btn btn-danger">
-                                <i class="fa-solid fa-trash"></i>
-                            </a>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-</div>
 @endsection
