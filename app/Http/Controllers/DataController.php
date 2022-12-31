@@ -18,4 +18,9 @@ class DataController extends Controller
     {
         return view('katalog.detail');
     }
+
+    public function addData()
+    {
+        return view('katalog.add');
+    }
 }

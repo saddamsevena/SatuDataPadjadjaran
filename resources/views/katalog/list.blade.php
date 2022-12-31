@@ -33,7 +33,10 @@
     <hr>
     <div class="tab-content" id="dataList-tabContent">
         <div class="tab-pane fade show active" id="dataList-all" role="tabpanel" aria-labelledby="dataList-all-tab" tabindex="0">
-            Semua Data disini
+            Semua Data disini <br>
+            <div class="container ratio ratio-16x9">
+                <iframe height="100vh" width="100%" src="https://docs.google.com/spreadsheets/d/1VjS_blEqoo-jrrSpMA_8dn3ZuqJQoCjtrmZ6QeAKVI0/edit#gid=0" frameborder="1" allowfullscreen title="Database Kelembagaan"></iframe>
+            </div>
         </div>
         <div class="tab-pane fade" id="dataList-infografis" role="tabpanel" aria-labelledby="dataList-infografis-tab" tabindex="0">
             Infografis disini
@@ -50,6 +53,9 @@
         <div class="tab-pane fade" id="dataList-lainnya" role="tabpanel" aria-labelledby="dataList-lainnya-tab" tabindex="0">
             Lainnya disini
         </div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center">
+        <a href="{{ route('katalog.add') }}"><button class="btn btn-secondary"><i class="fa-regular fa-square-plus fa-xl"></i></button></a>
     </div>
 </div>
 @endsection
