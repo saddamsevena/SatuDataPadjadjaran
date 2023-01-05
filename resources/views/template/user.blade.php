@@ -37,6 +37,10 @@
             body, html {
                 height: 100%;
             }
+            .font-montserrat {
+                font-family: "Montserrat", Sans-serif;
+                vertical-align: baseline;
+            }
             @yiegitld('css');
             @yield('css');
         </style>

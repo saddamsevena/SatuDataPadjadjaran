@@ -43,7 +43,7 @@ class HomeController extends Controller
         $feedbacks->subject = $request->subject;
         $feedbacks->save();
 
-        return redirect()->to('home');
+        return redirect()->to('/');
     }
 
     public function editProfile($id)
