@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Feedback;
+use App\Models\Data;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -49,14 +51,13 @@ class HomeController extends Controller
     public function editProfile($id)
     {
         $user = User::findOrFail($id);
-
-        return view("profile", compact("user"));
+        $datas = Data::all();
+        return view("profile", compact("user"), ['datas'=>$datas]);
     }
 
-    public function updateProfile(Request $request) {
-
+    public function updateProfile(Request $request) 
+    {
         $user = User::where('id', Auth::user()->id)->first();
-        
         if ($request['image']) {
             $profilePhoto = round(microtime(true) * 1000).'-'.str_replace(' ','-',$request['image']->getClientOriginalName());
             $request['image']->move(public_path('img/profile'), $profilePhoto);
@@ -71,7 +72,6 @@ class HomeController extends Controller
                 'password' => Hash::make($request->password),
             ]);
         } else {
-            
             // Jika user tidak mengganti passwordnya
             $user->update([
                 'name' => $request->name,
@@ -90,6 +90,7 @@ class HomeController extends Controller
 
     public function listdata()
     {
-        return view('katalog.list');
+        $datas = Data::all();
+        return view('katalog.list', ['datas'=>$datas]);
     }
 }

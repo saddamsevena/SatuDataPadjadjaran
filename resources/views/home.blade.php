@@ -61,10 +61,10 @@
 	<div class="container text-light">
 		<div class="row row-cols-1 row-cols-lg-2 gx-2 gx-lg-2 align-items-center">
 			<div class="col col-lg-8">
-				<div class="row"><p class="fw-bold display-3 font-montserrat" style="letter-spacing: 10px;">Satu Data<br>Padjadjaran</p></div>
+				<div class="row"><p class="fw-bold display-3 font-montserrat" style="letter-spacing: 5px;">Satu Data<br>Padjadjaran</p></div>
 				<div class="row"><p class="fw-semibold fst-italic fs-3 font-montserrat" style="letter-spacing: 5px;">Biro Riset Data dan Analisis <br>BEM Kema Unpad 2022</p></div>
 			</div>
-			<div class="col col-lg-4 py-4 ms-auto">
+			<div class="col col-lg-4 py-4 ms-auto d-none d-lg-block">
 				<img src="{{ asset('img/logo/sdp.png') }}" width="100%" alt="BEM Kema">
 			</div>
 		</div>
@@ -116,7 +116,7 @@
 		</div>
 	</div>
 </div>
-<div class="container-fluid p-4 head-content">
+<div class="container-fluid py-4 head-content">
 	<div class="container gap-3">
 		<p class="text-center fw-bold fs-3">Apa yang kami kumpulkan?</p>
 		<div class="row row-cols-2">

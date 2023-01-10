@@ -6,12 +6,12 @@
 
 @section('css')
 .zoom {
-    transition: transform .2s; 
+    transition: transform .2s;
     margin: 0 auto;
 }
 
 .zoom:hover {
-    transform: scale(2.5); 
+    transform: scale(2);
 }
 @endsection
 
@@ -131,17 +131,35 @@
                         <th>Judul</th>
                         <th>Deskripsi</th>
                         <th>Kategori</th>
+                        <th>Sumber</th>
                         <th>Penerbit</th>
+                        <th>Kata Kunci</th>
+                        <th>Tautan Data</th>
                         <th>Tanggal Rilis</th>
-                        <th>Penerbit</th>
                         <th>Tanggal Diperbaharui</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
+                @foreach($datas as $data)
                     <tr>
-                        <td></td>
+                        <td>{{$loop->iteration}}</td>
+                        <td>{{$data->nama}}</td>
+                        <td>{{$data->deskripsi}}</td>
+                        <td>{{$data->kategori}}</td>
+                        <td>{{$data->sumber}}</td>
+                        <td>{{$data->penerbit}}</td>
+                        <td>{{$data->kata_kunci}}</td>
+                        <td>{{$data->tautan}}</td>
+                        <td>{{$data->created_at}}</td>
+                        <td>{{$data->updated_at}}</td>
+                        <td>{{$data->status}}</td>
+                        <td>
+                            <a href="{{ route ('admin.edit.data', $data->id) }}" class="btn btn-warning"> Update
+                        </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

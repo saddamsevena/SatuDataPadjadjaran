@@ -33,7 +33,49 @@
     <hr>
     <div class="tab-content" id="dataList-tabContent">
         <div class="tab-pane fade show active" id="dataList-all" role="tabpanel" aria-labelledby="dataList-all-tab" tabindex="0">
-            Semua Data disini
+        <div class="table-responsive">
+            <table class="table table-hover table-striped table-bordered text-center align-middle">
+                <thead class="table-success">
+                    <tr>
+                        <th>No</th>
+                        <th>Judul</th>
+                        <th>Deskripsi</th>
+                        <th>Kategori</th>
+                        <th>Sumber</th>
+                        <th>Penerbit</th>
+                        <th>Kata Kunci</th>
+                        <th>Tautan Data</th>
+                        <th>Tanggal Rilis</th>
+                        <th>Tanggal Diperbaharui</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                @foreach($datas as $data)
+                    @if($data->status == "Accepted")
+                    <tr>
+                        <td>{{$loop->iteration}}</td>
+                        <td>{{$data->nama}}</td>
+                        <td>{{$data->deskripsi}}</td>
+                        <td>{{$data->kategori}}</td>
+                        <td>{{$data->sumber}}</td>
+                        <td>{{$data->penerbit}}</td>
+                        <td>{{$data->kata_kunci}}</td>
+                        <td>{{$data->tautan}}</td>
+                        <td>{{$data->created_at}}</td>
+                        <td>{{$data->updated_at}}</td>
+                        <td>{{$data->status}}</td>
+                        <td>
+                            <a href="{{ route ('admin.edit.data', $data->id) }}" class="btn btn-warning"> Update
+                        </td>
+                    </tr>
+                    @endif
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+
         </div>
         <div class="tab-pane fade" id="dataList-infografis" role="tabpanel" aria-labelledby="dataList-infografis-tab" tabindex="0">
             Infografis disini

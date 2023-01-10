@@ -26,16 +26,19 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 // Katalog Page
 Route::get('/katalog', [App\Http\Controllers\HomeController::class, 'katalog'])->name('katalog.home');
-Route::get('/listdata', [App\Http\Controllers\HomeController::class, 'listdata'])->name('katalog.list');
+Route::get('/listdata', [App\Http\Controllers\DataController::class, 'listData'])->name('katalog.list');
 Route::get('/detail{data}', [App\Http\Controllers\DataController::class, 'detailview'])->name('katalog.detail');
 Route::get('/add-data', [App\Http\Controllers\DataController::class, 'addData'])->name('katalog.add');
+Route::post('/store-data', [App\Http\Controllers\DataController::class, 'storeData'])->name('katalog.store');
 
 // Admin
-Route::get('/admin', [App\Http\Controllers\AdminController::class, 'adminHome'])->name('admin.home')->middleware('admin');;
+Route::get('/admin', [App\Http\Controllers\AdminController::class, 'adminHome'])->name('admin.home')->middleware('admin');
 Route::post('/home/admin/makeAdmin/{id}', [App\Http\Controllers\AdminController::class, 'makeAdmin'])->name('completedUpdate');
 Route::post('/home/admin/verificateUsers/{id}', [App\Http\Controllers\AdminController::class, 'verificateUsers'])->name('userVerified');
 Route::get('/home/admin/deleteUsers/{id}', [App\Http\Controllers\AdminController::class, 'deleteUsers'])->middleware('isAdmin');
 Route::post('/home/admin/storeUsers', [App\Http\Controllers\AdminController::class, 'storeUsers'])->middleware('isAdmin');
+Route::get('/home/admin/editData/{id}', [App\Http\Controllers\AdminController::class, 'editData'])->name('admin.edit.data');
+Route::post('/home/admin/updateData/{id}', [App\Http\Controllers\AdminController::class, 'updateData'])->name('admin.katalog.update');
 
 //Profile
 Route::get('/profile/{user}', [App\Http\Controllers\HomeController::class, 'editProfile'])->name('profile.edit');

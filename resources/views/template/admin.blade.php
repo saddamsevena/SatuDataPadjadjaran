@@ -31,6 +31,7 @@
         </style>
     </head>
     <body>
+        @include('sweetalert::alert')
         <nav class="navbar bg-light border-bottom border-dark">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarAdmin" aria-controls="navbarAdmin">
@@ -57,7 +58,11 @@
                         </div>
                         <div class="mt-auto dropup border-top border-secondary p-2 fw-normal fs-5">
                             <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownProfile" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="/img/profile/{{ Auth::user()->image }}" alt="" width="42" height="42" class="rounded-circle me-2">
+                            @if(Auth::user()->image == NULL)
+                            <img src="{{ asset('img/profile/profile.jpg') }}" width="64" height="64" alt="Foto Profil {{ Auth::user()->name }}"  class="rounded-circle">
+                            @else
+                            <img src="/img/profile/{{ Auth::user()->image }}" height="64" width="64" alt="Foto Profil {{ Auth::user()->name }}" class="rounded-circle">
+                            @endif
                                 <strong>{{ Auth::user()->name }}</strong>
                             </a>
                             <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownProfile">
