@@ -38,22 +38,67 @@ class DataController extends Controller
             'deskripsi' => 'required',
             'sumber' => 'required',
             'kategori'=> 'required',
+            // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'kata_kunci'=> 'required',
             'tautan'=> 'required',
         ]);
 
-        $data = Data::create([
+        if ($request->hasfile('image')) {
+            $filename = round(microtime(true) * 1000).'-'.str_replace(' ','-',$request->file('image')->getClientOriginalName());
+            $request->file('image')->move(public_path('img/data'), $filename);
+        }
+
+        else {
+            $filename = NULL;
+        }
+
+        $datas = Data::create([
             'user_id'=> Auth::user()->id,
             'nama'=> $request->nama,
             'deskripsi' => $request->deskripsi,
             'sumber' => $request->sumber,
             'penerbit'=> Auth::user()->name,
             'kategori'=> $request->kategori,
+            // 'image' => $filename,
             'kata_kunci'=> $request->kata_kunci,
             'tautan'=> $request->tautan,
             'status' => $request->status
         ]);
 
-        return redirect()->route('katalog.list', compact('data'));
+        return redirect()->route('katalog.list', compact('datas'));
+    }
+
+    public function editData($id)
+    {
+        $datas = Data::where('id',$id);
+        return view(route('edit.data'), compact('datas'));
+    }
+
+    public function updateData(Request $request, $id)
+    {
+        $this->validate($request, [
+            'nama'=> 'required',
+            'deskripsi' => 'required',
+            'kategori'=> 'required',
+            'kata_kunci'=> 'required',
+            'tautan'=> 'required',
+        ]);
+
+        $datas = Data::where('id',$id)->update([
+            'nama'=> $request->nama,
+            'deskripsi' => $request->deskripsi,
+            'kategori'=> $request->kategori,
+            'kata_kunci'=> $request->kata_kunci,
+            'tautan'=> $request->tautan,
+            'status' => $request->status
+        ]);
+
+        return redirect()->route('katalog.list', compact('datas'));
+    }
+
+    public function viewData($id)
+    {
+        $datas = Data::where('id',$id)->first();
+        return view('update.Data', compact('datas'));
     }
 }

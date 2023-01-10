@@ -49,6 +49,10 @@
                     <option value="Lainnya">Lainnya</option>
             </select>
         </div>
+        <!-- <div class="mb-3">
+            <label for="image" class="form-label">Gambar</label>
+            <input type="file" id="image" name="image"class="form-control" value="NULL" aria-describedby="imageHelp">
+        </div> -->
         <div class="mb-3">
             <label for="kata_kunci" class="form-label">Kata Kunci</label>
             <input id="kata_kunci" type="text" class="form-control @error('kata_kunci') is-invalid @enderror" name="kata_kunci" required autocomplete="false" autofocus aria-describedby="kata_kunciHelp">

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('penerbit');
             $table->string('sumber');
             $table->string('kategori');
+            $table->string('image')->nullable();
             $table->string('kata_kunci');
             $table->string('tautan');
             $table->string('status')->nullable();

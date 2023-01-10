@@ -108,7 +108,7 @@
                                         </form>
                                     </div>
                                 @endif
-                                <div class="col-sm-auto">
+                                <div class="col-auto">
                                     <a href="/home/admin/deleteUsers/{{$user->id}}" class="btn btn-danger">
                                         <i class="fa-solid fa-trash"></i>
                                     </a>
@@ -129,6 +129,7 @@
                     <tr>
                         <th>No</th>
                         <th>Judul</th>
+                        <th>Gambar</th>
                         <th>Deskripsi</th>
                         <th>Kategori</th>
                         <th>Sumber</th>
@@ -146,6 +147,7 @@
                     <tr>
                         <td>{{$loop->iteration}}</td>
                         <td>{{$data->nama}}</td>
+                        <td>{{$data->image}}</td>
                         <td>{{$data->deskripsi}}</td>
                         <td>{{$data->kategori}}</td>
                         <td>{{$data->sumber}}</td>

@@ -24,12 +24,14 @@ Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->nam
 Route::post('/feedback', [App\Http\Controllers\HomeController::class, 'storeFeedback'])->name('store.feedback');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-// Katalog Page
+// Data Page
 Route::get('/katalog', [App\Http\Controllers\HomeController::class, 'katalog'])->name('katalog.home');
 Route::get('/listdata', [App\Http\Controllers\DataController::class, 'listData'])->name('katalog.list');
 Route::get('/detail{data}', [App\Http\Controllers\DataController::class, 'detailview'])->name('katalog.detail');
 Route::get('/add-data', [App\Http\Controllers\DataController::class, 'addData'])->name('katalog.add');
 Route::post('/store-data', [App\Http\Controllers\DataController::class, 'storeData'])->name('katalog.store');
+Route::get('/editData/{id}', [App\Http\Controllers\DataController::class, 'editData'])->name('edit.data');
+Route::post('/updateData/{id}', [App\Http\Controllers\DataController::class, 'updateData'])->name('data.update');
 
 // Admin
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'adminHome'])->name('admin.home')->middleware('admin');

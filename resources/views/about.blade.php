@@ -50,7 +50,7 @@
     </div>
     <div class="container text-center fs-5">
         <p class="fs-1 fw-bold">Struktur</p>
-        <img src="{{ asset('img/assets/Struktur.png') }}" class="position-relative" alt="Struktur Biro">
+        <img src="{{ asset('img/assets/Struktur.png') }}" class="img-thumbnail" alt="Struktur Biro">
         <p class="fs-4 text-start">Penjelasan :</p>
         <p>
             <ol style="text-align: justify;">

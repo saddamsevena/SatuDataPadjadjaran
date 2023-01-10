@@ -64,6 +64,7 @@ class HomeController extends Controller
         }
 
         if ($user->password != $request->password) {
+            // Jika user mengganti passwordnya
             $user->update([
                 'name' => $request->name,
                 'email' => $request->email,
@@ -71,7 +72,9 @@ class HomeController extends Controller
                 'image' => $profilePhoto,
                 'password' => Hash::make($request->password),
             ]);
-        } else {
+        } 
+        
+        else {
             // Jika user tidak mengganti passwordnya
             $user->update([
                 'name' => $request->name,

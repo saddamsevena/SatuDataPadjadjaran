@@ -114,10 +114,25 @@ div.scroll {
                                     <div class="scroll p-4">
                                         @foreach($datas as $data)
                                             @if($data->user_id = Auth::user()->id)
-                                            <div class="container border p-2">
-                                                <div class="row justify-content-between">
+                                            <div class="container border rounded border-black p-2 my-2">
+                                                <div class="row d-flex justify-content-between align-items-center">
                                                     <div class="col col-sm-3 col-md-3 col-lg-4">
-                                                        
+                                                        <img src="" alt="Header Data">
+                                                    </div>
+                                                    <div class="col">
+                                                        <p>{{$data->nama}}</p>
+                                                        <p class="text-truncate" style="max-width: 50px;">{{$data->deskripsi}}</p>
+                                                        <p>{{$data->sumber}}</p>
+                                                        <p>{{$data->created_at}}</p>
+                                                    </div>
+                                                    <div class="col">
+                                                        <p>{{$data->kategori}}</p>
+                                                        <p>{{$data->kata_kunci}}</p>
+                                                        <p>{{$data->status}}</p>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <button class="btn btn-primary"><a href="{{$data->tautan}}" class="nav-link">Tautan</a></button>
+                                                        <button class="btn btn-primary"><a href="{{ route('edit.data', $data->id) }}" class="nav-link">Update</a></button>
                                                     </div>
                                                 </div>
                                             </div>

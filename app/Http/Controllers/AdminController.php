@@ -53,6 +53,7 @@ class AdminController extends Controller
         $datas = Data::where('id',$id)->first();
         return view('admin.updateData', compact('datas'));
     }
+    
     public function updateData(Request $request, $id)
     {
         $this->validate($request, [

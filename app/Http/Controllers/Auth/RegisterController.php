@@ -66,7 +66,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-
         if ($data['ktm']) {
             $fotoKTM = round(microtime(true) * 1000).'-'.str_replace(' ','-',$data['ktm']->getClientOriginalName());
             $data['ktm']->move(public_path('img/ktm'), $fotoKTM);
