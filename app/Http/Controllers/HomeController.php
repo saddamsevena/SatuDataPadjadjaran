@@ -52,7 +52,7 @@ class HomeController extends Controller
     {
         $user = User::findOrFail($id);
         $datas = Data::all();
-        return view("profile", compact("user"), ['datas'=>$datas]);
+        return view("profile", compact("user"), ['datas'=>$datas->sortByDesc('created_at')]);
     }
 
     public function updateProfile(Request $request) 

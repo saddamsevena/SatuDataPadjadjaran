@@ -35,7 +35,7 @@ div.scroll {
                                 <p class="h4 fw-bold text-center mt-3">Informasi Akun</p>
                                 <div class="mb-3 row">
                                 </div>
-                                <!-- <p class="text-start">
+                                <p class="text-center">
                                     <div class="d-flex flex-row">
                                         <div class="me-2 mb-2"><i class="fa-solid fa-user"></i></div>
                                         <div class="me-2 mb-2">{{ Auth::user()->name}}</div>
@@ -51,7 +51,7 @@ div.scroll {
                                         <div class="me-2 mb-2">{{ Auth::user()->npm}}</div>
                                         @endif    
                                     </div>
-                                </p> -->
+                                </p>
                             </div>
                             <div class="d-none d-lg-block mt-auto">
                                 <div class="nav flex-row nav-pills" id="profile" role="tablist" aria-orientation="vertical">
@@ -111,65 +111,45 @@ div.scroll {
                                     </form>
                                 </div>
                                 <div class="tab-pane fade" id="user-contribution" role="tabpanel" aria-labelledby="user-contribution-tab" tabindex="1">
-                                    <div class="scroll p-4">
+                                    <h5 class="text-center">My Contribution</h5>
+                                    <div class="scroll">
                                         @foreach($datas as $data)
                                             @if($data->user_id = Auth::user()->id)
-                                            <div class="container border rounded border-black p-2 my-2">
-                                                <div class="row d-flex justify-content-between align-items-center">
-                                                    <div class="col col-sm-3 col-md-3 col-lg-4">
-                                                        <img src="" alt="Header Data">
+                                            <div class="card p-3 mb-3">
+                                                <div class="card-header text-center">{{$data->nama}}</div>
+                                                <div class="row row-cols-auto g-0">
+                                                    <div class="col-auto col-sm-4 col-md-4 col-lg-4 align-items-center align-self-center">
+                                                        @if($data->image == NULL)
+                                                        <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                                        @else
+                                                        <img src="" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                                        @endif
                                                     </div>
-                                                    <div class="col">
-                                                        <p>{{$data->nama}}</p>
-                                                        <p class="text-truncate" style="max-width: 50px;">{{$data->deskripsi}}</p>
-                                                        <p>{{$data->sumber}}</p>
-                                                        <p>{{$data->created_at}}</p>
+                                                    <div class="col-auto col-sm-4 col-md-4 col-lg-6 align-items-center align-self-center">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title"></h5>
+                                                            <p class="card-text">
+                                                                Kategori : {{$data->kategori}}
+                                                                <br>
+                                                                Keyword : {{$data->kata_kunci}}
+                                                                <br>
+                                                                Sumber : {{$data->sumber}}
+                                                                <br>
+                                                                Status : {{$data->status}}
+                                                            </p>
+                                                        </div>
                                                     </div>
-                                                    <div class="col">
-                                                        <p>{{$data->kategori}}</p>
-                                                        <p>{{$data->kata_kunci}}</p>
-                                                        <p>{{$data->status}}</p>
-                                                    </div>
-                                                    <div class="col-auto">
-                                                        <button class="btn btn-primary"><a href="{{$data->tautan}}" class="nav-link">Tautan</a></button>
-                                                        <button class="btn btn-primary"><a href="{{ route('edit.data', $data->id) }}" class="nav-link">Update</a></button>
+                                                    <div class="col-auto col-sm-4 col-md-4 col-lg-2 flex-column align-items-center align-self-center">
+                                                        <div class="btn-group-vertical">
+                                                            <button class="btn btn-outline-primary"><a href="{{$data->tautan}}" class="nav-link">Tautan</a></button>
+                                                            <button class="btn btn-outline-primary"><a href="{{ route('edit.data', $data->id) }}" class="nav-link">Update</a></button>    
+                                                        </div>
                                                     </div>
                                                 </div>
+                                                <div class="card-footer">
+                                                    <p class="card-text text-center"><small class="text-muted">Last update : {{$data->updated_at}}</small></p>
+                                                </div>
                                             </div>
-                                            <!-- <table class="table table-hover table-striped table-bordered text-center align-middle">
-                                                <thead class="table-success">
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Judul</th>
-                                                        <th>Deskripsi</th>
-                                                        <th>Kategori</th>
-                                                        <th>Sumber</th>
-                                                        <th>Kata Kunci</th>
-                                                        <th>Tautan Data</th>
-                                                        <th>Tanggal Rilis</th>
-                                                        <th>Tanggal Diperbaharui</th>
-                                                        <th>Status</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody class="table-group-divider">
-                                                @foreach($datas as $data)
-                                                    @if($data->user_id = Auth::user()->id)
-                                                    <tr>
-                                                        <td>{{$loop->iteration}}</td>
-                                                        <td>{{$data->nama}}</td>
-                                                        <td>{{$data->deskripsi}}</td>
-                                                        <td>{{$data->kategori}}</td>
-                                                        <td>{{$data->sumber}}</td>
-                                                        <td>{{$data->kata_kunci}}</td>
-                                                        <td>{{$data->tautan}}</td>
-                                                        <td>{{$data->created_at}}</td>
-                                                        <td>{{$data->updated_at}}</td>
-                                                        <td>{{$data->status}}</td>
-                                                    </tr>
-                                                    @endif
-                                                @endforeach
-                                                </tbody>
-                                            </table> -->
                                             @endif
                                         @endforeach
                                     </div>

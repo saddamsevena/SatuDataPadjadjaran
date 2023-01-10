@@ -47,8 +47,6 @@
                         <th>Tautan Data</th>
                         <th>Tanggal Rilis</th>
                         <th>Tanggal Diperbaharui</th>
-                        <th>Status</th>
-                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
@@ -65,10 +63,6 @@
                         <td>{{$data->tautan}}</td>
                         <td>{{$data->created_at}}</td>
                         <td>{{$data->updated_at}}</td>
-                        <td>{{$data->status}}</td>
-                        <td>
-                            <a href="{{ route ('admin.edit.data', $data->id) }}" class="btn btn-warning"> Update
-                        </td>
                     </tr>
                     @endif
                 @endforeach
