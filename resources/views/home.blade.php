@@ -42,7 +42,7 @@
 
 .swiper-slide img {
 	display: block;
-	width: 10vw;
+	height: 10vh;
 	object-fit: cover;
 }
 
@@ -169,7 +169,7 @@
 </div>
 <div class="container-fluid py-4" style="background-color: transparent; background-image: linear-gradient(180deg, #07266E 0%, #2752B8 51%);">
 	<p class="fw-bold h4 text-center text-light">Kontributor Data</p>
-	<div class="swiper mySwiper">
+	<div class="container swiper mySwiper">
 		<div class="swiper-wrapper align-items-center">
 			<div class="swiper-slide"><img src="{{ asset('img/logo/fakultas/faperta.png') }}" alt="BEM Faperta"></div>
 			<div class="swiper-slide"><img src="{{ asset('img/logo/fakultas/fapet.png') }}" alt="BEM Fapet"></div>
@@ -214,19 +214,19 @@ var swiper = new Swiper(".mySwiper", {
 	},
 	breakpoints: {
 		360: {
-			slidesPerView: 3,
+			slidesPerView: 1,
 			spaceBetween: 10,
 		},
 		540: {
-			slidesPerView: 4,
+			slidesPerView: 2,
 			spaceBetween: 10,
 		},
 		768: {
-			slidesPerView: 6,
+			slidesPerView: 4,
 			spaceBetween: 20,
 		},
 		1024: {
-			slidesPerView: 8,
+			slidesPerView: 7,
 			spaceBetween: 30,
 		},
 	},

@@ -20,6 +20,6 @@ class IsActive
             return $next($request);
         }
 
-        return redirect('home')->with('error',"Akun anda belum terverifikasi");
+        return redirect()->to(route('home'))->with('error',"Akun anda belum terverifikasi");
     }
 }

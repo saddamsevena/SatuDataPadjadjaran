@@ -34,7 +34,7 @@ class HomeController extends Controller
                 ->where('status', '=', "Accepted")
                 ->count();
         $kajian = DB::table('datas')
-                ->where('kategori', '=', 'Kajian Ilmiah')
+                ->where('kategori', '=', 'Kajian')
                 ->where('status', '=', "Accepted")
                 ->count();
         $database = DB::table('datas')
@@ -68,7 +68,7 @@ class HomeController extends Controller
     public function editProfile($id)
     {
         $user = User::findOrFail($id);
-        $datas = Data::all();
+        $datas = Data::where('user_id', Auth::user()->id)->get();
         return view("profile", compact("user"), ['datas'=>$datas->sortByDesc('created_at')]);
     }
 

@@ -15,9 +15,10 @@ class DataController extends Controller
         $this->middleware('auth');
     }
 
-    public function detailView()
+    public function detailView($id)
     {
-        return view('katalog.detail');
+        $datas = Data::where('id', $id)->first();
+        return view('katalog.detail', compact('datas'));
     }
 
     public function addData()
@@ -88,11 +89,5 @@ class DataController extends Controller
         ]);
 
         return redirect()->route('katalog.home', compact('datas'));
-    }
-
-    public function viewData($id)
-    {
-        $datas = Data::where('id',$id)->first();
-        return view('update.Data', compact('datas'));
     }
 }
