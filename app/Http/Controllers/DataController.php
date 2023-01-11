@@ -5,7 +5,6 @@ use App\Models\User;
 use App\Models\Feedback;
 use App\Models\Data;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -24,28 +23,6 @@ class DataController extends Controller
     public function addData()
     {
         return view('katalog.add');
-    }
-
-    public function listData()
-    {
-        $datas = Data::all();
-        $infografis = DB::table('datas')
-                ->where('kategori', '=', 'Infografis')
-                ->where('status', '=', "Accepted")
-                ->count();
-        $kajian = DB::table('datas')
-                ->where('kategori', '=', 'Kajian Ilmiah')
-                ->where('status', '=', "Accepted")
-                ->count();
-        $database = DB::table('datas')
-                ->where('kategori', '=', 'Database')
-                ->where('status', '=', "Accepted")
-                ->count();
-        $arsip = DB::table('datas')
-                ->where('kategori', '=', 'Arsip Lembaga')
-                ->where('status', '=', "Accepted")
-                ->count();
-        return view('katalog.list', ['datas'=>$datas->sortByDesc('created_at')], compact('infografis', 'kajian', 'database', 'arsip'));
     }
 
     public function storeData(Request $request)
@@ -82,7 +59,7 @@ class DataController extends Controller
             'status' => $request->status
         ]);
 
-        return redirect()->route('katalog.list', compact('datas'));
+        return redirect()->route('katalog.home', compact('datas'));
     }
 
     public function editData($id)
@@ -110,7 +87,7 @@ class DataController extends Controller
             'status' => "Checking",
         ]);
 
-        return redirect()->route('katalog.list', compact('datas'));
+        return redirect()->route('katalog.home', compact('datas'));
     }
 
     public function viewData($id)

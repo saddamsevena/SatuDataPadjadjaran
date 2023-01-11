@@ -91,8 +91,8 @@
 				<div class="col">
 					<div class="card text-center" style="border-radius:20px; background: linear-gradient(150.62deg, rgba(199, 154, 53, 0.7) -1.93%, rgba(225, 199, 141, 0.7) 78.93%); box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.15); backdrop-filter: blur(25px);">
 						<div class="card-body">
-							<p class="fw-semibold wrapper-font display-2">60</p>
-							<p class="fw-semibold wrapper-font h4 text-light">Kajian Ilmiah</p>
+							<p class="fw-semibold wrapper-font display-2">{{$kajian}}</p>
+							<p class="fw-semibold wrapper-font h4 text-light">Kajian</p>
 						</div>
 					</div>
 				</div>
@@ -127,7 +127,7 @@
 						<p class="card-title h3">Infografis</p>
 						<hr>
 						<p class="card-text h5 fw-normal">Kumpulan informasi mengenai olahan data visual yang telah dilakukan oleh berbagai lembaga kemahasiswaan</p>
-						<a class="stretched-link" href="{{ route('katalog.list') }}"></a>
+						<a class="stretched-link" href="{{ route('katalog.home') }}"></a>
 					</div>
 				</div>
 			</div>
@@ -138,7 +138,7 @@
 						<p class="card-title h3">Arsip Lembaga</p>
 						<hr>
 						<p class="card-text h5 fw-normal">Kumpulan data arsip organisasi yang bersifat terbuka untuk umum dari berbagai lembaga kemahasiswaan</p>
-						<a class="stretched-link" href="{{ route('katalog.list') }}"></a>
+						<a class="stretched-link" href="{{ route('katalog.home') }}"></a>
 					</div>
 				</div>
 			</div>
@@ -149,7 +149,7 @@
 						<p class="card-title h3"></i>Kajian</p>
 						<hr>
 						<p class="card-text h5 fw-normal">Informasi mengenai kajian-kajian yang telah dilakukan oleh berbagai lembaga kemahasiswan</p>
-						<a class="stretched-link" href="{{ route('katalog.list') }}"></a>
+						<a class="stretched-link" href="{{ route('katalog.home') }}"></a>
 					</div>
 				</div>
 			</div>
@@ -160,7 +160,7 @@
 						<p class="card-title h3"></i>Database</p>
 						<hr>
 						<p class="card-text h5 fw-normal">Kumpulan informasi database yang telah dihimpun oleh berbagai lembaga kemahasiswaan</p>
-						<a class="stretched-link" href="{{ route('katalog.list') }}"></a>
+						<a class="stretched-link" href="{{ route('katalog.home') }}"></a>
 					</div>
 				</div>
 			</div>

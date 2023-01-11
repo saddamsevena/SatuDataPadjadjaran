@@ -124,10 +124,4 @@ class HomeController extends Controller
                 ->count();
         return view('katalog.home', ['datas'=>$datas], compact('infografis', 'kajian', 'database', 'arsip'));
     }
-
-    public function listdata()
-    {
-        $datas = Data::all();
-        return view('katalog.list', ['datas'=>$datas]);
-    }
 }

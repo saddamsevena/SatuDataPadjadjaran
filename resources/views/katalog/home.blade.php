@@ -1,19 +1,12 @@
 @extends('template.user')
 
 @section('title')
-	SDP - Katalog Data
+	SDP - List Data
 @endsection
 
 @section('css')
 .heading {
     background-color: #1C213C;
-}
-.wrapper {
-    background: linear-gradient(62.46deg, #07266E 28.76%, rgba(7, 38, 110, 0) 177.81%)
-}
-.wrapper-font {
-	font-family: 'Montserrat';
-	color: #FFFFFF;
 }
 .content {
     background-color: #EEEFF7;
@@ -21,107 +14,277 @@
 @endsection
 
 @section('content')
-<div class="container-fluid heading py-4">
-	<div class="container col-10 text-center text-light">
-		<p class="fw-semibold fs-1">Katalog Satu Data Padjadjaran</p>
-	</div>
+<div class="container-fluid heading">
+    <div class="container text-center py-4 text-light">
+        <p class="fs-1 fw-bold">List Data</p>
+    </div>
 </div>
-<div class="container-fluid p-4 content d-flex justify-content-center">
-	<div class="col-lg-6 col-md-10 col-sm-12 gap-3">
-		<div class="row row-cols-sm-2 d-flex justify-content-center">
-			<div class="col-sm p-2">
-				<div class="card shadow">
-					<div class="card-body text-center">
-						<i class="fa-solid fa-chart-pie fa-2x"></i>
-						<p class="card-title fs-5">Infografis</p>
-						<a class="stretched-link" href="{{ route('katalog.list') }}"></a>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm p-2">
-				<div class="card shadow">
-					<div class="card-body text-center">
-						<i class="fa-regular fa-folder-open fa-2x"></i>
-						<p class="card-title fs-5">Arsip Lembaga</p>
-						<a class="stretched-link" href="{{ route('katalog.list') }}"></a>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm p-2">
-				<div class="card shadow">
-					<div class="card-body text-center">
-						<i class="fa-solid fa-file-lines fa-2x"></i>
-						<p class="card-title fs-5"></i>Kajian</p>
-						<a class="stretched-link" href="{{ route('katalog.list') }}"></a>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm p-2">
-				<div class="card shadow">
-					<div class="card-body text-center">
-						<i class="fa-solid fa-database fa-2x"></i>
-						<p class="card-title fs-5"></i>Database</p>
-						<a class="stretched-link" href="{{ route('katalog.list') }}"></a>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 p-2 align-self-center">
-				<div class="card shadow">
-					<div class="card-body text-center">
-						<i class="fa-solid fa-database fa-2x"></i>
-						<p class="card-title fs-5"></i>Lainnya</p>
-						<a class="stretched-link" href="{{ route('katalog.list') }}"></a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="container-fluid py-4 content">
+    <div class="container">
+        <nav class="nav nav-pills flex-column flex-sm-row sticky-top" id="dataList-tab" role="tablist">
+            <a class="flex-sm-fill text-sm-center nav-link" id="dataList-all-tab" data-bs-toggle="pill" data-bs-target="#dataList-all" type="button" role="tab" aria-controls="dataList-all" aria-selected="true">Semua</a>
+            <a class="flex-sm-fill text-sm-center nav-link" id="dataList-infografis-tab" data-bs-toggle="pill" data-bs-target="#dataList-infografis" type="button" role="tab" aria-controls="dataList-infografis" aria-selected="false">Infografis</a>
+            <a class="flex-sm-fill text-sm-center nav-link" id="dataList-arsip-tab" data-bs-toggle="pill" data-bs-target="#dataList-arsip" type="button" role="tab" aria-controls="dataList-arsip" aria-selected="false">Arsip Lembaga</a>
+            <a class="flex-sm-fill text-sm-center nav-link" id="dataList-kajian-tab" data-bs-toggle="pill" data-bs-target="#dataList-kajian" type="button" role="tab" aria-controls="dataList-kajian" aria-selected="false">Kajian</a>
+            <a class="flex-sm-fill text-sm-center nav-link" id="dataList-database-tab" data-bs-toggle="pill" data-bs-target="#dataList-database" type="button" role="tab" aria-controls="dataList-database" aria-selected="false">Database</a>
+            <a class="flex-sm-fill text-sm-center nav-link" id="dataList-lainnya-tab" data-bs-toggle="pill" data-bs-target="#dataList-lainnya" type="button" role="tab" aria-controls="dataList-lainnya" aria-selected="false">Lainnya</a>
+        </nav>
+    </div>
+    <hr>
+    <div class="tab-content" id="dataList-tabContent">
+        <div class="tab-pane fade show" id="dataList-all" role="tabpanel" aria-labelledby="dataList-all-tab" tabindex="0">
+            <div class="container">
+                <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-5 g-1 g-sm-1 g-md-2 g-lg-3">
+                    @foreach($datas as $data)
+                        @if($data->status == "Accepted")
+                            <div class="col">
+                                <div class="card">
+                                    @if($data->image == NULL)
+                                        <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                    @else
+                                        <img src="{{$data->image}}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                    @endif
+                                    <div class="card-body">
+                                        <h5 class="card-title text-center">{{$data->nama}}</h5>
+                                        <p class="card-text text-truncate text-center">{{$data->deskripsi}}</p>
+                                        <p class="card-text">
+                                            Kategori : {{$data->kategori}}
+                                            <br>
+                                            Keyword : {{$data->kata_kunci}}
+                                            <br>
+                                            Sumber : {{$data->sumber}}
+                                            <br>
+                                            Status : {{$data->status}}
+                                        </p>
+                                        <div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
+                                            <div class="btn-group" role="group" aria-label="First group">
+                                                <button class="btn btn-outline-primary"><a href="{{$data->tautan}}" class="nav-link">Tautan</a></button>
+                                                <button class="btn btn-outline-primary"><a href="{{ route('edit.data', $data->id) }}" class="nav-link">Lihat Detail</a></button>    
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <p class="card-text text-center"><small class="text-muted">Last update : {{$data->updated_at}}</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="dataList-infografis" role="tabpanel" aria-labelledby="dataList-infografis-tab" tabindex="0">
+            <div class="container">
+                <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-5 g-1 g-sm-1 g-md-2 g-lg-3">
+                    @foreach($datas as $data)
+                        @if($data->status == "Accepted" && $data->kategori == "Infografis")
+                            <div class="col">
+                                <div class="card">
+                                    @if($data->image == NULL)
+                                        <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                    @else
+                                        <img src="{{$data->image}}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                    @endif
+                                    <div class="card-body">
+                                        <h5 class="card-title text-center">{{$data->nama}}</h5>
+                                        <p class="card-text text-truncate text-center">{{$data->deskripsi}}</p>
+                                        <p class="card-text">
+                                            Kategori : {{$data->kategori}}
+                                            <br>
+                                            Keyword : {{$data->kata_kunci}}
+                                            <br>
+                                            Sumber : {{$data->sumber}}
+                                            <br>
+                                            Status : {{$data->status}}
+                                        </p>
+                                        <div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
+                                            <div class="btn-group" role="group" aria-label="First group">
+                                                <button class="btn btn-outline-primary"><a href="{{$data->tautan}}" class="nav-link">Tautan</a></button>
+                                                <button class="btn btn-outline-primary"><a href="{{ route('edit.data', $data->id) }}" class="nav-link">Lihat Detail</a></button>    
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <p class="card-text text-center"><small class="text-muted">Last update : {{$data->updated_at}}</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="dataList-arsip" role="tabpanel" aria-labelledby="dataList-arsip-tab" tabindex="0">
+            <div class="container">
+                <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-5 g-1 g-sm-1 g-md-2 g-lg-3">
+                    @foreach($datas as $data)
+                        @if($data->status == "Accepted" && $data->kategori == "Arsip Lembaga")
+                            <div class="col">
+                                <div class="card">
+                                    @if($data->image == NULL)
+                                        <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                    @else
+                                        <img src="{{$data->image}}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                    @endif
+                                    <div class="card-body">
+                                        <h5 class="card-title text-center">{{$data->nama}}</h5>
+                                        <p class="card-text text-truncate text-center">{{$data->deskripsi}}</p>
+                                        <p class="card-text">
+                                            Kategori : {{$data->kategori}}
+                                            <br>
+                                            Keyword : {{$data->kata_kunci}}
+                                            <br>
+                                            Sumber : {{$data->sumber}}
+                                            <br>
+                                            Status : {{$data->status}}
+                                        </p>
+                                        <div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
+                                            <div class="btn-group" role="group" aria-label="First group">
+                                                <button class="btn btn-outline-primary"><a href="{{$data->tautan}}" class="nav-link">Tautan</a></button>
+                                                <button class="btn btn-outline-primary"><a href="{{ route('edit.data', $data->id) }}" class="nav-link">Lihat Detail</a></button>    
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <p class="card-text text-center"><small class="text-muted">Last update : {{$data->updated_at}}</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="dataList-kajian" role="tabpanel" aria-labelledby="dataList-kajian-tab" tabindex="0">
+            <div class="container">
+                <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-5 g-1 g-sm-1 g-md-2 g-lg-3">
+                    @foreach($datas as $data)
+                        @if($data->status == "Accepted" && $data->kategori == "Kajian")
+                            <div class="col">
+                                <div class="card">
+                                    @if($data->image == NULL)
+                                        <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                    @else
+                                        <img src="{{$data->image}}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                    @endif
+                                    <div class="card-body">
+                                        <h5 class="card-title text-center">{{$data->nama}}</h5>
+                                        <p class="card-text text-truncate text-center">{{$data->deskripsi}}</p>
+                                        <p class="card-text">
+                                            Kategori : {{$data->kategori}}
+                                            <br>
+                                            Keyword : {{$data->kata_kunci}}
+                                            <br>
+                                            Sumber : {{$data->sumber}}
+                                            <br>
+                                            Status : {{$data->status}}
+                                        </p>
+                                        <div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
+                                            <div class="btn-group" role="group" aria-label="First group">
+                                                <button class="btn btn-outline-primary"><a href="{{$data->tautan}}" class="nav-link">Tautan</a></button>
+                                                <button class="btn btn-outline-primary"><a href="{{ route('edit.data', $data->id) }}" class="nav-link">Lihat Detail</a></button>    
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <p class="card-text text-center"><small class="text-muted">Last update : {{$data->updated_at}}</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="dataList-database" role="tabpanel" aria-labelledby="dataList-database-tab" tabindex="0">
+            <div class="container">
+                <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-5 g-1 g-sm-1 g-md-2 g-lg-3">
+                    @foreach($datas as $data)
+                        @if($data->status == "Accepted" && $data->kategori == "Database")
+                            <div class="col">
+                                <div class="card">
+                                    @if($data->image == NULL)
+                                        <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                    @else
+                                        <img src="{{$data->image}}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                    @endif
+                                    <div class="card-body">
+                                        <h5 class="card-title text-center">{{$data->nama}}</h5>
+                                        <p class="card-text text-truncate text-center">{{$data->deskripsi}}</p>
+                                        <p class="card-text">
+                                            Kategori : {{$data->kategori}}
+                                            <br>
+                                            Keyword : {{$data->kata_kunci}}
+                                            <br>
+                                            Sumber : {{$data->sumber}}
+                                            <br>
+                                            Status : {{$data->status}}
+                                        </p>
+                                        <div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
+                                            <div class="btn-group" role="group" aria-label="First group">
+                                                <button class="btn btn-outline-primary"><a href="{{$data->tautan}}" class="nav-link">Tautan</a></button>
+                                                <button class="btn btn-outline-primary"><a href="{{ route('edit.data', $data->id) }}" class="nav-link">Lihat Detail</a></button>    
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <p class="card-text text-center"><small class="text-muted">Last update : {{$data->updated_at}}</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="dataList-lainnya" role="tabpanel" aria-labelledby="dataList-lainnya-tab" tabindex="0">
+            <div class="container">
+                <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-5 g-1 g-sm-1 g-md-2 g-lg-3">
+                    @foreach($datas as $data)
+                        @if($data->status == "Accepted" && $data->kategori == "Lainnya")
+                            <div class="col">
+                                <div class="card">
+                                    @if($data->image == NULL)
+                                        <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                    @else
+                                        <img src="{{$data->image}}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                    @endif
+                                    <div class="card-body">
+                                        <h5 class="card-title text-center">{{$data->nama}}</h5>
+                                        <p class="card-text text-truncate text-center">{{$data->deskripsi}}</p>
+                                        <p class="card-text">
+                                            Kategori : {{$data->kategori}}
+                                            <br>
+                                            Keyword : {{$data->kata_kunci}}
+                                            <br>
+                                            Sumber : {{$data->sumber}}
+                                            <br>
+                                            Status : {{$data->status}}
+                                        </p>
+                                        <div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
+                                            <div class="btn-group" role="group" aria-label="First group">
+                                                <button class="btn btn-outline-primary"><a href="{{$data->tautan}}" class="nav-link">Tautan</a></button>
+                                                <button class="btn btn-outline-primary"><a href="{{ route('edit.data', $data->id) }}" class="nav-link">Lihat Detail</a></button>    
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <p class="card-text text-center"><small class="text-muted">Last update : {{$data->updated_at}}</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center mt-4">
+        <a href="{{ route('katalog.add') }}"><button class="btn btn-secondary"><i class="fa-regular fa-square-plus fa-xl"></i></button></a>
+    </div>
 </div>
-<div class="container-fluid content pb-5">
-	<div class="container">
-		<div class="text-center fs-4">
-			<p class="font-montserrat"><strong>Satu Data Padjadjaran (SDP) </strong>merupakan sebuah platform berbasis website yang berisi integrasi data. Data yang diintegrasikan adalah data yang dihimpun dari Kema Unpad dalam berbagai sektor.  Selain itu, Kema Unpad juga dapat mengajukan entri data yang dirasa penting agar dapat dipublikasikan di SDP.</p>
-		</div>
-		<div class="py-2">
-			<hr style="height:4px;border-width:0;color:gray;background-color:gray">
-		</div>
-		<div class="container">
-			<p class="fs-4 fw-semibold text-center">Data Terkumpul :</p>
-			<div class="row row-cols-1 row-cols-lg-4 g-5 g-lg-5">
-				<div class="col">
-					<div class="card text-center" style="border-radius:20px; background: linear-gradient(152.29deg, rgba(17, 68, 185, 0.7) 0.85%, rgba(54, 109, 237, 0.7) 100.44%); box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.15); backdrop-filter: blur(25px);">
-						<div class="card-body">
-							<p class="fw-semibold wrapper-font display-2">{{$infografis}}</p>
-							<p class="fw-semibold wrapper-font h4 text-light">Infografis</p>
-						</div>
-					</div>
-				</div>
-				<div class="col">
-					<div class="card text-center" style="border-radius:20px; background: linear-gradient(150.62deg, rgba(199, 154, 53, 0.7) -1.93%, rgba(225, 199, 141, 0.7) 78.93%); box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.15); backdrop-filter: blur(25px);">
-						<div class="card-body">
-							<p class="fw-semibold wrapper-font display-2">{{$kajian}}</p>
-							<p class="fw-semibold wrapper-font h4 text-light">Kajian Ilmiah</p>
-						</div>
-					</div>
-				</div>
-				<div class="col">
-					<div class="card text-center" style="border-radius:20px; background: linear-gradient(150.67deg, rgba(95, 95, 95, 0.7) 1.71%, rgba(194, 194, 194, 0.7) 121.49%); box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.15); backdrop-filter: blur(25px);">
-						<div class="card-body">
-							<p class="fw-semibold wrapper-font display-2">{{$database}}</p>
-							<p class="fw-semibold wrapper-font h4 text-light">Database</p>
-						</div>
-					</div>
-				</div>
-				<div class="col">
-					<div class="card text-center" style="border-radius:20px; background: linear-gradient(158.28deg, rgba(255, 35, 101, 0.7) 10.3%, rgba(255, 115, 157, 0.7) 114.46%), linear-gradient(158.28deg, rgba(255, 35, 101, 0.7) 10.3%, rgba(255, 115, 157, 0.7) 114.46%); box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.15); backdrop-filter: blur(25px);">
-						<div class="card-body">
-							<p class="fw-semibold wrapper-font display-2">{{$arsip}}</p>
-							<p class="fw-semibold wrapper-font h4 text-light">Arsip Lembaga</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+@endsection
+
+@section('scripts')
+
 @endsection

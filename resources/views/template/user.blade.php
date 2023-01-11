@@ -59,12 +59,7 @@
                             <a class="nav-link fs-5 fw-normal text-light" aria-current="page" href="/">Beranda</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link fs-5 dropdown-toggle fw-normal text-light" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page" href="#">Katalog Data</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{{ route('katalog.home') }}">Home</a></li>
-                                <li><a class="dropdown-item" href="#">Katalog 2</a></li>
-                                <li><a class="dropdown-item" href="#">Katalog 3</a></li>
-                            </ul>
+                            <a class="nav-link fs-5 fw-normal text-light" aria-current="page" href="{{ route('katalog.home') }}">Katalog Data</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link fs-5 fw-normal text-light" aria-current="page" href="{{ route('about') }}">About</a>
