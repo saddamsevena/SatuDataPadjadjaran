@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class HomeController extends Controller
 {
@@ -55,6 +56,7 @@ class HomeController extends Controller
 
     public function storeFeedback(Request $request)
     {
+        Alert::success('Berhasil', 'Feedback kamu telah berhasil dikirim!');
         $feedbacks = new Feedback;
         $feedbacks->name = $request->name;
         $feedbacks->email = $request->email;
@@ -74,10 +76,14 @@ class HomeController extends Controller
 
     public function updateProfile(Request $request) 
     {
+        toast('Profil baru berhasil disimpan!','success');
         $user = User::where('id', Auth::user()->id)->first();
         if ($request['image']) {
             $profilePhoto = round(microtime(true) * 1000).'-'.str_replace(' ','-',$request['image']->getClientOriginalName());
             $request['image']->move(public_path('img/profile'), $profilePhoto);
+        }
+        else {
+            $profilePhoto = NULL;
         }
 
         if ($user->password != $request->password) {

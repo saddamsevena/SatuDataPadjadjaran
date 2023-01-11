@@ -9,6 +9,7 @@ use Session;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class LoginController extends Controller
 {
@@ -56,8 +57,10 @@ class LoginController extends Controller
         if(auth()->attempt(array($fieldType => $input['npm'], 'password' => $input['password'])))
         {
             if (auth()->user()->role == 1) {
+                Alert::success('Welcome, Admin!');
                 return redirect()->route('admin.home');
             }else{
+                toast('Selamat datang','success');
                 return redirect()->route('home');
             }
         }else{
@@ -70,6 +73,7 @@ class LoginController extends Controller
     public function logout ()
     {
         session::flush();
-        return redirect('login')->with('alert', 'Anda Telah Logout');
+        Alert::success('Logout Berhasil');
+        return redirect(route('home'));
     }
 }

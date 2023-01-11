@@ -140,6 +140,7 @@
         </nav>
         <main>
             @yield('content')
+            @include('sweetalert::alert')
             <!-- Button Modal Feedback -->
             <button type="button" class="btn position-fixed bottom-50 start-0 mx-0 my-0 px-0 py-0" data-bs-toggle="modal" data-bs-target="#feedbackModal">
                 <span>

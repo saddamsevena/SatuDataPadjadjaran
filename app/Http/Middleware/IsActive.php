@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class IsActive
 {
@@ -16,10 +17,11 @@ class IsActive
      */
     public function handle($request, Closure $next)
     {
+        Alert::warning('Warning', 'Akun kamu belum terverifikasi, silahkan hubungi admin!');
         if(auth()->user()->is_active == 1){
             return $next($request);
         }
 
-        return redirect()->to(route('home'))->with('error',"Akun anda belum terverifikasi");
+        return redirect()->to(route('katalog.home'))->with('error',"Akun anda belum terverifikasi");
     }
 }

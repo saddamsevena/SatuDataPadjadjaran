@@ -85,7 +85,7 @@ div.scroll {
 
                                         <div class="mb-3">
                                             <label class="form-label" for="npm">NPM</label>
-                                            <input value="{{ $user->npm }}" name="npm" id="npm" type="text" class="form-control" placeholder="Masukkan NPM" readonly disabled>
+                                            <input value="{{ $user->npm }}" name="npm" id="npm" type="text" class="form-control" placeholder="Masukkan NPM" readonly>
                                             <p class="text-danger">{{ $errors->first("npm") }}</p>
                                         </div>
 
