@@ -5,9 +5,6 @@
 @endsection
 
 @section('css')
-.content {
-    background-color: #EEEFF7;
-}
 div.scroll {
     height: 40rem;
     overflow-x: hidden;
@@ -116,13 +113,13 @@ div.scroll {
                                         @foreach($datas as $data)
                                             @if($data->user_id = Auth::user()->id)
                                             <div class="card p-3 mb-3">
-                                                <div class="card-header text-center">{{$data->nama}}</div>
+                                                <div class="card-header text-center bg-white fs-5">{{$data->nama}}</div>
                                                 <div class="row row-cols-auto g-0">
                                                     <div class="col-auto col-sm-4 col-md-4 col-lg-4 align-items-center align-self-center">
                                                         @if($data->image == NULL)
                                                         <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
                                                         @else
-                                                        <img src="" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                                        <img src="{{$data->image}}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
                                                         @endif
                                                     </div>
                                                     <div class="col-auto col-sm-4 col-md-4 col-lg-6 align-items-center align-self-center">
@@ -141,7 +138,7 @@ div.scroll {
                                                     </div>
                                                     <div class="col-auto col-sm-4 col-md-4 col-lg-2 flex-column align-items-center align-self-center">
                                                         <div class="btn-group-vertical">
-                                                            <button class="btn btn-outline-primary"><a href="{{$data->tautan}}" class="nav-link">Tautan</a></button>
+                                                            <button class="btn btn-outline-primary"><a href="{{$data->tautan}}" class="nav-link">Lihat Detail</a></button>
                                                             <button class="btn btn-outline-primary"><a href="{{ route('edit.data', $data->id) }}" class="nav-link">Update</a></button>    
                                                         </div>
                                                     </div>

@@ -99,16 +99,16 @@
 				<div class="col">
 					<div class="card text-center" style="border-radius:20px; background: linear-gradient(150.67deg, rgba(95, 95, 95, 0.7) 1.71%, rgba(194, 194, 194, 0.7) 121.49%); box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.15); backdrop-filter: blur(25px);">
 						<div class="card-body">
-							<p class="fw-semibold wrapper-font display-2">10</p>
-							<p class="fw-semibold wrapper-font h4 text-light">Hasil Survei</p>
+							<p class="fw-semibold wrapper-font display-2">{{$infografis}}</p>
+							<p class="fw-semibold wrapper-font h4 text-light">Infografis</p>
 						</div>
 					</div>
 				</div>
 				<div class="col">
 					<div class="card text-center" style="border-radius:20px; background: linear-gradient(158.28deg, rgba(255, 35, 101, 0.7) 10.3%, rgba(255, 115, 157, 0.7) 114.46%), linear-gradient(158.28deg, rgba(255, 35, 101, 0.7) 10.3%, rgba(255, 115, 157, 0.7) 114.46%); box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.15); backdrop-filter: blur(25px);">
 						<div class="card-body">
-							<p class="fw-semibold wrapper-font display-2">30</p>
-							<p class="fw-semibold wrapper-font h4 text-light">Kontributor</p>
+							<p class="fw-semibold wrapper-font display-2">{{$datas->count()}}</p>
+							<p class="fw-semibold wrapper-font h4 text-light">Total Data</p>
 						</div>
 					</div>
 				</div>

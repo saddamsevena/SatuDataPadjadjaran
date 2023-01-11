@@ -77,30 +77,49 @@
 		</div>
 	</div>
 </div>
-<div class="container-fluid wrapper py-5">
-	<div class="container text-center d-flex flex-row justify-content-center align-items-center">
-		<div class="card me-3" style="width: 100vw; background: linear-gradient(150.62deg, rgba(199, 154, 53, 0.7) -1.93%, rgba(225, 199, 141, 0.7) 78.93%); box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.15); backdrop-filter: blur(25px);">
-			<div class="card-body">
-				<p class="fw-semibold wrapper-font" style="font-size: 5vw;">60</p>
-				<p class="fw-semibold wrapper-font h4 text-light">Kajian Ilmiah</p>
-			</div>
+<div class="container-fluid content pb-5">
+	<div class="container">
+		<div class="text-center fs-4">
+			<p class="font-montserrat"><strong>Satu Data Padjadjaran (SDP) </strong>merupakan sebuah platform berbasis website yang berisi integrasi data. Data yang diintegrasikan adalah data yang dihimpun dari Kema Unpad dalam berbagai sektor.  Selain itu, Kema Unpad juga dapat mengajukan entri data yang dirasa penting agar dapat dipublikasikan di SDP.</p>
 		</div>
-		<div class="card me-3" style="width: 100vw; background: linear-gradient(152.29deg, rgba(17, 68, 185, 0.7) 0.85%, rgba(54, 109, 237, 0.7) 100.44%); box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.15); backdrop-filter: blur(25px);">
-			<div class="card-body">
-				<p class="fw-semibold wrapper-font" style="font-size: 5vw;">20</p>
-				<p class="fw-semibold wrapper-font h4 text-light">Infografis</p>
-			</div>
+		<div class="py-2">
+			<hr style="height:4px;border-width:0;color:gray;background-color:gray">
 		</div>
-		<div class="card me-3" style="width: 100vw; background: linear-gradient(150.67deg, rgba(95, 95, 95, 0.7) 1.71%, rgba(194, 194, 194, 0.7) 121.49%); box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.15); backdrop-filter: blur(25px);">
-			<div class="card-body">
-				<p class="fw-semibold wrapper-font" style="font-size: 5vw;">10</p>
-				<p class="fw-semibold wrapper-font h4 text-light">Hasil Survei</p>
-			</div>
-		</div>
-		<div class="card me-3" style="width: 100vw; background: linear-gradient(158.28deg, rgba(255, 35, 101, 0.7) 10.3%, rgba(255, 115, 157, 0.7) 114.46%), linear-gradient(158.28deg, rgba(255, 35, 101, 0.7) 10.3%, rgba(255, 115, 157, 0.7) 114.46%); box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.15); backdrop-filter: blur(25px);">
-			<div class="card-body">
-				<p class="fw-semibold wrapper-font" style="font-size: 5vw;">30</p>
-				<p class="fw-semibold wrapper-font h4 text-light">Kontributor</p>
+		<div class="container">
+			<p class="fs-4 fw-semibold text-center">Data Terkumpul :</p>
+			<div class="row row-cols-1 row-cols-lg-4 g-5 g-lg-5">
+				<div class="col">
+					<div class="card text-center" style="border-radius:20px; background: linear-gradient(152.29deg, rgba(17, 68, 185, 0.7) 0.85%, rgba(54, 109, 237, 0.7) 100.44%); box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.15); backdrop-filter: blur(25px);">
+						<div class="card-body">
+							<p class="fw-semibold wrapper-font display-2">{{$infografis}}</p>
+							<p class="fw-semibold wrapper-font h4 text-light">Infografis</p>
+						</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="card text-center" style="border-radius:20px; background: linear-gradient(150.62deg, rgba(199, 154, 53, 0.7) -1.93%, rgba(225, 199, 141, 0.7) 78.93%); box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.15); backdrop-filter: blur(25px);">
+						<div class="card-body">
+							<p class="fw-semibold wrapper-font display-2">{{$kajian}}</p>
+							<p class="fw-semibold wrapper-font h4 text-light">Kajian Ilmiah</p>
+						</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="card text-center" style="border-radius:20px; background: linear-gradient(150.67deg, rgba(95, 95, 95, 0.7) 1.71%, rgba(194, 194, 194, 0.7) 121.49%); box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.15); backdrop-filter: blur(25px);">
+						<div class="card-body">
+							<p class="fw-semibold wrapper-font display-2">{{$database}}</p>
+							<p class="fw-semibold wrapper-font h4 text-light">Database</p>
+						</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="card text-center" style="border-radius:20px; background: linear-gradient(158.28deg, rgba(255, 35, 101, 0.7) 10.3%, rgba(255, 115, 157, 0.7) 114.46%), linear-gradient(158.28deg, rgba(255, 35, 101, 0.7) 10.3%, rgba(255, 115, 157, 0.7) 114.46%); box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.15); backdrop-filter: blur(25px);">
+						<div class="card-body">
+							<p class="fw-semibold wrapper-font display-2">{{$arsip}}</p>
+							<p class="fw-semibold wrapper-font h4 text-light">Arsip Lembaga</p>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -26,18 +26,21 @@
             .footer {
                 margin-top: auto;
             }
+            .navbarcustom {
+                background-color: #24284D;
+            }
             @yiegitld('css');
             @yield('css');
         </style>
     </head>
     <body>
         @include('sweetalert::alert')
-        <nav class="navbar bg-light border-bottom border-dark">
+        <nav class="navbar navbarcustom sticky-top border-bottom border-dark">
             <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarAdmin" aria-controls="navbarAdmin">
+                <button class="navbar-toggler bg-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarAdmin" aria-controls="navbarAdmin">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand" href="#"><img src="{{ asset('img/logo/bem-kema2.png') }}" class="navbar-brand" width="40px" alt="Logo"> Satu Data Padjadjaran</a>
+                <a class="navbar-brand text-light" href="#"><img src="{{ asset('img/logo/bem-kema2.png') }}" width="40px" alt="Logo"> Satu Data Padjadjaran</a>
                 <div class="offcanvas offcanvas-start" tabindex="-1" id="navbarAdmin" aria-labelledby="navbarAdminLabel">
                     <div class="offcanvas-header">
                         <p class="fs-3 fw-bold offcanvas-title text-center" id="navbarAdminLabel">Dashboard Admin</p>

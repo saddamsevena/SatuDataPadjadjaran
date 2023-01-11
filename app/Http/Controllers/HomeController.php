@@ -28,7 +28,24 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $datas = Data::all();
+        $infografis = DB::table('datas')
+                ->where('kategori', '=', 'Infografis')
+                ->where('status', '=', "Accepted")
+                ->count();
+        $kajian = DB::table('datas')
+                ->where('kategori', '=', 'Kajian Ilmiah')
+                ->where('status', '=', "Accepted")
+                ->count();
+        $database = DB::table('datas')
+                ->where('kategori', '=', 'Database')
+                ->where('status', '=', "Accepted")
+                ->count();
+        $arsip = DB::table('datas')
+                ->where('kategori', '=', 'Arsip Lembaga')
+                ->where('status', '=', "Accepted")
+                ->count();
+        return view('home', ['datas'=>$datas], compact('infografis', 'kajian', 'database', 'arsip'));
     }
     
     public function about()
@@ -45,7 +62,7 @@ class HomeController extends Controller
         $feedbacks->subject = $request->subject;
         $feedbacks->save();
 
-        return redirect()->to('/');
+        return redirect()->to(route('home'));
     }
 
     public function editProfile($id)
@@ -88,7 +105,24 @@ class HomeController extends Controller
 
     public function katalog()
     {
-        return view('katalog.home');
+        $datas = Data::all();
+        $infografis = DB::table('datas')
+                ->where('kategori', '=', 'Infografis')
+                ->where('status', '=', "Accepted")
+                ->count();
+        $kajian = DB::table('datas')
+                ->where('kategori', '=', 'Kajian Ilmiah')
+                ->where('status', '=', "Accepted")
+                ->count();
+        $database = DB::table('datas')
+                ->where('kategori', '=', 'Database')
+                ->where('status', '=', "Accepted")
+                ->count();
+        $arsip = DB::table('datas')
+                ->where('kategori', '=', 'Arsip Lembaga')
+                ->where('status', '=', "Accepted")
+                ->count();
+        return view('katalog.home', ['datas'=>$datas], compact('infografis', 'kajian', 'database', 'arsip'));
     }
 
     public function listdata()

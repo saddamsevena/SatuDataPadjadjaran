@@ -33,58 +33,262 @@
     <hr>
     <div class="tab-content" id="dataList-tabContent">
         <div class="tab-pane fade show active" id="dataList-all" role="tabpanel" aria-labelledby="dataList-all-tab" tabindex="0">
-        <div class="table-responsive">
-            <table class="table table-hover table-striped table-bordered text-center align-middle">
-                <thead class="table-success">
-                    <tr>
-                        <th>No</th>
-                        <th>Judul</th>
-                        <th>Deskripsi</th>
-                        <th>Kategori</th>
-                        <th>Sumber</th>
-                        <th>Penerbit</th>
-                        <th>Kata Kunci</th>
-                        <th>Tautan Data</th>
-                        <th>Tanggal Rilis</th>
-                        <th>Tanggal Diperbaharui</th>
-                    </tr>
-                </thead>
-                <tbody class="table-group-divider">
+            <div class="container">
                 @foreach($datas as $data)
                     @if($data->status == "Accepted")
-                    <tr>
-                        <td>{{$loop->iteration}}</td>
-                        <td>{{$data->nama}}</td>
-                        <td>{{$data->deskripsi}}</td>
-                        <td>{{$data->kategori}}</td>
-                        <td>{{$data->sumber}}</td>
-                        <td>{{$data->penerbit}}</td>
-                        <td>{{$data->kata_kunci}}</td>
-                        <td>{{$data->tautan}}</td>
-                        <td>{{$data->created_at}}</td>
-                        <td>{{$data->updated_at}}</td>
-                    </tr>
+                    <div class="card p-3 mb-3">
+                        <div class="card-header text-center bg-white fs-5">{{$data->nama}}</div>
+                        <div class="row row-cols-auto g-0">
+                            <div class="col-auto col-sm-4 col-md-4 col-lg-4 align-items-center align-self-center">
+                                @if($data->image == NULL)
+                                <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                @else
+                                <img src="{{$data->image}}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                @endif
+                            </div>
+                            <div class="col-auto col-sm-4 col-md-4 col-lg-6 align-items-center align-self-center">
+                                <div class="card-body">
+                                    <h5 class="card-title"></h5>
+                                    <p class="card-text">
+                                        Kategori : {{$data->kategori}}
+                                        <br>
+                                        Keyword : {{$data->kata_kunci}}
+                                        <br>
+                                        Sumber : {{$data->sumber}}
+                                        <br>
+                                        Status : {{$data->status}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-auto col-sm-4 col-md-4 col-lg-2 flex-column align-items-center align-self-center">
+                                <div class="btn-group-vertical">
+                                    <button class="btn btn-outline-primary"><a href="{{$data->tautan}}" class="nav-link">Tautan</a></button>
+                                    <button class="btn btn-outline-primary"><a href="{{ route('edit.data', $data->id) }}" class="nav-link">Lihat Detail</a></button>    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <p class="card-text text-center"><small class="text-muted">Last update : {{$data->updated_at}}</small></p>
+                        </div>
+                    </div>
                     @endif
                 @endforeach
-                </tbody>
-            </table>
-        </div>
-
+            </div>
         </div>
         <div class="tab-pane fade" id="dataList-infografis" role="tabpanel" aria-labelledby="dataList-infografis-tab" tabindex="0">
-            Infografis disini
+            <div class="container">
+                @foreach($datas as $data)
+                    @if($data->status == "Accepted" && $data->kategori == "Infografis")
+                    <div class="card p-3 mb-3">
+                        <div class="card-header text-center bg-white fs-5">{{$data->nama}}</div>
+                        <div class="row row-cols-auto g-0">
+                            <div class="col-auto col-sm-4 col-md-4 col-lg-4 align-items-center align-self-center">
+                                @if($data->image == NULL)
+                                <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                @else
+                                <img src="{{$data->image}}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                @endif
+                            </div>
+                            <div class="col-auto col-sm-4 col-md-4 col-lg-6 align-items-center align-self-center">
+                                <div class="card-body">
+                                    <h5 class="card-title"></h5>
+                                    <p class="card-text">
+                                        Kategori : {{$data->kategori}}
+                                        <br>
+                                        Keyword : {{$data->kata_kunci}}
+                                        <br>
+                                        Sumber : {{$data->sumber}}
+                                        <br>
+                                        Status : {{$data->status}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-auto col-sm-4 col-md-4 col-lg-2 flex-column align-items-center align-self-center">
+                                <div class="btn-group-vertical">
+                                    <button class="btn btn-outline-primary"><a href="{{$data->tautan}}" class="nav-link">Tautan</a></button>
+                                    <button class="btn btn-outline-primary"><a href="{{ route('edit.data', $data->id) }}" class="nav-link">Lihat Detail</a></button>    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <p class="card-text text-center"><small class="text-muted">Last update : {{$data->updated_at}}</small></p>
+                        </div>
+                    </div>
+                    @endif
+                @endforeach
+            </div>
         </div>
         <div class="tab-pane fade" id="dataList-arsip" role="tabpanel" aria-labelledby="dataList-arsip-tab" tabindex="0">
-            Arsip disini
+            <div class="container">
+                @foreach($datas as $data)
+                    @if($data->status == "Accepted" && $data->kategori == "Arsip Lembaga")
+                    <div class="card p-3 mb-3">
+                        <div class="card-header text-center bg-white fs-5">{{$data->nama}}</div>
+                        <div class="row row-cols-auto g-0">
+                            <div class="col-auto col-sm-4 col-md-4 col-lg-4 align-items-center align-self-center">
+                                @if($data->image == NULL)
+                                <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                @else
+                                <img src="{{$data->image}}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                @endif
+                            </div>
+                            <div class="col-auto col-sm-4 col-md-4 col-lg-6 align-items-center align-self-center">
+                                <div class="card-body">
+                                    <h5 class="card-title"></h5>
+                                    <p class="card-text">
+                                        Kategori : {{$data->kategori}}
+                                        <br>
+                                        Keyword : {{$data->kata_kunci}}
+                                        <br>
+                                        Sumber : {{$data->sumber}}
+                                        <br>
+                                        Status : {{$data->status}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-auto col-sm-4 col-md-4 col-lg-2 flex-column align-items-center align-self-center">
+                                <div class="btn-group-vertical">
+                                    <button class="btn btn-outline-primary"><a href="{{$data->tautan}}" class="nav-link">Tautan</a></button>
+                                    <button class="btn btn-outline-primary"><a href="{{ route('edit.data', $data->id) }}" class="nav-link">Lihat Detail</a></button>    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <p class="card-text text-center"><small class="text-muted">Last update : {{$data->updated_at}}</small></p>
+                        </div>
+                    </div>
+                    @endif
+                @endforeach
+            </div>
         </div>
         <div class="tab-pane fade" id="dataList-kajian" role="tabpanel" aria-labelledby="dataList-kajian-tab" tabindex="0">
-            Kajian disini
+            <div class="container">
+                @foreach($datas as $data)
+                    @if($data->status == "Accepted" && $data->kategori == "Kajian")
+                    <div class="card p-3 mb-3">
+                        <div class="card-header text-center bg-white fs-5">{{$data->nama}}</div>
+                        <div class="row row-cols-auto g-0">
+                            <div class="col-auto col-sm-4 col-md-4 col-lg-4 align-items-center align-self-center">
+                                @if($data->image == NULL)
+                                <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                @else
+                                <img src="{{$data->image}}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                @endif
+                            </div>
+                            <div class="col-auto col-sm-4 col-md-4 col-lg-6 align-items-center align-self-center">
+                                <div class="card-body">
+                                    <h5 class="card-title"></h5>
+                                    <p class="card-text">
+                                        Kategori : {{$data->kategori}}
+                                        <br>
+                                        Keyword : {{$data->kata_kunci}}
+                                        <br>
+                                        Sumber : {{$data->sumber}}
+                                        <br>
+                                        Status : {{$data->status}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-auto col-sm-4 col-md-4 col-lg-2 flex-column align-items-center align-self-center">
+                                <div class="btn-group-vertical">
+                                    <button class="btn btn-outline-primary"><a href="{{$data->tautan}}" class="nav-link">Tautan</a></button>
+                                    <button class="btn btn-outline-primary"><a href="{{ route('edit.data', $data->id) }}" class="nav-link">Lihat Detail</a></button>    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <p class="card-text text-center"><small class="text-muted">Last update : {{$data->updated_at}}</small></p>
+                        </div>
+                    </div>
+                    @endif
+                @endforeach
+            </div>
         </div>
         <div class="tab-pane fade" id="dataList-database" role="tabpanel" aria-labelledby="dataList-database-tab" tabindex="0">
-            Database disini
+            <div class="container">
+                @foreach($datas as $data)
+                    @if($data->status == "Accepted" && $data->kategori == "Database")
+                    <div class="card p-3 mb-3">
+                        <div class="card-header text-center bg-white fs-5">{{$data->nama}}</div>
+                        <div class="row row-cols-auto g-0">
+                            <div class="col-auto col-sm-4 col-md-4 col-lg-4 align-items-center align-self-center">
+                                @if($data->image == NULL)
+                                <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                @else
+                                <img src="{{$data->image}}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                @endif
+                            </div>
+                            <div class="col-auto col-sm-4 col-md-4 col-lg-6 align-items-center align-self-center">
+                                <div class="card-body">
+                                    <h5 class="card-title"></h5>
+                                    <p class="card-text">
+                                        Kategori : {{$data->kategori}}
+                                        <br>
+                                        Keyword : {{$data->kata_kunci}}
+                                        <br>
+                                        Sumber : {{$data->sumber}}
+                                        <br>
+                                        Status : {{$data->status}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-auto col-sm-4 col-md-4 col-lg-2 flex-column align-items-center align-self-center">
+                                <div class="btn-group-vertical">
+                                    <button class="btn btn-outline-primary"><a href="{{$data->tautan}}" class="nav-link">Tautan</a></button>
+                                    <button class="btn btn-outline-primary"><a href="{{ route('edit.data', $data->id) }}" class="nav-link">Lihat Detail</a></button>    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <p class="card-text text-center"><small class="text-muted">Last update : {{$data->updated_at}}</small></p>
+                        </div>
+                    </div>
+                    @endif
+                @endforeach
+            </div>
         </div>
         <div class="tab-pane fade" id="dataList-lainnya" role="tabpanel" aria-labelledby="dataList-lainnya-tab" tabindex="0">
-            Lainnya disini
+            <div class="container">
+                @foreach($datas as $data)
+                    @if($data->status == "Accepted" && $data->kategori == "Lainnya")
+                    <div class="card p-3 mb-3">
+                        <div class="card-header text-center bg-white fs-5">{{$data->nama}}</div>
+                        <div class="row row-cols-auto g-0">
+                            <div class="col-auto col-sm-4 col-md-4 col-lg-4 align-items-center align-self-center">
+                                @if($data->image == NULL)
+                                <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                @else
+                                <img src="{{$data->image}}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                @endif
+                            </div>
+                            <div class="col-auto col-sm-4 col-md-4 col-lg-6 align-items-center align-self-center">
+                                <div class="card-body">
+                                    <h5 class="card-title"></h5>
+                                    <p class="card-text">
+                                        Kategori : {{$data->kategori}}
+                                        <br>
+                                        Keyword : {{$data->kata_kunci}}
+                                        <br>
+                                        Sumber : {{$data->sumber}}
+                                        <br>
+                                        Status : {{$data->status}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-auto col-sm-4 col-md-4 col-lg-2 flex-column align-items-center align-self-center">
+                                <div class="btn-group-vertical">
+                                    <button class="btn btn-outline-primary"><a href="{{$data->tautan}}" class="nav-link">Tautan</a></button>
+                                    <button class="btn btn-outline-primary"><a href="{{ route('edit.data', $data->id) }}" class="nav-link">Lihat Detail</a></button>    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <p class="card-text text-center"><small class="text-muted">Last update : {{$data->updated_at}}</small></p>
+                        </div>
+                    </div>
+                    @endif
+                @endforeach
+            </div>
         </div>
     </div>
     <div class="d-flex justify-content-center align-items-center">

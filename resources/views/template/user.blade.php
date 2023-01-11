@@ -27,15 +27,13 @@
             }
             body {
                 min-height: 100vh;
+                background-color: #EEEFF7;
             }
             .footer {
                 margin-top: auto;
             }
             .navbarcustom {
                 background-color: #24284D;
-            }
-            body, html {
-                height: 100%;
             }
             .font-montserrat {
                 font-family: "Montserrat", Sans-serif;
@@ -48,7 +46,7 @@
             
         </script>
     </head>
-    <body>
+    <body class="d-flex flex-column">
         <nav class="navbar navbarcustom sticky-top navbar-expand-lg">
             <div class="container-fluid align-items-center">
                 <img src="{{ asset('img/logo/bem-kema2.png') }}" class="navbar-brand" width="42" alt="Logo">
@@ -198,7 +196,7 @@
             </div>
         </main>
         <!-- START FOOTER -->
-        <div class="container-fluid bg-light">
+        <div class="container-fluid bg-light mt-auto">
             <div class="container d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
                 <p class="col-md-4 mb-0 text-muted text-center">© 2022 BEM KEMA Universitas Padjadjaran</p>
                 <div class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto">

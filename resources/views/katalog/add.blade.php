@@ -18,10 +18,9 @@
     <p class="h1 text-light text-center">Unggah Data</p>
 </div>
 <div class="container-fluid content p-4">
-    <div class="container">
+    <div class="container bg-light p-4">
         <form method="POST" action="{{ route('katalog.store') }}" class="needs-validation">
         @csrf
-
         <div class="mb-3">
             <label for="nama" class="form-label">Judul</label>
             <input id="nama" type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" required autocomplete="false" autofocus aria-describedby="namaHelp">
@@ -34,10 +33,6 @@
             <label for="sumber" class="form-label">Sumber</label>
             <input id="sumber" type="text" class="form-control @error('sumber') is-invalid @enderror" name="sumber" required autocomplete="false" autofocus aria-describedby="sumberHelp">
         </div>
-        <!-- <div class="mb-3">
-            <label for="penerbit" class="form-label">Penerbit</label>
-            <input id="penerbit" type="hidden" class="form-control @error('penerbit') is-invalid @enderror" name="penerbit" required autocomplete="false" autofocus aria-describedby="penerbitHelp" value>
-        </div> -->
         <div class="mb-3">
             <label for="kategori" class="form-label">Kategori</label>
             <select name="kategori" id="kategori" class="form-control">

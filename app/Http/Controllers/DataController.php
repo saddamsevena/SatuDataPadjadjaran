@@ -5,6 +5,7 @@ use App\Models\User;
 use App\Models\Feedback;
 use App\Models\Data;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -28,7 +29,23 @@ class DataController extends Controller
     public function listData()
     {
         $datas = Data::all();
-        return view('katalog.list', ['datas'=>$datas->sortByDesc('created_at')]);
+        $infografis = DB::table('datas')
+                ->where('kategori', '=', 'Infografis')
+                ->where('status', '=', "Accepted")
+                ->count();
+        $kajian = DB::table('datas')
+                ->where('kategori', '=', 'Kajian Ilmiah')
+                ->where('status', '=', "Accepted")
+                ->count();
+        $database = DB::table('datas')
+                ->where('kategori', '=', 'Database')
+                ->where('status', '=', "Accepted")
+                ->count();
+        $arsip = DB::table('datas')
+                ->where('kategori', '=', 'Arsip Lembaga')
+                ->where('status', '=', "Accepted")
+                ->count();
+        return view('katalog.list', ['datas'=>$datas->sortByDesc('created_at')], compact('infografis', 'kajian', 'database', 'arsip'));
     }
 
     public function storeData(Request $request)
@@ -70,8 +87,8 @@ class DataController extends Controller
 
     public function editData($id)
     {
-        $datas = Data::where('id',$id);
-        return view(route('edit.data'), compact('datas'));
+        $datas = Data::where('id',$id)->first();
+        return view('katalog.edit', compact('datas'));
     }
 
     public function updateData(Request $request, $id)
@@ -90,7 +107,7 @@ class DataController extends Controller
             'kategori'=> $request->kategori,
             'kata_kunci'=> $request->kata_kunci,
             'tautan'=> $request->tautan,
-            'status' => $request->status
+            'status' => "Checking",
         ]);
 
         return redirect()->route('katalog.list', compact('datas'));
