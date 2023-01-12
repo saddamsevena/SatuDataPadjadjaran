@@ -7,6 +7,7 @@ use App\Models\Data;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class DataController extends Controller
 {
@@ -59,7 +60,7 @@ class DataController extends Controller
             'tautan'=> $request->tautan,
             'status' => $request->status
         ]);
-
+        Alert::sucess('Berhasil', 'Terimakasih sudah menjadi kontributor Data! Data kamu akan segera diverifikasi oleh kami.');
         return redirect()->route('katalog.home', compact('datas'));
     }
 

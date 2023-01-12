@@ -64,7 +64,8 @@ class LoginController extends Controller
                 return redirect()->route('home');
             }
         }else{
-            return redirect()->route('login')
+            toast('NPM/Email atau Password salah!', 'error');
+            return redirect()->route('home')
                 ->with('error','NPM And Password Are Wrong.');
         }
 

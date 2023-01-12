@@ -92,7 +92,7 @@
                                     </div>
                                     <hr class="dropdown-divider">
                                     <div class="mb-3">
-                                        <a href="#" class="text-danger nav-link">Lupa Password</a>
+                                        <a href="/password/reset" class="text-danger nav-link">Lupa Password</a>
                                     </div>
                                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                         <a class="btn btn-warning" href="{{ route('register') }}" role="button">{{ __('Buat Akun') }}</a>
