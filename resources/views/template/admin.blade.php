@@ -22,6 +22,7 @@
         <style>
             body {
                 min-height: 100vh;
+                background-color: #EEEFF7;
             }
             .footer {
                 margin-top: auto;
@@ -87,9 +88,7 @@
             </div>
         </nav>
         <main>
-            <div class="container-fluid p-3">
-                @yield('content')
-            </div>
+            @yield('content')
         </main>
     </body>
 </html>

@@ -21,7 +21,7 @@
 </div>
 <div class="container-fluid py-4 content">
     <div class="container">
-        <nav class="nav nav-pills flex-column flex-sm-row sticky-top" id="dataList-tab" role="tablist">
+        <nav class="nav nav-pills flex-column flex-sm-row" id="dataList-tab" role="tablist">
             <a class="flex-sm-fill text-sm-center nav-link" id="dataList-all-tab" data-bs-toggle="pill" data-bs-target="#dataList-all" type="button" role="tab" aria-controls="dataList-all" aria-selected="true">Semua</a>
             <a class="flex-sm-fill text-sm-center nav-link" id="dataList-infografis-tab" data-bs-toggle="pill" data-bs-target="#dataList-infografis" type="button" role="tab" aria-controls="dataList-infografis" aria-selected="false">Infografis</a>
             <a class="flex-sm-fill text-sm-center nav-link" id="dataList-arsip-tab" data-bs-toggle="pill" data-bs-target="#dataList-arsip" type="button" role="tab" aria-controls="dataList-arsip" aria-selected="false">Arsip Lembaga</a>
@@ -42,7 +42,7 @@
                                     @if($data->image == NULL)
                                         <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
                                     @else
-                                        <img src="{{$data->image}}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                        <img src="{{ Storage::url($data->image) }}" class="object-fit-contain rounded-start" alt="Header {{$data->nama}}">
                                     @endif
                                     <div class="card-body">
                                         <h5 class="card-title text-center">{{$data->nama}}</h5>
@@ -83,7 +83,7 @@
                                     @if($data->image == NULL)
                                         <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
                                     @else
-                                        <img src="{{$data->image}}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                        <img src="{{ Storage::url($data->image) }}" class="object-fit-contain rounded-start" alt="Header {{$data->nama}}">
                                     @endif
                                     <div class="card-body">
                                         <h5 class="card-title text-center">{{$data->nama}}</h5>
@@ -124,7 +124,7 @@
                                     @if($data->image == NULL)
                                         <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
                                     @else
-                                        <img src="{{$data->image}}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                        <img src="{{ Storage::url($data->image) }}" class="object-fit-contain rounded-start" alt="Header {{$data->nama}}">
                                     @endif
                                     <div class="card-body">
                                         <h5 class="card-title text-center">{{$data->nama}}</h5>
@@ -165,7 +165,7 @@
                                     @if($data->image == NULL)
                                         <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
                                     @else
-                                        <img src="{{$data->image}}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                        <img src="{{ Storage::url($data->image) }}" class="object-fit-contain rounded-start" alt="Header {{$data->nama}}">
                                     @endif
                                     <div class="card-body">
                                         <h5 class="card-title text-center">{{$data->nama}}</h5>
@@ -206,7 +206,7 @@
                                     @if($data->image == NULL)
                                         <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
                                     @else
-                                        <img src="{{$data->image}}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                        <img src="{{ Storage::url($data->image) }}" class="object-fit-contain rounded-start" alt="Header {{$data->nama}}">
                                     @endif
                                     <div class="card-body">
                                         <h5 class="card-title text-center">{{$data->nama}}</h5>
@@ -247,7 +247,7 @@
                                     @if($data->image == NULL)
                                         <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
                                     @else
-                                        <img src="{{$data->image}}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                        <img src="{{ Storage::url($data->image) }}" class="object-fit-contain rounded-start" alt="Header {{$data->nama}}">
                                     @endif
                                     <div class="card-body">
                                         <h5 class="card-title text-center">{{$data->nama}}</h5>

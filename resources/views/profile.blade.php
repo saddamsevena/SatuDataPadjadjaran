@@ -6,7 +6,7 @@
 
 @section('css')
 div.scroll {
-    height: 40rem;
+    height: 35rem;
     overflow-x: hidden;
     overflow-y: auto;
     text-align:justify;
@@ -20,7 +20,7 @@ div.scroll {
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-sm-12 col-lg-4 col-md-4 d-flex flex-column justify-content-center align-items-center align-self-center border-end border-start">
+                        <div class="col-sm-12 col-lg-4 col-md-4 d-flex flex-column justify-content-center align-items-center align-self-center">
                             <div class="border-bottom p-2 justify-content-center">
                                 @if(Auth::user()->image == NULL)
                                 <img src="{{ asset('img/profile/profile.jpg') }}" alt="Foto Profil {{ Auth::user()->name }}" width="150" height="150" class="img-thumbnail rounded-circle">
@@ -117,7 +117,7 @@ div.scroll {
                                             <button class="nav-link" id="nav-all-tab" data-bs-toggle="tab" data-bs-target="#nav-all" type="button" role="tab" aria-controls="nav-all" aria-selected="false">All</button>
                                         </div>
                                     </nav>
-                                    <div class="tab-content py-2" id="nav-tabContent">
+                                    <div class="tab-content p-2 border" id="nav-tabContent">
                                         <div class="tab-pane fade show active" id="nav-accepted" role="tabpanel" aria-labelledby="nav-accepted-tab" tabindex="0">
                                             <div class="scroll">
                                                 @foreach($datas as $data)
@@ -129,7 +129,7 @@ div.scroll {
                                                                 @if($data->image == NULL)
                                                                 <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
                                                                 @else
-                                                                <img src="{{$data->image}}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                                                <img src="{{ Storage::url($data->image) }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
                                                                 @endif
                                                             </div>
                                                             <div class="col-auto col-sm-4 col-md-4 col-lg-6 align-items-center align-self-center">
@@ -148,7 +148,7 @@ div.scroll {
                                                             </div>
                                                             <div class="col-auto col-sm-4 col-md-4 col-lg-2 flex-column align-items-center align-self-center">
                                                                 <div class="btn-group-vertical">
-                                                                    <button class="btn btn-outline-primary"><a href="{{$data->tautan}}" class="nav-link">Lihat Detail</a></button>
+                                                                    <button class="btn btn-outline-primary"><a href="{{ route('katalog.detail', $data->id) }}" class="nav-link">Lihat Detail</a></button>
                                                                     <button class="btn btn-outline-primary"><a href="{{ route('edit.data', $data->id) }}" class="nav-link">Update</a></button>    
                                                                 </div>
                                                             </div>
@@ -172,7 +172,7 @@ div.scroll {
                                                                 @if($data->image == NULL)
                                                                 <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
                                                                 @else
-                                                                <img src="{{$data->image}}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                                                <img src="{{ Storage::url($data->image) }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
                                                                 @endif
                                                             </div>
                                                             <div class="col-auto col-sm-4 col-md-4 col-lg-6 align-items-center align-self-center">
@@ -191,7 +191,7 @@ div.scroll {
                                                             </div>
                                                             <div class="col-auto col-sm-4 col-md-4 col-lg-2 flex-column align-items-center align-self-center">
                                                                 <div class="btn-group-vertical">
-                                                                    <button class="btn btn-outline-primary"><a href="{{$data->tautan}}" class="nav-link">Lihat Detail</a></button>
+                                                                    <button class="btn btn-outline-primary"><a href="{{ route('katalog.detail', $data->id) }}" class="nav-link">Lihat Detail</a></button>
                                                                     <button class="btn btn-outline-primary"><a href="{{ route('edit.data', $data->id) }}" class="nav-link">Update</a></button>    
                                                                 </div>
                                                             </div>
@@ -215,7 +215,7 @@ div.scroll {
                                                                 @if($data->image == NULL)
                                                                 <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
                                                                 @else
-                                                                <img src="{{$data->image}}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                                                <img src="{{ Storage::url($data->image) }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
                                                                 @endif
                                                             </div>
                                                             <div class="col-auto col-sm-4 col-md-4 col-lg-6 align-items-center align-self-center">
@@ -234,7 +234,7 @@ div.scroll {
                                                             </div>
                                                             <div class="col-auto col-sm-4 col-md-4 col-lg-2 flex-column align-items-center align-self-center">
                                                                 <div class="btn-group-vertical">
-                                                                    <button class="btn btn-outline-primary"><a href="{{$data->tautan}}" class="nav-link">Lihat Detail</a></button>
+                                                                    <button class="btn btn-outline-primary"><a href="{{ route('katalog.detail', $data->id) }}" class="nav-link">Lihat Detail</a></button>
                                                                     <button class="btn btn-outline-primary"><a href="{{ route('edit.data', $data->id) }}" class="nav-link">Update</a></button>    
                                                                 </div>
                                                             </div>
@@ -258,7 +258,7 @@ div.scroll {
                                                                 @if($data->image == NULL)
                                                                 <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
                                                                 @else
-                                                                <img src="{{$data->image}}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                                                <img src="{{ Storage::url($data->image) }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
                                                                 @endif
                                                             </div>
                                                             <div class="col-auto col-sm-4 col-md-4 col-lg-6 align-items-center align-self-center">
@@ -277,7 +277,7 @@ div.scroll {
                                                             </div>
                                                             <div class="col-auto col-sm-4 col-md-4 col-lg-2 flex-column align-items-center align-self-center">
                                                                 <div class="btn-group-vertical">
-                                                                    <button class="btn btn-outline-primary"><a href="{{$data->tautan}}" class="nav-link">Lihat Detail</a></button>
+                                                                    <button class="btn btn-outline-primary"><a href="{{ route('katalog.detail', $data->id) }}" class="nav-link">Lihat Detail</a></button>
                                                                     <button class="btn btn-outline-primary"><a href="{{ route('edit.data', $data->id) }}" class="nav-link">Update</a></button>    
                                                                 </div>
                                                             </div>
@@ -289,6 +289,11 @@ div.scroll {
                                                     @endif
                                                 @endforeach
                                             </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-column align-items-center align-self-center">
+                                        <div class="btn-group-vertical">
+                                            <button class="btn btn-primary"><a href="{{ route('katalog.add', $data->id) }}" class="nav-link">Tambah Kontribusi</a></button>
                                         </div>
                                     </div>
                                 </div>

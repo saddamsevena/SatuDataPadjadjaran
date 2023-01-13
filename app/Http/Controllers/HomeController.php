@@ -71,7 +71,7 @@ class HomeController extends Controller
     {
         $user = User::findOrFail($id);
         $datas = Data::where('user_id', Auth::user()->id)->get();
-        return view("profile", compact("user"), ['datas'=>$datas->sortByDesc('created_at')]);
+        return view("profile", compact("user"), ['datas'=>$datas->sortByDesc('updated_at')]);
     }
 
     public function updateProfile(Request $request) 
@@ -128,6 +128,6 @@ class HomeController extends Controller
                 ->where('kategori', '=', 'Arsip Lembaga')
                 ->where('status', '=', "Accepted")
                 ->count();
-        return view('katalog.home', ['datas'=>$datas], compact('infografis', 'kajian', 'database', 'arsip'));
+        return view('katalog.home', ['datas'=>$datas->sortByDesc('updated_at')], compact('infografis', 'kajian', 'database', 'arsip'));
     }
 }

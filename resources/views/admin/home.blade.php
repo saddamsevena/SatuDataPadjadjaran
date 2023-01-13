@@ -147,7 +147,13 @@
                     <tr>
                         <td>{{$loop->iteration}}</td>
                         <td>{{$data->nama}}</td>
-                        <td>{{$data->image}}</td>
+                        <td>
+                            @if($data->image == NULL)
+                                <img src="{{ asset('img/no-image.png') }}" class="img-thumbnail border-0 rounded-start" alt="Header {{$data->nama}}">
+                            @else
+                                <img src="{{ Storage::url($data->image) }}" class="img-thumbnail border-0 rounded-start" alt="Header {{$data->nama}}">
+                            @endif
+                        </td>
                         <td>{{$data->deskripsi}}</td>
                         <td>{{$data->kategori}}</td>
                         <td>{{$data->sumber}}</td>

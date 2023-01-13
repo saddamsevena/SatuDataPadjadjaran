@@ -7,6 +7,7 @@ use App\Models\Data;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class DataController extends Controller
@@ -34,33 +35,41 @@ class DataController extends Controller
             'deskripsi' => 'required',
             'sumber' => 'required',
             'kategori'=> 'required',
-            // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'kata_kunci'=> 'required',
             'tautan'=> 'required',
         ]);
 
         if ($request->hasfile('image')) {
-            $filename = round(microtime(true) * 1000).'-'.str_replace(' ','-',$request->file('image')->getClientOriginalName());
-            $request->file('image')->move(public_path('img/data'), $filename);
+            $datas = Data::create([
+                'user_id'=> Auth::user()->id,
+                'nama'=> $request->nama,
+                'deskripsi' => $request->deskripsi,
+                'sumber' => $request->sumber,
+                'penerbit'=> Auth::user()->name,
+                'kategori'=> $request->kategori,
+                'image' => $request->file('image')->store('img/data', 'public'),
+                'kata_kunci'=> $request->kata_kunci,
+                'tautan'=> $request->tautan,
+                'status' => $request->status
+            ]);
         }
 
         else {
-            $filename = NULL;
+            $datas = Data::create([
+                'user_id'=> Auth::user()->id,
+                'nama'=> $request->nama,
+                'deskripsi' => $request->deskripsi,
+                'sumber' => $request->sumber,
+                'penerbit'=> Auth::user()->name,
+                'kategori'=> $request->kategori,
+                'kata_kunci'=> $request->kata_kunci,
+                'tautan'=> $request->tautan,
+                'status' => $request->status
+            ]);
         }
 
-        $datas = Data::create([
-            'user_id'=> Auth::user()->id,
-            'nama'=> $request->nama,
-            'deskripsi' => $request->deskripsi,
-            'sumber' => $request->sumber,
-            'penerbit'=> Auth::user()->name,
-            'kategori'=> $request->kategori,
-            // 'image' => $filename,
-            'kata_kunci'=> $request->kata_kunci,
-            'tautan'=> $request->tautan,
-            'status' => $request->status
-        ]);
-        Alert::sucess('Berhasil', 'Terimakasih sudah menjadi kontributor Data! Data kamu akan segera diverifikasi oleh kami.');
+        Alert::success('Berhasil', 'Terimakasih sudah menjadi kontributor Data! Data kamu akan segera diverifikasi oleh kami.');
         return redirect()->route('katalog.home', compact('datas'));
     }
 
@@ -75,19 +84,37 @@ class DataController extends Controller
         $this->validate($request, [
             'nama'=> 'required',
             'deskripsi' => 'required',
+            'sumber' => 'required',
             'kategori'=> 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'kata_kunci'=> 'required',
             'tautan'=> 'required',
         ]);
 
-        $datas = Data::where('id',$id)->update([
-            'nama'=> $request->nama,
-            'deskripsi' => $request->deskripsi,
-            'kategori'=> $request->kategori,
-            'kata_kunci'=> $request->kata_kunci,
-            'tautan'=> $request->tautan,
-            'status' => "Checking",
-        ]);
+        if ($request->hasfile('image')) {
+            $datas = Data::where('id',$id)->update([
+                'nama'=> $request->nama,
+                'deskripsi' => $request->deskripsi,
+                'sumber' => $request->sumber,
+                'kategori'=> $request->kategori,
+                'image' => $request->file('image')->store('img/data', 'public'),
+                'kata_kunci'=> $request->kata_kunci,
+                'tautan'=> $request->tautan,
+                'status' => "Checking",
+            ]);
+        }
+
+        else {
+            $datas = Data::where('id',$id)->update([
+                'nama'=> $request->nama,
+                'deskripsi' => $request->deskripsi,
+                'sumber' => $request->sumber,
+                'kategori'=> $request->kategori,
+                'kata_kunci'=> $request->kata_kunci,
+                'tautan'=> $request->tautan,
+                'status' => "Checking",
+            ]);
+        }
 
         return redirect()->route('katalog.home', compact('datas'));
     }
