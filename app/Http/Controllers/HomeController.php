@@ -7,6 +7,7 @@ use App\Models\Data;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -85,32 +86,31 @@ class HomeController extends Controller
     {
         toast('Profil baru berhasil disimpan!','success');
         $user = User::where('npm', Auth::user()->npm)->first();
-        if ($request['image']) {
-            $profilePhoto = round(microtime(true) * 1000).'-'.str_replace(' ','-',$request['image']->getClientOriginalName());
-            $request['image']->move(public_path('img/profile'), $profilePhoto);
-        }
-        else {
-            $profilePhoto = NULL;
-        }
-
-        if ($user->password != $request->password) {
-            // Jika user mengganti passwordnya
+        if ($request->hasfile('image') && $user->password != $request->password) {
             $user->update([
                 'name' => $request->name,
                 'email' => $request->email,
-                'image' => $profilePhoto,
+                'image' => $request->file('image')->store('img/profile', 'public'),
                 'password' => Hash::make($request->password),
             ]);
-        } 
-        
-        else {
-            // Jika user tidak mengganti passwordnya
+        }
+
+        else if ($user->password != $request->password) {
             $user->update([
                 'name' => $request->name,
                 'email' => $request->email,
-                'image' => $profilePhoto,
+                'password' => Hash::make($request->password),
             ]);
         }
+
+        else {
+            $user->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'image' => $request->file('image')->store('img/profile', 'public'),
+            ]);
+        }
+
         return redirect(route("profile.edit", $user->npm))->with(["success" => "User berhasil diupdate!"]);
     }
 

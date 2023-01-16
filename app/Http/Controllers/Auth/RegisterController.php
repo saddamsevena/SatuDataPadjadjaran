@@ -67,17 +67,13 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        Alert::success('Registrasi Akun Berhasil');
-        if ($data['ktm']) {
-            $fotoKTM = round(microtime(true) * 1000).'-'.str_replace(' ','-',$data['ktm']->getClientOriginalName());
-            $data['ktm']->move(public_path('img/ktm'), $fotoKTM);
-        }
+        Alert::success('Registrasi Akun Berhasil, Silahkan login!');
 
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'npm' => $data['npm'],
-            'ktm' => $fotoKTM,
+            'ktm' => $data['ktm']->store('img/ktm', 'public'),
             'is_active' => 0,
             'role' => 0,
             'password' => Hash::make($data['password']),

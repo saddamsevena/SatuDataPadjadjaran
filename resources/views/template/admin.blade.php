@@ -63,9 +63,9 @@
                         <div class="mt-auto dropup border-top border-secondary p-2 fw-normal fs-5">
                             <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownProfile" data-bs-toggle="dropdown" aria-expanded="false">
                                 @if(Auth::user()->image == NULL)
-                                    <img src="{{ asset('img/profile/profile.jpg') }}" width="64" height="64" alt="Foto Profil {{ Auth::user()->name }}"  class="img-thumbnail rounded-circle me-2">
+                                    <img src="{{ asset('img/profile.jpg') }}" width="64" height="64" alt="Foto Profil {{ Auth::user()->name }}"  class="img-thumbnail rounded-circle me-2">
                                 @else
-                                    <img src="/img/profile/{{ Auth::user()->image }}" height="64" width="64" alt="Foto Profil {{ Auth::user()->name }}" class="img-thumbnail rounded-circle me-2">
+                                    <img src="{{ Storage::url(Auth::user()->image) }}" height="64" width="64" alt="Foto Profil {{ Auth::user()->name }}" class="img-thumbnail rounded-circle me-2">
                                 @endif
                                 {{ Auth::user()->name }}
                             </a>

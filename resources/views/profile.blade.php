@@ -23,9 +23,9 @@ div.scroll {
                         <div class="col-sm-12 col-lg-4 col-md-12 d-flex flex-column justify-content-center align-items-center align-self-center">
                             <div class="border-bottom p-2 justify-content-center">
                                 @if(Auth::user()->image == NULL)
-                                <img src="{{ asset('img/profile/profile.jpg') }}" alt="Foto Profil {{ Auth::user()->name }}" width="150" height="150" class="img-thumbnail rounded-circle">
+                                <img src="{{ asset('img/profile.jpg') }}" alt="Foto Profil {{ Auth::user()->name }}" width="150" height="150" class="img-thumbnail rounded-circle">
                                 @else
-                                <img src="/img/profile/{{ Auth::user()->image }}" alt="Foto Profil {{ Auth::user()->name }}" width="150" height="150" class="img-thumbnail rounded-circle">
+                                <img src="{{ Storage::url(Auth::user()->image) }}" alt="Foto Profil {{ Auth::user()->name }}" width="150" height="150" class="img-thumbnail rounded-circle">
                                 @endif
                             </div>
                             <div class="text-break">

@@ -107,16 +107,16 @@
                             <div class="nav justify-content-end dropdown text-center">
                                 <a href="#" class="nav-item nav-link d-flex align-items-center link-light text-decoration-none dropdown-toggle" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
                                     @if(Auth::user()->image == NULL)
-                                    <img src="{{ asset('img/profile/profile.jpg') }}" alt="Foto Profil {{ Auth::user()->name }}" width="42" height="42" class="rounded-circle me-2">
+                                    <img src="{{ asset('img/profile.jpg') }}" alt="Foto Profil {{ Auth::user()->name }}" width="42" height="42" class="rounded-circle me-2">
                                     @else
-                                    <img src="/img/profile/{{ Auth::user()->image }}" alt="Foto Profil {{ Auth::user()->name }}" width="42" height="42" class="rounded-circle me-2">
+                                    <img src="{{ Storage::url(Auth::user()->image) }}" alt="Foto Profil {{ Auth::user()->name }}" width="42" height="42" class="rounded-circle me-2">
                                     @endif
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown" style="width: 250px;">
                                     @if(Auth::user()->image == NULL)
-                                        <img src="{{ asset('img/profile/profile.jpg') }}" width="64" height="64" alt="Foto Profil {{ Auth::user()->name }}"  class="rounded-circle mx-auto d-block">
+                                        <img src="{{ asset('img/profile.jpg') }}" width="64" height="64" alt="Foto Profil {{ Auth::user()->name }}"  class="rounded-circle mx-auto d-block">
                                     @else
-                                        <img src="/img/profile/{{ Auth::user()->image }}" height="64" width="64" alt="Foto Profil {{ Auth::user()->name }}" class="rounded-circle mx-auto d-block">
+                                        <img src="{{ Storage::url(Auth::user()->image) }}" height="64" width="64" alt="Foto Profil {{ Auth::user()->name }}" class="rounded-circle mx-auto d-block">
                                     @endif
                                     <strong class="dropdown-item fw-bold disabled text-dark text-center">{{ Auth::user()->name}}</strong>
                                     <hr>

@@ -56,10 +56,10 @@
                         <td>{{$user->npm}}</td>
                         <td>{{$user->email}}</td>
                         <td>
-                            <img src="/img/profile/{{$user->image}}" alt="Foto {{$user->name}}" width="100vh" class="img-thumbnail rounded zoom">
+                            <img src="{{ Storage::url($user->image) }}" alt="Foto {{$user->name}}" width="100vh" class="img-thumbnail rounded zoom">
                         </td>
                         <td>
-                            <img src="/img/ktm/{{$user->ktm}}" alt="KTM {{$user->name}}" width="200vh" class="img-thumbnail zoom">
+                            <img src="{{ Storage::url($user->ktm) }}" alt="KTM {{$user->name}}" width="200vh" class="img-thumbnail zoom">
                         </td>
                         @if($user->is_active == 1)
                             <td>Verified</td>
