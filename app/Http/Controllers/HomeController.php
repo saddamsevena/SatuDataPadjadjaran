@@ -46,7 +46,14 @@ class HomeController extends Controller
                 ->where('kategori', '=', 'Arsip Lembaga')
                 ->where('status', '=', "Accepted")
                 ->count();
-        return view('home', ['datas'=>$datas], compact('infografis', 'kajian', 'database', 'arsip'));
+        $kontributor = DB::table('datas')
+                ->where('status', '=', "Accepted")
+                ->distinct('penerbit')
+                ->count();
+        $total = DB::table('datas')
+                ->where('status', '=', "Accepted")
+                ->count();
+        return view('home', ['datas'=>$datas], compact('infografis', 'kajian', 'database', 'arsip', 'kontributor', 'total'));
     }
     
     public function about()
@@ -67,17 +74,17 @@ class HomeController extends Controller
         return redirect()->to(route('home'));
     }
 
-    public function editProfile($id)
+    public function editProfile($npm)
     {
-        $user = User::findOrFail($id);
-        $datas = Data::where('user_id', Auth::user()->id)->get();
+        $user = User::findOrFail($npm);
+        $datas = Data::where('user_npm', Auth::user()->npm)->get();
         return view("profile", compact("user"), ['datas'=>$datas->sortByDesc('updated_at')]);
     }
 
     public function updateProfile(Request $request) 
     {
         toast('Profil baru berhasil disimpan!','success');
-        $user = User::where('id', Auth::user()->id)->first();
+        $user = User::where('npm', Auth::user()->npm)->first();
         if ($request['image']) {
             $profilePhoto = round(microtime(true) * 1000).'-'.str_replace(' ','-',$request['image']->getClientOriginalName());
             $request['image']->move(public_path('img/profile'), $profilePhoto);
@@ -91,7 +98,6 @@ class HomeController extends Controller
             $user->update([
                 'name' => $request->name,
                 'email' => $request->email,
-                'npm' => $request->npm,
                 'image' => $profilePhoto,
                 'password' => Hash::make($request->password),
             ]);
@@ -102,11 +108,10 @@ class HomeController extends Controller
             $user->update([
                 'name' => $request->name,
                 'email' => $request->email,
-                'npm' => $request->npm,
                 'image' => $profilePhoto,
             ]);
         }
-        return redirect(route("profile.edit", $user->id))->with(["success" => "User berhasil diupdate!"]);
+        return redirect(route("profile.edit", $user->npm))->with(["success" => "User berhasil diupdate!"]);
     }
 
     public function katalog()

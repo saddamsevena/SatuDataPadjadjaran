@@ -26,23 +26,23 @@ class AdminController extends Controller
         return view('admin.home', ['users' => $users, 'feedbacks'=>$feedbacks, 'datas'=>$datas->sortByDesc('created_at')]);
     }
 
-    public function makeAdmin(Request $request, $id) //user
+    public function makeAdmin(Request $request, $npm) //user
     {
-        User::where('id',$id)->update([
+        User::where('npm',$npm)->update([
             'role'=>$request->isAdmin,
         ]);
         return redirect()->to(route('admin.home'))->withErrors(['msg' => 'Data telah diupdate.']);
     }
 
-    public function deleteUsers($id)
+    public function deleteUsers($npm)
     {
-        DB::table('users')->where('id',$id)->delete();
+        DB::table('users')->where('npm',$npm)->delete();
         return redirect(route('admin.home'));
     }
 
-    public function verificateUsers(Request $request,$id)
+    public function verificateUsers(Request $request,$npm)
     {
-        User::where('id',$id)->update([
+        User::where('npm',$npm)->update([
             'is_active'=> $request->verified,
         ]);
         return redirect()->to(route('admin.home'))->withErrors(['msg' => 'Data telah diupdate.']);

@@ -11,7 +11,7 @@ class Data extends Model
     protected $table = 'datas';
 
     protected $fillable = [
-        'user_id',
+        'user_npm',
         'nama',
         'deskripsi',
         'sumber',
@@ -22,9 +22,11 @@ class Data extends Model
         'tautan',
         'status'
     ];
-
+    
+    protected $primaryKey = 'id';
+    
     public function user()
 	{
-	      return $this->belongsTo('App\Models\User','user_id', 'id');
+	      return $this->belongsTo('App\Models\User','user_npm', 'npm');
 	}
 }

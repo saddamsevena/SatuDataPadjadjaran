@@ -83,7 +83,7 @@
 				<div class="col">
 					<div class="card text-center" style="border-radius:20px; background: linear-gradient(152.29deg, rgba(17, 68, 185, 0.7) 0.85%, rgba(54, 109, 237, 0.7) 100.44%); box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.15); backdrop-filter: blur(25px);">
 						<div class="card-body">
-							<p class="fw-semibold wrapper-font display-2">17</p>
+							<p class="fw-semibold wrapper-font display-2">{{$kontributor}}</p>
 							<p class="fw-semibold wrapper-font h4 text-light">Kontributor</p>
 						</div>
 					</div>
@@ -107,7 +107,7 @@
 				<div class="col">
 					<div class="card text-center" style="border-radius:20px; background: linear-gradient(158.28deg, rgba(255, 35, 101, 0.7) 10.3%, rgba(255, 115, 157, 0.7) 114.46%), linear-gradient(158.28deg, rgba(255, 35, 101, 0.7) 10.3%, rgba(255, 115, 157, 0.7) 114.46%); box-shadow: 2px 2px 50px rgba(0, 0, 0, 0.15); backdrop-filter: blur(25px);">
 						<div class="card-body">
-							<p class="fw-semibold wrapper-font display-2">{{$datas->count()}}</p>
+							<p class="fw-semibold wrapper-font display-2">{{$total}}</p>
 							<p class="fw-semibold wrapper-font h4 text-light">Total Data</p>
 						</div>
 					</div>

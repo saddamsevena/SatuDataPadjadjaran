@@ -114,15 +114,15 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown" style="width: 250px;">
                                     @if(Auth::user()->image == NULL)
-                                    <img src="{{ asset('img/profile/profile.jpg') }}" width="64" height="64" alt="Foto Profil {{ Auth::user()->name }}"  class="rounded-circle mx-auto d-block">
+                                        <img src="{{ asset('img/profile/profile.jpg') }}" width="64" height="64" alt="Foto Profil {{ Auth::user()->name }}"  class="rounded-circle mx-auto d-block">
                                     @else
-                                    <img src="/img/profile/{{ Auth::user()->image }}" height="64" width="64" alt="Foto Profil {{ Auth::user()->name }}" class="rounded-circle mx-auto d-block">
+                                        <img src="/img/profile/{{ Auth::user()->image }}" height="64" width="64" alt="Foto Profil {{ Auth::user()->name }}" class="rounded-circle mx-auto d-block">
                                     @endif
                                     <strong class="dropdown-item fw-bold disabled text-dark text-center">{{ Auth::user()->name}}</strong>
                                     <hr>
-                                    <a class="dropdown-item" href="/profile/{{ Auth::user()->id}}">Profile</a>
+                                    <a class="dropdown-item" href="/profile/{{ Auth::user()->npm}}">Profile</a>
                                     @if(Auth::user()->role == 1)
-                                    <a class="dropdown-item" href="{{ route('admin.home') }}">Admin Dashboard</a>
+                                        <a class="dropdown-item" href="{{ route('admin.home') }}">Admin Dashboard</a>
                                     @endif
                                     <a class="dropdown-item" href="{{ route('home') }}"
                                         onclick="event.preventDefault();

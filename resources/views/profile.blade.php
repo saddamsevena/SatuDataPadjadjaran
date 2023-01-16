@@ -14,13 +14,13 @@ div.scroll {
 @endsection
 
 @section('content')
-<div class="container-fluid py-4">
+<div class="container-thumbnail py-4">
     <div class="d-flex justify-content-center">
         <div class="container">
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-sm-12 col-lg-4 col-md-4 d-flex flex-column justify-content-center align-items-center align-self-center">
+                        <div class="col-sm-12 col-lg-4 col-md-12 d-flex flex-column justify-content-center align-items-center align-self-center">
                             <div class="border-bottom p-2 justify-content-center">
                                 @if(Auth::user()->image == NULL)
                                 <img src="{{ asset('img/profile/profile.jpg') }}" alt="Foto Profil {{ Auth::user()->name }}" width="150" height="150" class="img-thumbnail rounded-circle">
@@ -64,11 +64,11 @@ div.scroll {
                             </div>
                         </div>
                         <hr class="d-block d-md-none bg-black opacity-100">
-                        <div class="col-sm-12 col-lg-8 col-md-8 d-flex flex-column justify-content-center align-items-center align-self-center py-4">
+                        <div class="col-sm-12 col-lg-8 col-md-12 d-flex flex-column justify-content-center align-items-center align-self-center py-4">
                             <div class="tab-content" id="profileContent">
                                 <div class="tab-pane fade show active" id="edit-profile" role="tabpanel" aria-labelledby="edit-profile-tab" tabindex="0">
                                     <h5 class="text-center">Edit Profile</h5>
-                                    <form action="{{ route('profile.update', Auth::user()->id)}}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{ route('profile.update', Auth::user()->npm)}}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         @method("PUT")
                                         <div class="mb-3">
@@ -85,7 +85,7 @@ div.scroll {
 
                                         <div class="mb-3">
                                             <label class="form-label" for="npm">NPM</label>
-                                            <input value="{{ $user->npm }}" name="npm" id="npm" type="text" class="form-control" placeholder="Masukkan NPM" readonly>
+                                            <input value="{{ $user->npm }}" name="npm" id="npm" type="text" class="form-control" placeholder="Masukkan NPM" readonly disabled>
                                             <p class="text-danger">{{ $errors->first("npm") }}</p>
                                         </div>
 
@@ -117,44 +117,47 @@ div.scroll {
                                             <button class="nav-link" id="nav-all-tab" data-bs-toggle="tab" data-bs-target="#nav-all" type="button" role="tab" aria-controls="nav-all" aria-selected="false">All</button>
                                         </div>
                                     </nav>
-                                    <div class="tab-content p-2 border" id="nav-tabContent">
+                                    <div class="tab-content p-2" id="nav-tabContent">
                                         <div class="tab-pane fade show active" id="nav-accepted" role="tabpanel" aria-labelledby="nav-accepted-tab" tabindex="0">
                                             <div class="scroll">
                                                 @foreach($datas as $data)
-                                                    @if($data->user_id = Auth::user()->id && $data->status == "Accepted")
-                                                    <div class="card p-3 mb-3">
-                                                        <div class="card-header text-center bg-white fs-5">{{$data->nama}}</div>
-                                                        <div class="row row-cols-auto g-0">
-                                                            <div class="col-auto col-sm-4 col-md-4 col-lg-4 align-items-center align-self-center">
-                                                                @if($data->image == NULL)
-                                                                <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
-                                                                @else
-                                                                <img src="{{ Storage::url($data->image) }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
-                                                                @endif
-                                                            </div>
-                                                            <div class="col-auto col-sm-4 col-md-4 col-lg-6 align-items-center align-self-center">
-                                                                <div class="card-body">
-                                                                    <h5 class="card-title"></h5>
-                                                                    <p class="card-text">
-                                                                        Kategori : {{$data->kategori}}
-                                                                        <br>
-                                                                        Keyword : {{$data->kata_kunci}}
-                                                                        <br>
-                                                                        Sumber : {{$data->sumber}}
-                                                                        <br>
-                                                                        Status : {{$data->status}}
-                                                                    </p>
+                                                    @if($data->user_id = Auth::user()->npm && $data->status == "Accepted")
+                                                    <div class="card mb-2">
+                                                        <div class="card-body">
+                                                            <div class="row d-flex g-2">
+                                                                <div class="col-12 col-lg-3 d-flex flex-row justify-content-center align-items-center">
+                                                                    @if($data->image == NULL)
+                                                                    <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                                                    @else
+                                                                    <img src="{{ Storage::url($data->image) }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                                                    @endif
+                                                                </div>
+                                                                <div class="col-12 col-lg-9 d-flex flex-column align-content-between">
+                                                                    <div class="row p-3">
+                                                                        <div class="col-12 col-lg-9">
+                                                                            <h5 class="card-title">{{$data->nama}}</h5>
+                                                                            <p class="card-text my-auto">
+                                                                                Kategori : {{$data->kategori}}
+                                                                                <br>
+                                                                                Keyword : {{$data->kata_kunci}}
+                                                                                <br>
+                                                                                Sumber : {{$data->sumber}}
+                                                                                <br>
+                                                                                Status : {{$data->status}}
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="col-12 col-lg-3 d-flex justify-content-center align-items-end">
+                                                                            <div class="btn-group-vertical">
+                                                                                <button class="btn btn-outline-primary"><a href="{{ route('katalog.detail', $data->id) }}" class="nav-link">Lihat Detail</a></button>
+                                                                                <button class="btn btn-outline-primary"><a href="{{ route('edit.data', $data->id) }}" class="nav-link">Update</a></button>    
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="card-footer mt-auto">
+                                                                        <p class="card-text text-center"><small class="text-muted">Last update : {{$data->updated_at}}</small></p>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-auto col-sm-4 col-md-4 col-lg-2 flex-column align-items-center align-self-center">
-                                                                <div class="btn-group-vertical">
-                                                                    <button class="btn btn-outline-primary"><a href="{{ route('katalog.detail', $data->id) }}" class="nav-link">Lihat Detail</a></button>
-                                                                    <button class="btn btn-outline-primary"><a href="{{ route('edit.data', $data->id) }}" class="nav-link">Update</a></button>    
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-footer">
-                                                            <p class="card-text text-center"><small class="text-muted">Last update : {{$data->updated_at}}</small></p>
                                                         </div>
                                                     </div>
                                                     @endif
@@ -164,40 +167,43 @@ div.scroll {
                                         <div class="tab-pane fade" id="nav-pending" role="tabpanel" aria-labelledby="nav-pending-tab" tabindex="0">
                                             <div class="scroll">
                                                 @foreach($datas as $data)
-                                                    @if($data->user_id = Auth::user()->id && $data->status == "Checking")
-                                                    <div class="card p-3 mb-3">
-                                                        <div class="card-header text-center bg-white fs-5">{{$data->nama}}</div>
-                                                        <div class="row row-cols-auto g-0">
-                                                            <div class="col-auto col-sm-4 col-md-4 col-lg-4 align-items-center align-self-center">
-                                                                @if($data->image == NULL)
-                                                                <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
-                                                                @else
-                                                                <img src="{{ Storage::url($data->image) }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
-                                                                @endif
-                                                            </div>
-                                                            <div class="col-auto col-sm-4 col-md-4 col-lg-6 align-items-center align-self-center">
-                                                                <div class="card-body">
-                                                                    <h5 class="card-title"></h5>
-                                                                    <p class="card-text">
-                                                                        Kategori : {{$data->kategori}}
-                                                                        <br>
-                                                                        Keyword : {{$data->kata_kunci}}
-                                                                        <br>
-                                                                        Sumber : {{$data->sumber}}
-                                                                        <br>
-                                                                        Status : {{$data->status}}
-                                                                    </p>
+                                                    @if($data->user_id = Auth::user()->npm && $data->status == "Checking")
+                                                    <div class="card mb-2">
+                                                        <div class="card-body">
+                                                            <div class="row d-flex g-2">
+                                                                <div class="col-12 col-lg-3 d-flex flex-row justify-content-center align-items-center">
+                                                                    @if($data->image == NULL)
+                                                                    <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                                                    @else
+                                                                    <img src="{{ Storage::url($data->image) }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                                                    @endif
+                                                                </div>
+                                                                <div class="col-12 col-lg-9 d-flex flex-column align-content-between">
+                                                                    <div class="row p-3">
+                                                                        <div class="col-12 col-lg-9">
+                                                                            <h5 class="card-title">{{$data->nama}}</h5>
+                                                                            <p class="card-text my-auto">
+                                                                                Kategori : {{$data->kategori}}
+                                                                                <br>
+                                                                                Keyword : {{$data->kata_kunci}}
+                                                                                <br>
+                                                                                Sumber : {{$data->sumber}}
+                                                                                <br>
+                                                                                Status : {{$data->status}}
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="col-12 col-lg-3 d-flex justify-content-center align-items-end">
+                                                                            <div class="btn-group-vertical">
+                                                                                <button class="btn btn-outline-primary"><a href="{{ route('katalog.detail', $data->id) }}" class="nav-link">Lihat Detail</a></button>
+                                                                                <button class="btn btn-outline-primary"><a href="{{ route('edit.data', $data->id) }}" class="nav-link">Update</a></button>    
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="card-footer mt-auto">
+                                                                        <p class="card-text text-center"><small class="text-muted">Last update : {{$data->updated_at}}</small></p>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-auto col-sm-4 col-md-4 col-lg-2 flex-column align-items-center align-self-center">
-                                                                <div class="btn-group-vertical">
-                                                                    <button class="btn btn-outline-primary"><a href="{{ route('katalog.detail', $data->id) }}" class="nav-link">Lihat Detail</a></button>
-                                                                    <button class="btn btn-outline-primary"><a href="{{ route('edit.data', $data->id) }}" class="nav-link">Update</a></button>    
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-footer">
-                                                            <p class="card-text text-center"><small class="text-muted">Last update : {{$data->updated_at}}</small></p>
                                                         </div>
                                                     </div>
                                                     @endif
@@ -207,40 +213,43 @@ div.scroll {
                                         <div class="tab-pane fade" id="nav-rejected" role="tabpanel" aria-labelledby="nav-rejected-tab" tabindex="0">
                                             <div class="scroll">
                                                 @foreach($datas as $data)
-                                                    @if($data->user_id = Auth::user()->id && $data->status == "Blocked")
-                                                    <div class="card p-3 mb-3">
-                                                        <div class="card-header text-center bg-white fs-5">{{$data->nama}}</div>
-                                                        <div class="row row-cols-auto g-0">
-                                                            <div class="col-auto col-sm-4 col-md-4 col-lg-4 align-items-center align-self-center">
-                                                                @if($data->image == NULL)
-                                                                <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
-                                                                @else
-                                                                <img src="{{ Storage::url($data->image) }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
-                                                                @endif
-                                                            </div>
-                                                            <div class="col-auto col-sm-4 col-md-4 col-lg-6 align-items-center align-self-center">
-                                                                <div class="card-body">
-                                                                    <h5 class="card-title"></h5>
-                                                                    <p class="card-text">
-                                                                        Kategori : {{$data->kategori}}
-                                                                        <br>
-                                                                        Keyword : {{$data->kata_kunci}}
-                                                                        <br>
-                                                                        Sumber : {{$data->sumber}}
-                                                                        <br>
-                                                                        Status : {{$data->status}}
-                                                                    </p>
+                                                    @if($data->user_id = Auth::user()->npm && $data->status == "Blocked")
+                                                    <div class="card mb-2">
+                                                        <div class="card-body">
+                                                            <div class="row d-flex g-2">
+                                                                <div class="col-12 col-lg-3 d-flex flex-row justify-content-center align-items-center">
+                                                                    @if($data->image == NULL)
+                                                                    <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                                                    @else
+                                                                    <img src="{{ Storage::url($data->image) }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                                                    @endif
+                                                                </div>
+                                                                <div class="col-12 col-lg-9 d-flex flex-column align-content-between">
+                                                                    <div class="row p-3">
+                                                                        <div class="col-12 col-lg-9">
+                                                                            <h5 class="card-title">{{$data->nama}}</h5>
+                                                                            <p class="card-text my-auto">
+                                                                                Kategori : {{$data->kategori}}
+                                                                                <br>
+                                                                                Keyword : {{$data->kata_kunci}}
+                                                                                <br>
+                                                                                Sumber : {{$data->sumber}}
+                                                                                <br>
+                                                                                Status : {{$data->status}}
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="col-12 col-lg-3 d-flex justify-content-center align-items-end">
+                                                                            <div class="btn-group-vertical">
+                                                                                <button class="btn btn-outline-primary"><a href="{{ route('katalog.detail', $data->id) }}" class="nav-link">Lihat Detail</a></button>
+                                                                                <button class="btn btn-outline-primary"><a href="{{ route('edit.data', $data->id) }}" class="nav-link">Update</a></button>    
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="card-footer mt-auto">
+                                                                        <p class="card-text text-center"><small class="text-muted">Last update : {{$data->updated_at}}</small></p>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-auto col-sm-4 col-md-4 col-lg-2 flex-column align-items-center align-self-center">
-                                                                <div class="btn-group-vertical">
-                                                                    <button class="btn btn-outline-primary"><a href="{{ route('katalog.detail', $data->id) }}" class="nav-link">Lihat Detail</a></button>
-                                                                    <button class="btn btn-outline-primary"><a href="{{ route('edit.data', $data->id) }}" class="nav-link">Update</a></button>    
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-footer">
-                                                            <p class="card-text text-center"><small class="text-muted">Last update : {{$data->updated_at}}</small></p>
                                                         </div>
                                                     </div>
                                                     @endif
@@ -250,40 +259,43 @@ div.scroll {
                                         <div class="tab-pane fade" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab" tabindex="0">
                                             <div class="scroll">
                                                 @foreach($datas as $data)
-                                                    @if($data->user_id = Auth::user()->id)
-                                                    <div class="card p-3 mb-3">
-                                                        <div class="card-header text-center bg-white fs-5">{{$data->nama}}</div>
-                                                        <div class="row row-cols-auto g-0">
-                                                            <div class="col-auto col-sm-4 col-md-4 col-lg-4 align-items-center align-self-center">
-                                                                @if($data->image == NULL)
-                                                                <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
-                                                                @else
-                                                                <img src="{{ Storage::url($data->image) }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
-                                                                @endif
-                                                            </div>
-                                                            <div class="col-auto col-sm-4 col-md-4 col-lg-6 align-items-center align-self-center">
-                                                                <div class="card-body">
-                                                                    <h5 class="card-title"></h5>
-                                                                    <p class="card-text">
-                                                                        Kategori : {{$data->kategori}}
-                                                                        <br>
-                                                                        Keyword : {{$data->kata_kunci}}
-                                                                        <br>
-                                                                        Sumber : {{$data->sumber}}
-                                                                        <br>
-                                                                        Status : {{$data->status}}
-                                                                    </p>
+                                                    @if($data->user_id = Auth::user()->npm)
+                                                    <div class="card mb-2">
+                                                        <div class="card-body">
+                                                            <div class="row d-flex g-2">
+                                                                <div class="col-12 col-lg-3 d-flex flex-row justify-content-center align-items-center">
+                                                                    @if($data->image == NULL)
+                                                                    <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                                                    @else
+                                                                    <img src="{{ Storage::url($data->image) }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                                                    @endif
+                                                                </div>
+                                                                <div class="col-12 col-lg-9 d-flex flex-column align-content-between">
+                                                                    <div class="row p-3">
+                                                                        <div class="col-12 col-lg-9">
+                                                                            <h5 class="card-title">{{$data->nama}}</h5>
+                                                                            <p class="card-text my-auto">
+                                                                                Kategori : {{$data->kategori}}
+                                                                                <br>
+                                                                                Keyword : {{$data->kata_kunci}}
+                                                                                <br>
+                                                                                Sumber : {{$data->sumber}}
+                                                                                <br>
+                                                                                Status : {{$data->status}}
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="col-12 col-lg-3 d-flex justify-content-center align-items-end">
+                                                                            <div class="btn-group-vertical">
+                                                                                <button class="btn btn-outline-primary"><a href="{{ route('katalog.detail', $data->id) }}" class="nav-link">Lihat Detail</a></button>
+                                                                                <button class="btn btn-outline-primary"><a href="{{ route('edit.data', $data->id) }}" class="nav-link">Update</a></button>    
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="card-footer mt-auto">
+                                                                        <p class="card-text text-center"><small class="text-muted">Last update : {{$data->updated_at}}</small></p>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-auto col-sm-4 col-md-4 col-lg-2 flex-column align-items-center align-self-center">
-                                                                <div class="btn-group-vertical">
-                                                                    <button class="btn btn-outline-primary"><a href="{{ route('katalog.detail', $data->id) }}" class="nav-link">Lihat Detail</a></button>
-                                                                    <button class="btn btn-outline-primary"><a href="{{ route('edit.data', $data->id) }}" class="nav-link">Update</a></button>    
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-footer">
-                                                            <p class="card-text text-center"><small class="text-muted">Last update : {{$data->updated_at}}</small></p>
                                                         </div>
                                                     </div>
                                                     @endif
@@ -291,9 +303,9 @@ div.scroll {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="d-flex flex-column align-items-center align-self-center">
+                                    <div class="d-flex flex-column align-items-center align-self-center mt-2">
                                         <div class="btn-group-vertical">
-                                            <button class="btn btn-primary"><a href="{{ route('katalog.add', $data->id) }}" class="nav-link">Tambah Kontribusi</a></button>
+                                            <button class="btn btn-primary"><a href="{{ route('katalog.add') }}" class="nav-link">Tambah Kontribusi</a></button>
                                         </div>
                                     </div>
                                 </div>

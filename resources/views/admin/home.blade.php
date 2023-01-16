@@ -30,7 +30,7 @@
     </ul>
 </div>
 
-<div class="tab-content" id="adminTabContent">
+<div class="tab-content m-3" id="adminTabContent">
     <div class="tab-pane fade my-3 show active" id="user-tab-pane" role="tabpanel" aria-labelledby="user-tab" tabindex="0">
         <p class="h3 border-dark text-center"><i class="fa-solid fa-address-book"></i> User Database</p>
         <div class="table-responsive">
@@ -42,8 +42,8 @@
                         <th>NPM</th>
                         <th>Email</th>
                         <th>Foto Profil</th>
-                        <th>Verifikasi Akun</th>
                         <th>KTM</th>
+                        <th>Verifikasi Akun</th>
                         <th>Role</th>
                         <th>Action</th>
                     </tr>
@@ -58,14 +58,14 @@
                         <td>
                             <img src="/img/profile/{{$user->image}}" alt="Foto {{$user->name}}" width="100vh" class="img-thumbnail rounded zoom">
                         </td>
+                        <td>
+                            <img src="/img/ktm/{{$user->ktm}}" alt="KTM {{$user->name}}" width="200vh" class="img-thumbnail zoom">
+                        </td>
                         @if($user->is_active == 1)
                             <td>Verified</td>
                             @else
                             <td>Unverified</td>
                         @endif
-                        <td>
-                            <img src="/img/ktm/{{$user->ktm}}" alt="KTM {{$user->name}}" width="200vh" class="img-thumbnail zoom">
-                        </td>
                         @if($user->role == 1)
                             <td>Admin</td>
                             @else
@@ -75,7 +75,7 @@
                             <div class="row justify-content-center">
                                 @if($user->role == 0)
                                     <div class="col-sm-auto">
-                                        <form action="/home/admin/makeAdmin/{{$user->id}}" method="POST">
+                                        <form action="/home/admin/makeAdmin/{{$user->npm}}" method="POST">
                                             {{ csrf_field() }}
                                             <input type="hidden" name="isAdmin" value=1>
                                             <button type="submit" class="btn btn-success">Jadikan admin</button>
@@ -83,7 +83,7 @@
                                     </div>
                                 @else
                                     <div class="col-sm-auto">
-                                        <form action="/home/admin/makeAdmin/{{$user->id}}" method="POST">
+                                        <form action="/home/admin/makeAdmin/{{$user->npm}}" method="POST">
                                             {{ csrf_field() }}
                                             <input type="hidden" name="isAdmin" value=0>
                                             <button type="submit" class="btn btn-danger">Hapus admin</button>
@@ -93,7 +93,7 @@
 
                                 @if($user->is_active == 0)
                                     <div class="col-sm-auto">
-                                        <form action="/home/admin/verificateUsers/{{$user->id}}" method="POST">
+                                        <form action="/home/admin/verificateUsers/{{$user->npm}}" method="POST">
                                             {{ csrf_field() }}
                                             <input type="hidden" name="verified" value=1>
                                             <button type="submit" class="btn btn-success">Verifikasi Akun</button>
@@ -101,7 +101,7 @@
                                     </div>
                                 @else
                                     <div class="col-sm-auto">
-                                        <form action="/home/admin/verificateUsers/{{$user->id}}" method="POST">
+                                        <form action="/home/admin/verificateUsers/{{$user->npm}}" method="POST">
                                             {{ csrf_field() }}
                                             <input type="hidden" name="verified" value=0>
                                             <button type="submit" class="btn btn-danger">Batal Verifikasi Akun</button>
@@ -109,7 +109,7 @@
                                     </div>
                                 @endif
                                 <div class="col-auto">
-                                    <a href="/home/admin/deleteUsers/{{$user->id}}" class="btn btn-danger">
+                                    <a href="/home/admin/deleteUsers/{{$user->npm}}" class="btn btn-danger">
                                         <i class="fa-solid fa-trash"></i>
                                     </a>
                                 </div>
@@ -149,9 +149,9 @@
                         <td>{{$data->nama}}</td>
                         <td>
                             @if($data->image == NULL)
-                                <img src="{{ asset('img/no-image.png') }}" class="img-thumbnail border-0 rounded-start" alt="Header {{$data->nama}}">
+                                <img src="{{ asset('img/no-image.png') }}" width="100" height="auto" class="img-thumbnail border-0 rounded-start zoom" alt="Header {{$data->nama}}">
                             @else
-                                <img src="{{ Storage::url($data->image) }}" class="img-thumbnail border-0 rounded-start" alt="Header {{$data->nama}}">
+                                <img src="{{ Storage::url($data->image) }}" width="100" height="auto" class="img-thumbnail border-0 rounded-start zoom" alt="Header {{$data->nama}}">
                             @endif
                         </td>
                         <td>{{$data->deskripsi}}</td>
@@ -183,6 +183,7 @@
                         <th>Email</th>
                         <th>Subjek</th>
                         <th>Isi Pesan</th>
+                        <th>Tanggal Kirim</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
@@ -193,6 +194,7 @@
                         <td>{{$feedback->email}}</td>
                         <td>{{$feedback->subject}}</td>
                         <td>{{$feedback->message}}</td>
+                        <td>{{$feedback->created_at}}</td>
                     </tr>
                     @endforeach
                 </tbody>

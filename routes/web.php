@@ -30,9 +30,9 @@ Route::post('/updateData/{id}', [App\Http\Controllers\DataController::class, 'up
 
 // Admin
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'adminHome'])->name('admin.home')->middleware('admin');
-Route::post('/home/admin/makeAdmin/{id}', [App\Http\Controllers\AdminController::class, 'makeAdmin'])->name('completedUpdate');
-Route::post('/home/admin/verificateUsers/{id}', [App\Http\Controllers\AdminController::class, 'verificateUsers'])->name('userVerified');
-Route::get('/home/admin/deleteUsers/{id}', [App\Http\Controllers\AdminController::class, 'deleteUsers'])->middleware('admin');
+Route::post('/home/admin/makeAdmin/{npm}', [App\Http\Controllers\AdminController::class, 'makeAdmin'])->name('completedUpdate');
+Route::post('/home/admin/verificateUsers/{npm}', [App\Http\Controllers\AdminController::class, 'verificateUsers'])->name('userVerified');
+Route::get('/home/admin/deleteUsers/{npm}', [App\Http\Controllers\AdminController::class, 'deleteUsers'])->middleware('admin');
 Route::post('/home/admin/storeUsers', [App\Http\Controllers\AdminController::class, 'storeUsers'])->middleware('admin');
 Route::get('/home/admin/editData/{id}', [App\Http\Controllers\AdminController::class, 'editData'])->name('admin.edit.data');
 Route::post('/home/admin/updateData/{id}', [App\Http\Controllers\AdminController::class, 'updateData'])->name('admin.katalog.update');

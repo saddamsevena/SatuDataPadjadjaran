@@ -40,9 +40,9 @@
                             <div class="col">
                                 <div class="card">
                                     @if($data->image == NULL)
-                                        <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                        <img src="{{ asset('img/no-image.png') }}" class="card-img-top" style="max-height: 15rem;" alt="Header {{$data->nama}}">
                                     @else
-                                        <img src="{{ Storage::url($data->image) }}" class="object-fit-contain rounded-start" alt="Header {{$data->nama}}">
+                                        <img src="{{ Storage::url($data->image) }}" class="card-img-top" style="max-height: 15rem;" alt="Header {{$data->nama}}">
                                     @endif
                                     <div class="card-body">
                                         <h5 class="card-title text-center">{{$data->nama}}</h5>
@@ -54,7 +54,6 @@
                                             <br>
                                             Sumber : {{$data->sumber}}
                                             <br>
-                                            Status : {{$data->status}}
                                         </p>
                                         <div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
                                             <div class="btn-group" role="group" aria-label="First group">
@@ -81,9 +80,9 @@
                             <div class="col">
                                 <div class="card">
                                     @if($data->image == NULL)
-                                        <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                        <img src="{{ asset('img/no-image.png') }}" class="card-img-top" style="max-height: 15rem;" alt="Header {{$data->nama}}">
                                     @else
-                                        <img src="{{ Storage::url($data->image) }}" class="object-fit-contain rounded-start" alt="Header {{$data->nama}}">
+                                        <img src="{{ Storage::url($data->image) }}" class="card-img-top" style="max-height: 15rem;" alt="Header {{$data->nama}}">
                                     @endif
                                     <div class="card-body">
                                         <h5 class="card-title text-center">{{$data->nama}}</h5>
@@ -95,7 +94,6 @@
                                             <br>
                                             Sumber : {{$data->sumber}}
                                             <br>
-                                            Status : {{$data->status}}
                                         </p>
                                         <div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
                                             <div class="btn-group" role="group" aria-label="First group">
@@ -122,9 +120,9 @@
                             <div class="col">
                                 <div class="card">
                                     @if($data->image == NULL)
-                                        <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                        <img src="{{ asset('img/no-image.png') }}" class="card-img-top" style="max-height: 15rem;" alt="Header {{$data->nama}}">
                                     @else
-                                        <img src="{{ Storage::url($data->image) }}" class="object-fit-contain rounded-start" alt="Header {{$data->nama}}">
+                                        <img src="{{ Storage::url($data->image) }}" class="card-img-top" style="max-height: 15rem;" alt="Header {{$data->nama}}">
                                     @endif
                                     <div class="card-body">
                                         <h5 class="card-title text-center">{{$data->nama}}</h5>
@@ -136,7 +134,6 @@
                                             <br>
                                             Sumber : {{$data->sumber}}
                                             <br>
-                                            Status : {{$data->status}}
                                         </p>
                                         <div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
                                             <div class="btn-group" role="group" aria-label="First group">
@@ -163,9 +160,9 @@
                             <div class="col">
                                 <div class="card">
                                     @if($data->image == NULL)
-                                        <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                        <img src="{{ asset('img/no-image.png') }}" class="card-img-top" style="max-height: 15rem;" alt="Header {{$data->nama}}">
                                     @else
-                                        <img src="{{ Storage::url($data->image) }}" class="object-fit-contain rounded-start" alt="Header {{$data->nama}}">
+                                        <img src="{{ Storage::url($data->image) }}" class="card-img-top" style="max-height: 15rem;" alt="Header {{$data->nama}}">
                                     @endif
                                     <div class="card-body">
                                         <h5 class="card-title text-center">{{$data->nama}}</h5>
@@ -177,7 +174,6 @@
                                             <br>
                                             Sumber : {{$data->sumber}}
                                             <br>
-                                            Status : {{$data->status}}
                                         </p>
                                         <div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
                                             <div class="btn-group" role="group" aria-label="First group">
@@ -204,9 +200,9 @@
                             <div class="col">
                                 <div class="card">
                                     @if($data->image == NULL)
-                                        <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                        <img src="{{ asset('img/no-image.png') }}" class="card-img-top" style="max-height: 15rem;" alt="Header {{$data->nama}}">
                                     @else
-                                        <img src="{{ Storage::url($data->image) }}" class="object-fit-contain rounded-start" alt="Header {{$data->nama}}">
+                                        <img src="{{ Storage::url($data->image) }}" class="card-img-top" style="max-height: 15rem;" alt="Header {{$data->nama}}">
                                     @endif
                                     <div class="card-body">
                                         <h5 class="card-title text-center">{{$data->nama}}</h5>
@@ -218,7 +214,6 @@
                                             <br>
                                             Sumber : {{$data->sumber}}
                                             <br>
-                                            Status : {{$data->status}}
                                         </p>
                                         <div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
                                             <div class="btn-group" role="group" aria-label="First group">
@@ -245,9 +240,9 @@
                             <div class="col">
                                 <div class="card">
                                     @if($data->image == NULL)
-                                        <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                        <img src="{{ asset('img/no-image.png') }}" class="card-img-top" style="max-height: 15rem;" alt="Header {{$data->nama}}">
                                     @else
-                                        <img src="{{ Storage::url($data->image) }}" class="object-fit-contain rounded-start" alt="Header {{$data->nama}}">
+                                        <img src="{{ Storage::url($data->image) }}" class="card-img-top" style="max-height: 15rem;" alt="Header {{$data->nama}}">
                                     @endif
                                     <div class="card-body">
                                         <h5 class="card-title text-center">{{$data->nama}}</h5>
@@ -259,7 +254,6 @@
                                             <br>
                                             Sumber : {{$data->sumber}}
                                             <br>
-                                            Status : {{$data->status}}
                                         </p>
                                         <div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
                                             <div class="btn-group" role="group" aria-label="First group">

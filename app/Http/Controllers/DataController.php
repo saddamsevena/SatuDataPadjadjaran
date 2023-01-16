@@ -42,7 +42,7 @@ class DataController extends Controller
 
         if ($request->hasfile('image')) {
             $datas = Data::create([
-                'user_id'=> Auth::user()->id,
+                'user_npm'=> Auth::user()->npm,
                 'nama'=> $request->nama,
                 'deskripsi' => $request->deskripsi,
                 'sumber' => $request->sumber,
@@ -57,7 +57,7 @@ class DataController extends Controller
 
         else {
             $datas = Data::create([
-                'user_id'=> Auth::user()->id,
+                'user_npm'=> Auth::user()->npm,
                 'nama'=> $request->nama,
                 'deskripsi' => $request->deskripsi,
                 'sumber' => $request->sumber,
