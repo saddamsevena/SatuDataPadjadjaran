@@ -45,15 +45,18 @@
                         <button class="btn btn-outline-primary"><a href="{{$datas->tautan}}" class="nav-link">Tautan</a></button>
                     </div>
                 </div>
-                <div class="col-lg-9 d-flex flex-column align-self-center">
-                        <p class="text-center fw-bold mt-5">Deskripsi Data</p>
+                <div class="col-lg-9 d-flex flex-column align-content-between">
+                    <div class="row">
+                        <p class="text-center fs-5 fw-bold mt-5">Deskripsi Data</p>
                         <p class="fw-normal" style="text-align:justify;">{{$datas->deskripsi}}</p>
+                    </div>
+                    <div class="row">
+                        <p class="fs-5 fw-bold">Preview</p>
+                        <div class="ratio ratio-16x9">
+                            <iframe src="{{$datas->tautan}}" frameborder="1" class="border border-black" height="50rem"></iframe>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <p class="fs-5 fw-bold">Preview</p>
-            <div class="ratio ratio-16x9">
-                
-                <iframe src="{{$datas->tautan}}" frameborder="1" class="border border-black" height="500rem"></iframe>
             </div>
         </div>
     </div>
