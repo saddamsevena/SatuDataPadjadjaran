@@ -67,7 +67,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        Alert::success('Registrasi Akun Berhasil, Silahkan login!');
+        Alert::success('Registrasi Akun Berhasil!');
 
         return User::create([
             'name' => $data['name'],
