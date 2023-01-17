@@ -28,8 +28,6 @@ class User extends Authenticatable
         'ktm',
     ];
 
-    protected $primaryKey = 'npm';
-
     /**
      * The attributes that should be hidden for serialization.
      *
