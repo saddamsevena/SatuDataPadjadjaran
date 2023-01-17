@@ -46,7 +46,7 @@
             </div>
             <div class="mb-3">
                 <label for="kategori" class="form-label">Kategori</label>
-                <select name="kategori" id="kategori" class="form-control" aria-selected="{{$datas->kategori}}">
+                <select name="kategori" id="kategori" class="form-control">
                     <option value="Infografis">Infografis</option>
                     <option value="Arsip Lembaga">Arsip Lembaga</option>
                     <option value="Kajian">Kajian</option>

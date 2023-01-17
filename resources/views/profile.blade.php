@@ -25,7 +25,7 @@ div.scroll {
                                 @if(Auth::user()->image == NULL)
                                 <img src="{{ asset('img/profile.jpg') }}" alt="Foto Profil {{ Auth::user()->name }}" width="150" height="150" class="img-thumbnail rounded-circle">
                                 @else
-                                <img src="{{ Storage::url(Auth::user()->image) }}" alt="Foto Profil {{ Auth::user()->name }}" width="150" height="150" class="img-thumbnail rounded-circle">
+                                <img src="{{ asset('http://127.0.0.1:8000/storage/' . Auth::user()->image) }}" alt="Foto Profil {{ Auth::user()->name }}" width="150" height="150" class="img-thumbnail rounded-circle">
                                 @endif
                             </div>
                             <div class="text-break">
@@ -129,13 +129,15 @@ div.scroll {
                                                                     @if($data->image == NULL)
                                                                     <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
                                                                     @else
-                                                                    <img src="{{ Storage::url($data->image) }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                                                    <img src="{{ asset('http://127.0.0.1:8000/storage/' . $data->image) }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
                                                                     @endif
                                                                 </div>
                                                                 <div class="col-12 col-lg-9 d-flex flex-column align-content-between">
-                                                                    <div class="row p-3">
+                                                                    <div class="row">
+                                                                        <div class="col"><h5 class="card-title text-center">{{$data->nama}}</h5></div>
+                                                                    </div>
+                                                                    <div class="row">
                                                                         <div class="col-12 col-lg-9">
-                                                                            <h5 class="card-title">{{$data->nama}}</h5>
                                                                             <p class="card-text my-auto">
                                                                                 Kategori : {{$data->kategori}}
                                                                                 <br>
@@ -175,7 +177,7 @@ div.scroll {
                                                                     @if($data->image == NULL)
                                                                     <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
                                                                     @else
-                                                                    <img src="{{ Storage::url($data->image) }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                                                    <img src="{{ asset('http://127.0.0.1:8000/storage/' . $data->image) }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
                                                                     @endif
                                                                 </div>
                                                                 <div class="col-12 col-lg-9 d-flex flex-column align-content-between">
@@ -221,7 +223,7 @@ div.scroll {
                                                                     @if($data->image == NULL)
                                                                     <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
                                                                     @else
-                                                                    <img src="{{ Storage::url($data->image) }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                                                    <img src="{{ asset('http://127.0.0.1:8000/storage/' . $data->image) }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
                                                                     @endif
                                                                 </div>
                                                                 <div class="col-12 col-lg-9 d-flex flex-column align-content-between">
@@ -267,7 +269,7 @@ div.scroll {
                                                                     @if($data->image == NULL)
                                                                     <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
                                                                     @else
-                                                                    <img src="{{ Storage::url($data->image) }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                                                    <img src="{{ asset('http://127.0.0.1:8000/storage/' . $data->image) }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
                                                                     @endif
                                                                 </div>
                                                                 <div class="col-12 col-lg-9 d-flex flex-column align-content-between">

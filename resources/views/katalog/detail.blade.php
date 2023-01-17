@@ -27,7 +27,7 @@
                     @if($datas->image == NULL)
                         <img src="{{ asset('img/no-image.png') }}" class="img-thumbnail border-0 rounded-start" alt="Header {{$datas->nama}}">
                     @else
-                        <img src="{{ Storage::url($datas->image)}}" class="img-thumbnail border-0 rounded-start" alt="Header {{$datas->nama}}">
+                        <img src="{{ asset('http://127.0.0.1:8000/storage/' . $datas->image) }}" class="img-thumbnail border-0 rounded-start" alt="Header {{$datas->nama}}">
                     @endif
                     <div class="px-2 border-top">
                         <p class="text-start fw-bold mt-0 mb-0">Judul</p>

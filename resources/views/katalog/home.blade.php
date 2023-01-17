@@ -40,9 +40,9 @@
                             <div class="col">
                                 <div class="card">
                                     @if($data->image == NULL)
-                                        <img src="{{ asset('img/no-image.png') }}" class="card-img-top" style="max-height: 15rem;" alt="Header {{$data->nama}}">
+                                        <img src="{{ asset('img/no-image.png') }}" class="card-img-top img-fluid" alt="Header {{$data->nama}}">
                                     @else
-                                        <img src="{{ Storage::url($data->image) }}" class="card-img-top" style="max-height: 15rem;" alt="Header {{$data->nama}}">
+                                        <img src="{{ asset('http://127.0.0.1:8000/storage/' . $data->image) }}" class="card-img-top img-fluid" alt="Header {{$data->nama}}">
                                     @endif
                                     <div class="card-body">
                                         <h5 class="card-title text-center">{{$data->nama}}</h5>
@@ -80,9 +80,9 @@
                             <div class="col">
                                 <div class="card">
                                     @if($data->image == NULL)
-                                        <img src="{{ asset('img/no-image.png') }}" class="card-img-top" style="max-height: 15rem;" alt="Header {{$data->nama}}">
+                                        <img src="{{ asset('img/no-image.png') }}" class="card-img-top img-fluid" alt="Header {{$data->nama}}">
                                     @else
-                                        <img src="{{ Storage::url($data->image) }}" class="card-img-top" style="max-height: 15rem;" alt="Header {{$data->nama}}">
+                                        <img src="{{ asset('http://127.0.0.1:8000/storage/' . $data->image) }}" class="card-img-top img-fluid" alt="Header {{$data->nama}}">
                                     @endif
                                     <div class="card-body">
                                         <h5 class="card-title text-center">{{$data->nama}}</h5>
@@ -120,9 +120,9 @@
                             <div class="col">
                                 <div class="card">
                                     @if($data->image == NULL)
-                                        <img src="{{ asset('img/no-image.png') }}" class="card-img-top" style="max-height: 15rem;" alt="Header {{$data->nama}}">
+                                        <img src="{{ asset('img/no-image.png') }}" class="card-img-top img-fluid" alt="Header {{$data->nama}}">
                                     @else
-                                        <img src="{{ Storage::url($data->image) }}" class="card-img-top" style="max-height: 15rem;" alt="Header {{$data->nama}}">
+                                        <img src="{{ asset('http://127.0.0.1:8000/storage/' . $data->image) }}" class="card-img-top img-fluid" alt="Header {{$data->nama}}">
                                     @endif
                                     <div class="card-body">
                                         <h5 class="card-title text-center">{{$data->nama}}</h5>
@@ -160,9 +160,9 @@
                             <div class="col">
                                 <div class="card">
                                     @if($data->image == NULL)
-                                        <img src="{{ asset('img/no-image.png') }}" class="card-img-top" style="max-height: 15rem;" alt="Header {{$data->nama}}">
+                                        <img src="{{ asset('img/no-image.png') }}" class="card-img-top img-fluid" alt="Header {{$data->nama}}">
                                     @else
-                                        <img src="{{ Storage::url($data->image) }}" class="card-img-top" style="max-height: 15rem;" alt="Header {{$data->nama}}">
+                                        <img src="{{ asset('http://127.0.0.1:8000/storage/' . $data->image) }}" class="card-img-top img-fluid" alt="Header {{$data->nama}}">
                                     @endif
                                     <div class="card-body">
                                         <h5 class="card-title text-center">{{$data->nama}}</h5>
@@ -200,9 +200,9 @@
                             <div class="col">
                                 <div class="card">
                                     @if($data->image == NULL)
-                                        <img src="{{ asset('img/no-image.png') }}" class="card-img-top" style="max-height: 15rem;" alt="Header {{$data->nama}}">
+                                        <img src="{{ asset('img/no-image.png') }}" class="card-img-top img-fluid" alt="Header {{$data->nama}}">
                                     @else
-                                        <img src="{{ Storage::url($data->image) }}" class="card-img-top" style="max-height: 15rem;" alt="Header {{$data->nama}}">
+                                        <img src="{{ asset('http://127.0.0.1:8000/storage/' . $data->image) }}" class="card-img-top img-fluid" alt="Header {{$data->nama}}">
                                     @endif
                                     <div class="card-body">
                                         <h5 class="card-title text-center">{{$data->nama}}</h5>
@@ -240,9 +240,9 @@
                             <div class="col">
                                 <div class="card">
                                     @if($data->image == NULL)
-                                        <img src="{{ asset('img/no-image.png') }}" class="card-img-top" style="max-height: 15rem;" alt="Header {{$data->nama}}">
+                                        <img src="{{ asset('img/no-image.png') }}" class="card-img-top img-fluid" alt="Header {{$data->nama}}">
                                     @else
-                                        <img src="{{ Storage::url($data->image) }}" class="card-img-top" style="max-height: 15rem;" alt="Header {{$data->nama}}">
+                                        <img src="{{ asset('http://127.0.0.1:8000/storage/' . $data->image) }}" class="card-img-top img-fluid" alt="Header {{$data->nama}}">
                                     @endif
                                     <div class="card-body">
                                         <h5 class="card-title text-center">{{$data->nama}}</h5>

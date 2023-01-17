@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 // Page
 Auth::routes();
+Route::get('/storage', function () {
+    Artisan::call('storage:link');
+});
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
 Route::post('/feedback', [App\Http\Controllers\HomeController::class, 'storeFeedback'])->name('store.feedback');

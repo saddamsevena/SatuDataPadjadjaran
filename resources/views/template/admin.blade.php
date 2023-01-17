@@ -65,7 +65,7 @@
                                 @if(Auth::user()->image == NULL)
                                     <img src="{{ asset('img/profile.jpg') }}" width="64" height="64" alt="Foto Profil {{ Auth::user()->name }}"  class="img-thumbnail rounded-circle me-2">
                                 @else
-                                    <img src="{{ Storage::url(Auth::user()->image) }}" height="64" width="64" alt="Foto Profil {{ Auth::user()->name }}" class="img-thumbnail rounded-circle me-2">
+                                    <img src="{{ asset('http://127.0.0.1:8000/storage/' . Auth::user()->image) }}" height="64" width="64" alt="Foto Profil {{ Auth::user()->name }}" class="img-thumbnail rounded-circle me-2">
                                 @endif
                                 {{ Auth::user()->name }}
                             </a>
