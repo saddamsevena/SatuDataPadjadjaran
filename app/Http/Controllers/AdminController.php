@@ -48,6 +48,13 @@ class AdminController extends Controller
         return redirect()->to(route('admin.home'))->withErrors(['msg' => 'Data telah diupdate.']);
     }
 
+    public function approveData(Request $request,$id)
+    {
+        Data::where('id',$id)->update([
+            'status'=> $request->Accepted,
+        ]);
+    }
+
     public function editData($id)
     {
         $datas = Data::where('id',$id)->first();
