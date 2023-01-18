@@ -199,7 +199,7 @@ div.scroll {
                                                                             <div class="btn-group-vertical">
                                                                                 <button class="btn btn-outline-primary"><a href="{{ route('katalog.detail', $data->id) }}" class="nav-link">Lihat Detail</a></button>
                                                                                 <button class="btn btn-outline-primary"><a href="{{ route('edit.data', $data->id) }}" class="nav-link">Update</a></button>    
-                                                                                <button class="btn btn-outline-danger"><a href="/deleteData/{{$data->id}}" class="nav-link">Hapus</a></button>
+                                                                                <button class="btn btn-danger"><a href="/deleteData/{{$data->id}}" class="nav-link">Hapus</a></button>
                                                                             </div>
                                                                         </div>
                                                                     </div>

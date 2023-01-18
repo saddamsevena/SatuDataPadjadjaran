@@ -168,27 +168,23 @@
                                 @if($data->status == "Checking")
                                     <form method="POST" action="/home/admin/approveData/{{$data->id}}">
                                         @csrf
-                                        <input type="hidden" name="kategori" id="kategori" value=Accepted>
+                                        <input type="hidden" name="kategori" id="kategori" value="Accepted">
                                         <button type="submit" class="btn btn-outline-success">Setujui</button>
                                     </form>
                                     <form method="POST" action="/home/admin/approveData/{{$data->id}}">
                                         @csrf
-                                        <input type="hidden" name="kategori" id="kategori" value=Blocked>
+                                        <input type="hidden" name="kategori" id="kategori" value="Blocked">
                                         <button type="submit" class="btn btn-outline-danger">Tolak</button>
                                     </form>
                                 @else($data->status == "Accepted")
                                     <form method="POST" action="/home/admin/approveData/{{$data->id}}">
                                         @csrf
-                                        <input type="hidden" name="kategori" id="kategori" value=Checking>
+                                        <input type="hidden" name="kategori" id="kategori" value="Checking">
                                         <button type="submit" class="btn btn-outline-warning">Tunda</button>
-                                    </form>
-                                    <form method="POST" action="/home/admin/approveData/{{$data->id}}">
-                                        @csrf
-                                        <input type="hidden" name="kategori" id="kategori" value=Blocked>
-                                        <button type="submit" class="btn btn-outline-danger">Tolak</button>
                                     </form>
                                 @endif
                                 <button class="btn btn-outline-info"><a href="{{ route ('admin.edit.data', $data->id) }}" class="nav-link">Update</a></button>
+                                <button class="btn btn-danger"><a href="/home/admin/deleteData/{{$data->id}}" class="nav-link">Hapus</a></button>
                             </div>
                         </td>
                     </tr>
