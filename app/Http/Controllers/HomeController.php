@@ -71,9 +71,9 @@ class HomeController extends Controller
         return redirect()->to(route('home'));
     }
 
-    public function editProfile($id)
+    public function editProfile($npm)
     {
-        $user = User::findOrFail(Auth::user()->npm);
+        $user = User::findOrFail($npm);
         $datas = Data::where('user_npm', Auth::user()->id)->get();
         return view('profile', compact('user'), ['datas'=>$datas->sortByDesc('updated_at')]);
     }
