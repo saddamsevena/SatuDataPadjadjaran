@@ -168,18 +168,24 @@
                                 @if($data->status == "Checking")
                                     <form method="POST" action="/home/admin/approveData/{{$data->id}}">
                                         @csrf
-                                        <input type="hidden" name="kategori" id="kategori" value="Accepted">
+                                        <select name="status" id="status" class="form-control" hidden>
+                                            <option value="Accepted" selected>Accepted</option>
+                                        </select>
                                         <button type="submit" class="btn btn-outline-success">Setujui</button>
                                     </form>
                                     <form method="POST" action="/home/admin/approveData/{{$data->id}}">
                                         @csrf
-                                        <input type="hidden" name="kategori" id="kategori" value="Blocked">
+                                        <select name="status" id="status" class="form-control" hidden>
+                                            <option value="Blocked" selected>Tolak</option>
+                                        </select>
                                         <button type="submit" class="btn btn-outline-danger">Tolak</button>
                                     </form>
                                 @else($data->status == "Accepted")
                                     <form method="POST" action="/home/admin/approveData/{{$data->id}}">
                                         @csrf
-                                        <input type="hidden" name="kategori" id="kategori" value="Checking">
+                                        <select name="status" id="status" class="form-control" hidden>
+                                            <option value="Checking" selected>Tunda</option>
+                                        </select>
                                         <button type="submit" class="btn btn-outline-warning">Tunda</button>
                                     </form>
                                 @endif
