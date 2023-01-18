@@ -174,18 +174,18 @@
                                     <form action="/home/admin/deleteData/{{$data->id}}" method="POST">
                                         {{ csrf_field() }}
                                         <input type="hidden" name="kategori" id="kategori" value="Blocked">
-                                        <button type="submit" class="btn btn-outline-success">Tolak</button>
+                                        <button type="submit" class="btn btn-outline-danger">Tolak</button>
                                     </form>
                                 @else($data->status == "Accepted")
                                     <form action="/home/admin/deleteData/{{$data->id}}" method="POST">
                                         {{ csrf_field() }}
                                         <input type="hidden" name="kategori" id="kategori" value="Checking">
-                                        <button type="submit" class="btn btn-outline-success">Setujui</button>
+                                        <button type="submit" class="btn btn-outline-warning">Tunda</button>
                                     </form>
                                     <form action="/home/admin/deleteData/{{$data->id}}" method="POST">
                                         {{ csrf_field() }}
                                         <input type="hidden" name="kategori" id="kategori" value="Blocked">
-                                        <button type="submit" class="btn btn-outline-success">Tolak</button>
+                                        <button type="submit" class="btn btn-outline-danger">Tolak</button>
                                     </form>
                                 @endif
                                 <button class="btn btn-outline-info"><a href="{{ route ('admin.edit.data', $data->id) }}" class="nav-link">Update</a></button>
