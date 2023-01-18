@@ -37,6 +37,7 @@ Route::get('/deleteData/{id}', [App\Http\Controllers\DataController::class, 'del
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'adminHome'])->name('admin.home')->middleware('admin');
 Route::post('/home/admin/makeAdmin/{id}', [App\Http\Controllers\AdminController::class, 'makeAdmin'])->name('completedUpdate');
 Route::post('/home/admin/verificateUsers/{id}', [App\Http\Controllers\AdminController::class, 'verificateUsers'])->name('userVerified');
+Route::post('/home/admin/approveData/{id}', [App\Http\Controllers\AdminController::class, 'approveData'])->name('approveData');
 Route::get('/home/admin/deleteUsers/{id}', [App\Http\Controllers\AdminController::class, 'deleteUsers'])->middleware('admin');
 Route::post('/home/admin/storeUsers', [App\Http\Controllers\AdminController::class, 'storeUsers'])->middleware('admin');
 Route::get('/home/admin/editData/{id}', [App\Http\Controllers\AdminController::class, 'editData'])->name('admin.edit.data');

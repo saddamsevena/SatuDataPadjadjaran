@@ -116,13 +116,14 @@ class DataController extends Controller
                 'status' => "Checking",
             ]);
         }
-
+        toast('Data berhasil diupdate, silahkan tunggu admin untuk verifikasi ulang','success');
         return redirect()->route('katalog.home', compact('datas'));
     }
 
     public function deleteData($id)
     {
         DB::table('datas')->where('id',$id)->delete();
+        toast('Data dihapus!','error');
         return redirect(route('katalog.home'));
     }
 }

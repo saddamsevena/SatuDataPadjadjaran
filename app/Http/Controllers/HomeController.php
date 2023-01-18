@@ -95,15 +95,26 @@ class HomeController extends Controller
             $user->update([
                 'name' => $request->name,
                 'email' => $request->email,
+                'image' => $request->old('image'),
                 'password' => Hash::make($request->password),
+            ]);
+        }
+
+        else if ($request->hasfile('image')) {
+            $user->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'image' => $request->file('image')->store('img/profile', 'public'),
+                'password' => $request->old('password'),
             ]);
         }
 
         else {
             $user->update([
-                'name' => $request->name,
-                'email' => $request->email,
-                'image' => $request->file('image')->store('img/profile', 'public'),
+                'name' => $request->old('name'),
+                'email' => $request->old('email'),
+                'image' => $request->old('image'),
+                'password' => $request->old('password'),
             ]);
         }
 
