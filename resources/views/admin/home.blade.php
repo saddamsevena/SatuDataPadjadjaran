@@ -166,24 +166,24 @@
                         <td>
                             <div class="btn-group-vertical d-flex justify-content-center align-items-center">
                                 @if($data->status == "Checking")
-                                    <form action="/home/admin/deleteData/{{$data->id}}" method="POST">
-                                        {{ csrf_field() }}
+                                    <form method="POST" action="{{ route('admin.katalog.update', $datas->id ) }}">
+                                        @csrf
                                         <input type="hidden" name="kategori" id="kategori" value="Accepted">
                                         <button type="submit" class="btn btn-outline-success">Setujui</button>
                                     </form>
-                                    <form action="/home/admin/deleteData/{{$data->id}}" method="POST">
-                                        {{ csrf_field() }}
+                                    <form method="POST" action="{{ route('admin.katalog.update', $datas->id ) }}">
+                                        @csrf
                                         <input type="hidden" name="kategori" id="kategori" value="Blocked">
                                         <button type="submit" class="btn btn-outline-danger">Tolak</button>
                                     </form>
                                 @else($data->status == "Accepted")
-                                    <form action="/home/admin/deleteData/{{$data->id}}" method="POST">
-                                        {{ csrf_field() }}
+                                    <form method="POST" action="{{ route('admin.katalog.update', $datas->id ) }}">
+                                        @csrf
                                         <input type="hidden" name="kategori" id="kategori" value="Checking">
                                         <button type="submit" class="btn btn-outline-warning">Tunda</button>
                                     </form>
-                                    <form action="/home/admin/deleteData/{{$data->id}}" method="POST">
-                                        {{ csrf_field() }}
+                                    <form method="POST" action="{{ route('admin.katalog.update', $datas->id ) }}">
+                                        @csrf
                                         <input type="hidden" name="kategori" id="kategori" value="Blocked">
                                         <button type="submit" class="btn btn-outline-danger">Tolak</button>
                                     </form>
