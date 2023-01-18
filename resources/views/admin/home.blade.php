@@ -166,10 +166,26 @@
                         <td>
                             <div class="btn-group-vertical">
                                 @if($data->status == "Checking")
-                                    <form action="/home/admin/verificateUsers/{{$user->id}}" method="POST">
+                                    <form action="/home/admin/deleteData/{{$data->id}}" method="POST">
                                         {{ csrf_field() }}
                                         <input type="hidden" name="kategori" id="kategori" value="Accepted">
                                         <button type="submit" class="btn btn-outline-success">Setujui</button>
+                                    </form>
+                                    <form action="/home/admin/deleteData/{{$data->id}}" method="POST">
+                                        {{ csrf_field() }}
+                                        <input type="hidden" name="kategori" id="kategori" value="Blocked">
+                                        <button type="submit" class="btn btn-outline-success">Tolak</button>
+                                    </form>
+                                else if($data->status == "Accepted")
+                                    <form action="/home/admin/deleteData/{{$data->id}}" method="POST">
+                                        {{ csrf_field() }}
+                                        <input type="hidden" name="kategori" id="kategori" value="Checking">
+                                        <button type="submit" class="btn btn-outline-success">Setujui</button>
+                                    </form>
+                                    <form action="/home/admin/deleteData/{{$data->id}}" method="POST">
+                                        {{ csrf_field() }}
+                                        <input type="hidden" name="kategori" id="kategori" value="Blocked">
+                                        <button type="submit" class="btn btn-outline-success">Tolak</button>
                                     </form>
                                 @endif
                                 <button class="btn btn-outline-info"><a href="{{ route ('admin.edit.data', $data->id) }}" class="nav-link">Update</a></button>
