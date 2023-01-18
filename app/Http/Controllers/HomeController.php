@@ -74,7 +74,7 @@ class HomeController extends Controller
     public function editProfile($id)
     {
         $user = User::findorfail($id);
-        $datas = Data::all();
+        $datas = Data::where('user_npm', Auth::user()->npm)->get();
         return view("profile", compact("user"), ['datas'=>$datas->sortByDesc('created_at')]);
     }
 

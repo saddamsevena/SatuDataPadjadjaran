@@ -75,7 +75,7 @@
                             <div class="row justify-content-center">
                                 @if($user->role == 0)
                                     <div class="col-sm-auto">
-                                        <form action="/home/admin/makeAdmin/{{$user->npm}}" method="POST">
+                                        <form action="/home/admin/makeAdmin/{{$user->id}}" method="POST">
                                             {{ csrf_field() }}
                                             <input type="hidden" name="isAdmin" value=1>
                                             <button type="submit" class="btn btn-success">Jadikan admin</button>
@@ -83,7 +83,7 @@
                                     </div>
                                 @else
                                     <div class="col-sm-auto">
-                                        <form action="/home/admin/makeAdmin/{{$user->npm}}" method="POST">
+                                        <form action="/home/admin/makeAdmin/{{$user->id}}" method="POST">
                                             {{ csrf_field() }}
                                             <input type="hidden" name="isAdmin" value=0>
                                             <button type="submit" class="btn btn-danger">Hapus admin</button>
@@ -93,7 +93,7 @@
 
                                 @if($user->is_active == 0)
                                     <div class="col-sm-auto">
-                                        <form action="/home/admin/verificateUsers/{{$user->npm}}" method="POST">
+                                        <form action="/home/admin/verificateUsers/{{$user->id}}" method="POST">
                                             {{ csrf_field() }}
                                             <input type="hidden" name="verified" value=1>
                                             <button type="submit" class="btn btn-success">Verifikasi Akun</button>
@@ -101,7 +101,7 @@
                                     </div>
                                 @else
                                     <div class="col-sm-auto">
-                                        <form action="/home/admin/verificateUsers/{{$user->npm}}" method="POST">
+                                        <form action="/home/admin/verificateUsers/{{$user->id}}" method="POST">
                                             {{ csrf_field() }}
                                             <input type="hidden" name="verified" value=0>
                                             <button type="submit" class="btn btn-danger">Batal Verifikasi Akun</button>
@@ -109,7 +109,7 @@
                                     </div>
                                 @endif
                                 <div class="col-auto">
-                                    <a href="/home/admin/deleteUsers/{{$user->npm}}" class="btn btn-danger">
+                                    <a href="/home/admin/deleteUsers/{{$user->id}}" class="btn btn-danger">
                                         <i class="fa-solid fa-trash"></i>
                                     </a>
                                 </div>
