@@ -25,7 +25,7 @@ div.scroll {
                                 @if(Auth::user()->image == NULL)
                                 <img src="{{ asset('img/profile.jpg') }}" alt="Foto Profil {{ Auth::user()->name }}" width="150" height="150" class="img-thumbnail rounded-circle">
                                 @else
-                                <img src="{{ asset('http://127.0.0.1:8000/storage/' . Auth::user()->image) }}" alt="Foto Profil {{ Auth::user()->name }}" width="150" height="150" class="img-thumbnail rounded-circle">
+                                <img src="{{ asset('https://satudatapadjadjaran.site/storage/' . Auth::user()->image) }}" alt="Foto Profil {{ Auth::user()->name }}" width="150" height="150" class="img-thumbnail rounded-circle">
                                 @endif
                             </div>
                             <div class="text-break">
@@ -45,7 +45,7 @@ div.scroll {
                                         @if(Auth::user()->role == 1)
                                         @else
                                         <div class="me-2 mb-2"><i class="fa-regular fa-id-card"></i></div>
-                                        <div class="me-2 mb-2">{{ Auth::user()->npm}}</div>
+                                        <div class="me-2 mb-2">{{ Auth::user()->id}}</div>
                                         @endif    
                                     </div>
                                 </p>
@@ -68,7 +68,7 @@ div.scroll {
                             <div class="tab-content" id="profileContent">
                                 <div class="tab-pane fade show active" id="edit-profile" role="tabpanel" aria-labelledby="edit-profile-tab" tabindex="0">
                                     <h5 class="text-center">Edit Profile</h5>
-                                    <form action="{{ route('profile.update', Auth::user()->npm)}}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{ route('profile.update', Auth::user()->id)}}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         @method("PUT")
                                         <div class="mb-3">
@@ -121,7 +121,7 @@ div.scroll {
                                         <div class="tab-pane fade show active" id="nav-accepted" role="tabpanel" aria-labelledby="nav-accepted-tab" tabindex="0">
                                             <div class="scroll">
                                                 @foreach($datas as $data)
-                                                    @if($data->user_id = Auth::user()->npm && $data->status == "Accepted")
+                                                    @if($data->user_id = Auth::user()->id && $data->status == "Accepted")
                                                     <div class="card mb-2">
                                                         <div class="card-body">
                                                             <div class="row d-flex g-2">
@@ -129,7 +129,7 @@ div.scroll {
                                                                     @if($data->image == NULL)
                                                                     <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
                                                                     @else
-                                                                    <img src="{{ asset('http://127.0.0.1:8000/storage/' . $data->image) }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                                                    <img src="{{ asset('https://satudatapadjadjaran.site/storage/' . $data->image) }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
                                                                     @endif
                                                                 </div>
                                                                 <div class="col-12 col-lg-9 d-flex flex-column align-content-between">
@@ -169,7 +169,7 @@ div.scroll {
                                         <div class="tab-pane fade" id="nav-pending" role="tabpanel" aria-labelledby="nav-pending-tab" tabindex="0">
                                             <div class="scroll">
                                                 @foreach($datas as $data)
-                                                    @if($data->user_id = Auth::user()->npm && $data->status == "Checking")
+                                                    @if($data->user_id = Auth::user()->id && $data->status == "Checking")
                                                     <div class="card mb-2">
                                                         <div class="card-body">
                                                             <div class="row d-flex g-2">
@@ -177,7 +177,7 @@ div.scroll {
                                                                     @if($data->image == NULL)
                                                                     <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
                                                                     @else
-                                                                    <img src="{{ asset('http://127.0.0.1:8000/storage/' . $data->image) }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                                                    <img src="{{ asset('https://satudatapadjadjaran.site/storage/' . $data->image) }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
                                                                     @endif
                                                                 </div>
                                                                 <div class="col-12 col-lg-9 d-flex flex-column align-content-between">
@@ -215,7 +215,7 @@ div.scroll {
                                         <div class="tab-pane fade" id="nav-rejected" role="tabpanel" aria-labelledby="nav-rejected-tab" tabindex="0">
                                             <div class="scroll">
                                                 @foreach($datas as $data)
-                                                    @if($data->user_id = Auth::user()->npm && $data->status == "Blocked")
+                                                    @if($data->user_id = Auth::user()->id && $data->status == "Blocked")
                                                     <div class="card mb-2">
                                                         <div class="card-body">
                                                             <div class="row d-flex g-2">
@@ -223,7 +223,7 @@ div.scroll {
                                                                     @if($data->image == NULL)
                                                                     <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
                                                                     @else
-                                                                    <img src="{{ asset('http://127.0.0.1:8000/storage/' . $data->image) }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                                                    <img src="{{ asset('https://satudatapadjadjaran.site/storage/' . $data->image) }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
                                                                     @endif
                                                                 </div>
                                                                 <div class="col-12 col-lg-9 d-flex flex-column align-content-between">
@@ -261,7 +261,7 @@ div.scroll {
                                         <div class="tab-pane fade" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab" tabindex="0">
                                             <div class="scroll">
                                                 @foreach($datas as $data)
-                                                    @if($data->user_id = Auth::user()->npm)
+                                                    @if($data->user_id = Auth::user()->id)
                                                     <div class="card mb-2">
                                                         <div class="card-body">
                                                             <div class="row d-flex g-2">
@@ -269,7 +269,7 @@ div.scroll {
                                                                     @if($data->image == NULL)
                                                                     <img src="{{ asset('img/no-image.png') }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
                                                                     @else
-                                                                    <img src="{{ asset('http://127.0.0.1:8000/storage/' . $data->image) }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
+                                                                    <img src="{{ asset('https://satudatapadjadjaran.site/storage/' . $data->image) }}" class="img-fluid rounded-start" alt="Header {{$data->nama}}">
                                                                     @endif
                                                                 </div>
                                                                 <div class="col-12 col-lg-9 d-flex flex-column align-content-between">

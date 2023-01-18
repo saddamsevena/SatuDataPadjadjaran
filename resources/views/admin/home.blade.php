@@ -56,10 +56,10 @@
                         <td>{{$user->npm}}</td>
                         <td>{{$user->email}}</td>
                         <td>
-                            <img src="{{ asset('http://127.0.0.1:8000/storage/' . $user->image) }}" alt="Foto {{$user->name}}" width="100vh" class="img-thumbnail rounded zoom">
+                            <img src="{{ asset('https://satudatapadjadjaran.site/storage/' . $user->image) }}" alt="Foto {{$user->name}}" width="100vh" class="img-thumbnail rounded zoom">
                         </td>
                         <td>
-                            <img src="{{ asset('http://127.0.0.1:8000/storage/' . $user->ktm) }}" alt="KTM {{$user->name}}" width="200vh" class="img-thumbnail zoom">
+                            <img src="{{ asset('https://satudatapadjadjaran.site/storage/' . $user->ktm) }}" alt="KTM {{$user->name}}" width="200vh" class="img-thumbnail zoom">
                         </td>
                         @if($user->is_active == 1)
                             <td>Verified</td>
@@ -151,7 +151,7 @@
                             @if($data->image == NULL)
                                 <img src="{{ asset('img/no-image.png') }}" width="100" height="auto" class="img-thumbnail border-0 rounded-start zoom" alt="Header {{$data->nama}}">
                             @else
-                                <img src="{{ asset('http://127.0.0.1:8000/storage/' . $data->image) }}" width="100" height="auto" class="img-thumbnail border-0 rounded-start zoom" alt="Header {{$data->nama}}">
+                                <img src="{{ asset('https://satudatapadjadjaran.site/storage/' . $data->image) }}" width="100" height="auto" class="img-thumbnail border-0 rounded-start zoom" alt="Header {{$data->nama}}">
                             @endif
                         </td>
                         <td>{{$data->deskripsi}}</td>

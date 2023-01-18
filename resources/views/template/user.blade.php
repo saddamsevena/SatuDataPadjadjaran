@@ -109,18 +109,18 @@
                                     @if(Auth::user()->image == NULL)
                                     <img src="{{ asset('img/profile.jpg') }}" alt="Foto Profil {{ Auth::user()->name }}" width="42" height="42" class="rounded-circle me-2">
                                     @else
-                                    <img src="{{ asset('http://127.0.0.1:8000/storage/' . Auth::user()->image) }}" alt="Foto Profil {{ Auth::user()->name }}" width="42" height="42" class="rounded-circle me-2">
+                                    <img src="{{ asset('https://satudatapadjadjaran.site/storage/' . Auth::user()->image) }}" alt="Foto Profil {{ Auth::user()->name }}" width="42" height="42" class="rounded-circle me-2">
                                     @endif
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown" style="width: 250px;">
                                     @if(Auth::user()->image == NULL)
                                         <img src="{{ asset('img/profile.jpg') }}" width="64" height="64" alt="Foto Profil {{ Auth::user()->name }}"  class="rounded-circle mx-auto d-block">
                                     @else
-                                        <img src="{{ asset('http://127.0.0.1:8000/storage/' . Auth::user()->image) }}" height="64" width="64" alt="Foto Profil {{ Auth::user()->name }}" class="rounded-circle mx-auto d-block">
+                                        <img src="{{ asset('https://satudatapadjadjaran.site/storage/' . Auth::user()->image) }}" height="64" width="64" alt="Foto Profil {{ Auth::user()->name }}" class="rounded-circle mx-auto d-block">
                                     @endif
                                     <strong class="dropdown-item fw-bold disabled text-dark text-center">{{ Auth::user()->name}}</strong>
                                     <hr>
-                                    <a class="dropdown-item" href="/profile/{{ Auth::user()->npm}}">Profile</a>
+                                    <a class="dropdown-item" href="/profile/{{ Auth::user()->id}}">Profile</a>
                                     @if(Auth::user()->role == 1)
                                         <a class="dropdown-item" href="{{ route('admin.home') }}">Admin Dashboard</a>
                                     @endif
