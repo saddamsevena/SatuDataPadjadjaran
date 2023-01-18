@@ -23,8 +23,6 @@ class Data extends Model
         'status'
     ];
     
-    protected $primaryKey = 'id';
-    
     public function user()
 	{
 	      return $this->belongsTo('App\Models\User','user_npm', 'npm');
