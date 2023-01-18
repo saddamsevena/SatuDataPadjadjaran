@@ -56,7 +56,7 @@ class AdminController extends Controller
         Data::where('id',$id)->update([
             'status' => $request->status
         ]);
-        toast('Data disetujui!','success');
+        toast('Status Data diubah!','success');
         return redirect()->to(route('admin.home'))->withErrors(['msg' => 'Data telah diupdate.']);
     }
 
