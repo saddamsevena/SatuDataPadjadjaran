@@ -176,7 +176,7 @@
                                         <input type="hidden" name="kategori" id="kategori" value="Blocked">
                                         <button type="submit" class="btn btn-outline-success">Tolak</button>
                                     </form>
-                                @else if($data->status == "Accepted")
+                                @else($data->status == "Accepted")
                                     <form action="/home/admin/deleteData/{{$data->id}}" method="POST">
                                         {{ csrf_field() }}
                                         <input type="hidden" name="kategori" id="kategori" value="Checking">
