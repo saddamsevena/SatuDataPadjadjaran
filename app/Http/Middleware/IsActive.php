@@ -20,7 +20,9 @@ class IsActive
         if(auth()->user()->is_active == 1){
             return $next($request);
         }
-
+        else {
+            Alert::error('Error!', 'Akun anda belum diverifikasi! SIlahkan hubungi admin!');
+        }
         return redirect()->to(route('katalog.home'))->with('error',"Akun anda belum terverifikasi");
     }
 }

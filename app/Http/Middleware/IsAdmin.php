@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class IsAdmin
 {
@@ -19,7 +20,9 @@ class IsAdmin
         if(auth()->user()->role == 1){
             return $next($request);
         }
-
+        else {
+            Alert::error('Error!', 'Anda tidak bisa mengakses halaman ini!');
+        }
         return redirect()->to(route('home'))->with('error',"You don't have admin access.");
     }
 }
