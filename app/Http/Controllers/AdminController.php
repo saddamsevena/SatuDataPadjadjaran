@@ -54,7 +54,7 @@ class AdminController extends Controller
     public function approveData(Request $request,$id)
     {
         Data::where('id',$id)->update([
-            'status'=> $request->Accepted,
+            'status'=> $request,
         ]);
         toast('Data disetujui!','success');
         return redirect()->to(route('admin.home'))->withErrors(['msg' => 'Data telah diupdate.']);
