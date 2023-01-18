@@ -121,7 +121,7 @@ div.scroll {
                                         <div class="tab-pane fade show active" id="nav-accepted" role="tabpanel" aria-labelledby="nav-accepted-tab" tabindex="0">
                                             <div class="scroll">
                                                 @foreach($datas as $data)
-                                                    @if($data->user_id = Auth::user()->id && $data->status == "Accepted")
+                                                    @if($data->user_npm = Auth::user()->id && $data->status == "Accepted")
                                                     <div class="card mb-2">
                                                         <div class="card-body">
                                                             <div class="row d-flex g-2">
@@ -169,7 +169,7 @@ div.scroll {
                                         <div class="tab-pane fade" id="nav-pending" role="tabpanel" aria-labelledby="nav-pending-tab" tabindex="0">
                                             <div class="scroll">
                                                 @foreach($datas as $data)
-                                                    @if($data->user_id = Auth::user()->id && $data->status == "Checking")
+                                                    @if($data->user_npm = Auth::user()->id && $data->status == "Checking")
                                                     <div class="card mb-2">
                                                         <div class="card-body">
                                                             <div class="row d-flex g-2">
@@ -215,7 +215,7 @@ div.scroll {
                                         <div class="tab-pane fade" id="nav-rejected" role="tabpanel" aria-labelledby="nav-rejected-tab" tabindex="0">
                                             <div class="scroll">
                                                 @foreach($datas as $data)
-                                                    @if($data->user_id = Auth::user()->id && $data->status == "Blocked")
+                                                    @if($data->user_npm = Auth::user()->id && $data->status == "Blocked")
                                                     <div class="card mb-2">
                                                         <div class="card-body">
                                                             <div class="row d-flex g-2">
@@ -261,7 +261,7 @@ div.scroll {
                                         <div class="tab-pane fade" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab" tabindex="0">
                                             <div class="scroll">
                                                 @foreach($datas as $data)
-                                                    @if($data->user_id = Auth::user()->id)
+                                                    @if($data->user_npm = Auth::user()->id)
                                                     <div class="card mb-2">
                                                         <div class="card-body">
                                                             <div class="row d-flex g-2">
