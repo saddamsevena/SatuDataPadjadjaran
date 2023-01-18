@@ -42,5 +42,5 @@ Route::get('/home/admin/editData/{id}', [App\Http\Controllers\AdminController::c
 Route::post('/home/admin/updateData/{id}', [App\Http\Controllers\AdminController::class, 'updateData'])->name('admin.katalog.update');
 
 //Profile
-Route::get('/profile/{npm}', [App\Http\Controllers\HomeController::class, 'editProfile'])->name('profile.edit');
+Route::get('/profile', [App\Http\Controllers\HomeController::class, 'editProfile'])->name('profile.edit');
 Route::put('/profile/update/', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('profile.update');
