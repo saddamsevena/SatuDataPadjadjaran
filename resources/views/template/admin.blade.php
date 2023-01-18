@@ -70,7 +70,7 @@
                                 {{ Auth::user()->name }}
                             </a>
                             <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownProfile">
-                                <li><a class="dropdown-item" href="{{ route('profile.edit'), $user->Auth::user()->npm }}">Profile</a></li>
+                                <li><a class="dropdown-item" href="/profile/{{ Auth::user()->npm}}">Profile</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="{{ route('home') }}"
                                         onclick="event.preventDefault();
