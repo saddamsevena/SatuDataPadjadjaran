@@ -71,7 +71,7 @@ class HomeController extends Controller
         return redirect()->to(route('home'));
     }
 
-    public function editProfile($id)
+    public function editProfile($id, $npm)
     {
         $user = User::findOrFail($id);
         $npm = DB::table('users')->where('id', Auth::user()->id)->value('npm');
