@@ -164,7 +164,7 @@
                         <td>{{$data->updated_at}}</td>
                         <td>{{$data->status}}</td>
                         <td>
-                            <div class="btn-group-vertical">
+                            <div class="btn-group-vertical d-flex justify-content-center align-items-center">
                                 @if($data->status == "Checking")
                                     <form action="/home/admin/deleteData/{{$data->id}}" method="POST">
                                         {{ csrf_field() }}
