@@ -123,6 +123,6 @@ class DataController extends Controller
     public function deleteData($id)
     {
         DB::table('datas')->where('id',$id)->delete();
-        return redirect(route('profile.edit'));
+        return redirect(route('katalog.home'));
     }
 }
