@@ -166,14 +166,14 @@
                         <td>
                             <div class="btn-group-vertical d-flex justify-content-center align-items-center">
                                 @if($data->status == "Checking")
-                                    <form method="POST" action="/home/admin/approveData/{{$data->id}}">
+                                    <form method="POST" action="/home/admin/approvalData/{{$data->id}}">
                                         @csrf
                                         <select name="status" id="status" class="form-control" hidden>
                                             <option value="Accepted" selected>Accepted</option>
                                         </select>
                                         <button type="submit" class="btn btn-outline-success">Setujui</button>
                                     </form>
-                                    <form method="POST" action="/home/admin/approveData/{{$data->id}}">
+                                    <form method="POST" action="/home/admin/approvalData/{{$data->id}}">
                                         @csrf
                                         <select name="status" id="status" class="form-control" hidden>
                                             <option value="Blocked" selected>Tolak</option>
@@ -181,7 +181,7 @@
                                         <button type="submit" class="btn btn-outline-danger">Tolak</button>
                                     </form>
                                 @else($data->status == "Accepted")
-                                    <form method="POST" action="/home/admin/approveData/{{$data->id}}">
+                                    <form method="POST" action="/home/admin/approvalData/{{$data->id}}">
                                         @csrf
                                         <select name="status" id="status" class="form-control" hidden>
                                             <option value="Checking" selected>Tunda</option>
