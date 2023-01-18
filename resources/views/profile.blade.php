@@ -45,7 +45,7 @@ div.scroll {
                                         @if(Auth::user()->role == 1)
                                         @else
                                         <div class="me-2 mb-2"><i class="fa-regular fa-id-card"></i></div>
-                                        <div class="me-2 mb-2">{{ Auth::user()->id}}</div>
+                                        <div class="me-2 mb-2">{{ Auth::user()->npm}}</div>
                                         @endif    
                                     </div>
                                 </p>
@@ -152,6 +152,7 @@ div.scroll {
                                                                             <div class="btn-group-vertical">
                                                                                 <button class="btn btn-outline-primary"><a href="{{ route('katalog.detail', $data->id) }}" class="nav-link">Lihat Detail</a></button>
                                                                                 <button class="btn btn-outline-primary"><a href="{{ route('edit.data', $data->id) }}" class="nav-link">Update</a></button>    
+                                                                                <button class="btn btn-outline-danger"><a href="/deleteData/{{$data->id}}" class="nav-link">Hapus</a></button>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -198,6 +199,7 @@ div.scroll {
                                                                             <div class="btn-group-vertical">
                                                                                 <button class="btn btn-outline-primary"><a href="{{ route('katalog.detail', $data->id) }}" class="nav-link">Lihat Detail</a></button>
                                                                                 <button class="btn btn-outline-primary"><a href="{{ route('edit.data', $data->id) }}" class="nav-link">Update</a></button>    
+                                                                                <button class="btn btn-outline-danger"><a href="/deleteData/{{$data->id}}" class="nav-link">Hapus</a></button>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -244,6 +246,7 @@ div.scroll {
                                                                             <div class="btn-group-vertical">
                                                                                 <button class="btn btn-outline-primary"><a href="{{ route('katalog.detail', $data->id) }}" class="nav-link">Lihat Detail</a></button>
                                                                                 <button class="btn btn-outline-primary"><a href="{{ route('edit.data', $data->id) }}" class="nav-link">Update</a></button>    
+                                                                                <button class="btn btn-outline-danger"><a href="/deleteData/{{$data->id}}" class="nav-link">Hapus</a></button>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -290,6 +293,7 @@ div.scroll {
                                                                             <div class="btn-group-vertical">
                                                                                 <button class="btn btn-outline-primary"><a href="{{ route('katalog.detail', $data->id) }}" class="nav-link">Lihat Detail</a></button>
                                                                                 <button class="btn btn-outline-primary"><a href="{{ route('edit.data', $data->id) }}" class="nav-link">Update</a></button>    
+                                                                                <button class="btn btn-outline-danger"><a href="/deleteData/{{$data->id}}" class="nav-link">Hapus</a></button>
                                                                             </div>
                                                                         </div>
                                                                     </div>

@@ -31,6 +31,7 @@ Route::get('/add-data', [App\Http\Controllers\DataController::class, 'addData'])
 Route::post('/store-data', [App\Http\Controllers\DataController::class, 'storeData'])->name('katalog.store');
 Route::get('/editData/{id}', [App\Http\Controllers\DataController::class, 'editData'])->name('edit.data');
 Route::post('/updateData/{id}', [App\Http\Controllers\DataController::class, 'updateData'])->name('data.update');
+Route::get('/deleteData/{id}', [App\Http\Controllers\DataController::class, 'deleteData']);
 
 // Admin
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'adminHome'])->name('admin.home')->middleware('admin');
@@ -40,6 +41,7 @@ Route::get('/home/admin/deleteUsers/{id}', [App\Http\Controllers\AdminController
 Route::post('/home/admin/storeUsers', [App\Http\Controllers\AdminController::class, 'storeUsers'])->middleware('admin');
 Route::get('/home/admin/editData/{id}', [App\Http\Controllers\AdminController::class, 'editData'])->name('admin.edit.data');
 Route::post('/home/admin/updateData/{id}', [App\Http\Controllers\AdminController::class, 'updateData'])->name('admin.katalog.update');
+Route::get('/home/admin/deleteData/{id}', [App\Http\Controllers\AdminController::class, 'deleteData'])->middleware('admin');
 
 //Profile
 Route::get('/profile/{user}', [App\Http\Controllers\HomeController::class, 'editProfile'])->name('profile.edit');

@@ -164,7 +164,16 @@
                         <td>{{$data->updated_at}}</td>
                         <td>{{$data->status}}</td>
                         <td>
-                            <a href="{{ route ('admin.edit.data', $data->id) }}" class="btn btn-warning"> Update
+                            <div class="btn-group-vertical">
+                                @if($data->status == "Checking")
+                                    <form action="/home/admin/verificateUsers/{{$user->id}}" method="POST">
+                                        {{ csrf_field() }}
+                                        <input type="hidden" name="kategori" id="kategori" value="Accepted">
+                                        <button type="submit" class="btn btn-outline-success">Setujui</button>
+                                    </form>
+                                @endif
+                                <button class="btn btn-outline-info"><a href="{{ route ('admin.edit.data', $data->id) }}" class="nav-link">Update</a></button>
+                            </div>
                         </td>
                     </tr>
                     @endforeach

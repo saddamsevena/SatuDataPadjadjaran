@@ -53,6 +53,12 @@ class AdminController extends Controller
         $datas = Data::where('id',$id)->first();
         return view('admin.updateData', compact('datas'));
     }
+
+    public function deleteData($id)
+    {
+        DB::table('datas')->where('id',$id)->delete();
+        return redirect(route('admin.home'));
+    }
     
     public function updateData(Request $request, $id)
     {

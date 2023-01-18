@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class DataController extends Controller
@@ -117,5 +118,11 @@ class DataController extends Controller
         }
 
         return redirect()->route('katalog.home', compact('datas'));
+    }
+
+    public function deleteData($id)
+    {
+        DB::table('datas')->where('id',$id)->delete();
+        return redirect(route('profile.edit'));
     }
 }
