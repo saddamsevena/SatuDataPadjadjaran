@@ -166,23 +166,23 @@
                         <td>
                             <div class="btn-group-vertical d-flex justify-content-center align-items-center">
                                 @if($data->status == "Checking")
-                                    <form method="POST" action="{{ route('admin.katalog.update', $datas->id ) }}">
+                                    <form method="POST" action="{{ route('admin.katalog.update', $data->id ) }}">
                                         @csrf
                                         <input type="hidden" name="kategori" id="kategori" value="Accepted">
                                         <button type="submit" class="btn btn-outline-success">Setujui</button>
                                     </form>
-                                    <form method="POST" action="{{ route('admin.katalog.update', $datas->id ) }}">
+                                    <form method="POST" action="{{ route('admin.katalog.update', $data->id ) }}">
                                         @csrf
                                         <input type="hidden" name="kategori" id="kategori" value="Blocked">
                                         <button type="submit" class="btn btn-outline-danger">Tolak</button>
                                     </form>
                                 @else($data->status == "Accepted")
-                                    <form method="POST" action="{{ route('admin.katalog.update', $datas->id ) }}">
+                                    <form method="POST" action="{{ route('admin.katalog.update', $data->id ) }}">
                                         @csrf
                                         <input type="hidden" name="kategori" id="kategori" value="Checking">
                                         <button type="submit" class="btn btn-outline-warning">Tunda</button>
                                     </form>
-                                    <form method="POST" action="{{ route('admin.katalog.update', $datas->id ) }}">
+                                    <form method="POST" action="{{ route('admin.katalog.update', $data->id ) }}">
                                         @csrf
                                         <input type="hidden" name="kategori" id="kategori" value="Blocked">
                                         <button type="submit" class="btn btn-outline-danger">Tolak</button>
