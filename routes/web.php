@@ -26,7 +26,7 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 // Data Page
 Route::get('/katalog', [App\Http\Controllers\HomeController::class, 'katalog'])->name('katalog.home');
-Route::get('/detail/{id}', [App\Http\Controllers\DataController::class, 'detailview'])->name('katalog.detail');
+Route::get('/detail/{id}', [App\Http\Controllers\HomeController::class, 'detailview'])->name('katalog.detail');
 Route::get('/add-data', [App\Http\Controllers\DataController::class, 'addData'])->name('katalog.add')->middleware('active');
 Route::post('/store-data', [App\Http\Controllers\DataController::class, 'storeData'])->name('katalog.store');
 Route::get('/editData/{id}', [App\Http\Controllers\DataController::class, 'editData'])->name('edit.data');

@@ -131,4 +131,10 @@ class HomeController extends Controller
                 ->count();
         return view('katalog.home', ['datas'=>$datas->sortByDesc('updated_at')], compact('infografis', 'kajian', 'database', 'arsip'));
     }
+
+    public function detailView($id)
+    {
+        $datas = Data::where('id', $id)->first();
+        return view('katalog.detail', compact('datas'));
+    }
 }
