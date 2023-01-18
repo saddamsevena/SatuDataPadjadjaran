@@ -71,17 +71,17 @@ class HomeController extends Controller
         return redirect()->to(route('home'));
     }
 
-    public function editProfile($npm)
+    public function editProfile($id)
     {
-        $user = User::findOrFail($npm);
-        $datas = Data::where('user_npm', Auth::user()->npm)->get();
+        $user = User::findOrFail($id);
+        $datas = Data::where('user_npm', Auth::user()->id)->get();
         return view("profile", compact("user"), ['datas'=>$datas->sortByDesc('updated_at')]);
     }
 
     public function updateProfile(Request $request) 
     {
         toast('Profil baru berhasil disimpan!','success');
-        $user = User::where('npm', Auth::user()->npm)->first();
+        $user = User::where('id', Auth::user()->id)->first();
         if ($request->hasfile('image') && $user->password != $request->password) {
             $user->update([
                 'name' => $request->name,
