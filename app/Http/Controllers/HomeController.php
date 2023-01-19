@@ -113,7 +113,7 @@ class HomeController extends Controller
             ]);
         }
 
-        return redirect(route("profile.edit", $user->id))->with(["success" => "User berhasil diupdate!"]);
+        return redirect(route("profile.edit", $user->npm))->with(["success" => "User berhasil diupdate!"]);
     }
 
     public function katalog()
