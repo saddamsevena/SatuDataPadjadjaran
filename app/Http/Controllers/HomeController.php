@@ -82,34 +82,19 @@ class HomeController extends Controller
     {
         toast('Profil baru berhasil disimpan!','success');
         $user = User::where('id', Auth::user()->id)->first();
-        if ($request->hasfile('image') && $user->password != $request->password) {
+        if ($user->password != $request->password) {
             $user->update([
                 'name' => $request->name,
                 'email' => $request->email,
                 'image' => $request->file('image')->store('img/profile', 'public'),
                 'password' => Hash::make($request->password),
-            ]);
-        }
-
-        else if ($user->password != $request->password) {
-            $user->update([
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => Hash::make($request->password),
-            ]);
-        }
-
-        else if ($request->hasfile('image')) {
-            $user->update([
-                'name' => $request->name,
-                'email' => $request->email,
-                'image' => $request->file('image')->store('img/profile', 'public'),
             ]);
         }
         else {
             $user->update([
                 'name' => $request->name,
                 'email' => $request->email,
+                'image' => $request->file('image')->store('img/profile', 'public'),
             ]);
         }
 
