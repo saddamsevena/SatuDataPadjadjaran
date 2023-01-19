@@ -120,7 +120,7 @@
                                     @endif
                                     <strong class="dropdown-item fw-bold disabled text-dark text-center">{{ Auth::user()->name}}</strong>
                                     <hr>
-                                    <a class="dropdown-item" href="/profile/{{ Auth::user()->id}}">Profile</a>
+                                    <a class="dropdown-item" href="/profile/{{ Auth::user()->npm}}">Profile</a>
                                     @if(Auth::user()->role == 1)
                                         <a class="dropdown-item" href="{{ route('admin.home') }}">Admin Dashboard</a>
                                     @endif
