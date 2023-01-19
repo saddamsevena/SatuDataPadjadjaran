@@ -95,7 +95,7 @@ class HomeController extends Controller
                 'name' => $request->name,
                 'email' => $request->email,
                 'image' => $request->file('image')->store('img/profile', 'public'),
-                'password' => $user->password,
+                'password' => Hash::make($request->password),
             ]);
         }
 
