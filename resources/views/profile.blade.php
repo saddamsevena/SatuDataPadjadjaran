@@ -73,25 +73,25 @@ div.scroll {
                                         @method("PUT")
                                         <div class="mb-3">
                                             <label class="form-label" for="name">Name</label>
-                                            <input value="{{ $user->name }}" name="name" id="name" type="text" class="form-control" placeholder="Masukkan nama">
+                                            <input value="{{ Auth::user()->name }}" name="name" id="name" type="text" class="form-control" placeholder="Masukkan nama">
                                             <p class="text-danger">{{ $errors->first("name") }}</p>
                                         </div>
 
                                         <div class="mb-3">
                                             <label class="form-label" for="email">Email</label>
-                                            <input value="{{ $user->email }}" name="email" id="email" type="email" class="form-control" placeholder="Masukkan email">
+                                            <input value="{{ Auth::user()->email }}" name="email" id="email" type="email" class="form-control" placeholder="Masukkan email">
                                             <p class="text-danger">{{ $errors->first("email") }}</p>
                                         </div>
 
                                         <div class="mb-3">
                                             <label class="form-label" for="npm">NPM</label>
-                                            <input value="{{ $user->npm }}" name="npm" id="npm" type="text" class="form-control" placeholder="Masukkan NPM" readonly disabled>
+                                            <input value="{{ Auth::user()->npm }}" name="npm" id="npm" type="text" class="form-control" placeholder="Masukkan NPM" readonly disabled>
                                             <p class="text-danger">{{ $errors->first("npm") }}</p>
                                         </div>
 
                                         <div class="mb-3">
                                             <label class="form-label" for="image">Foto Profil</label>
-                                            <input type="file" name="image" value="{{ $user->image }}" class="form-control" placeholder="foto" aria-describedby="imageHelp">
+                                            <input type="file" name="image" value="{{ Auth::user()->image }}" class="form-control" placeholder="foto" aria-describedby="imageHelp">
                                             <p class="text-danger">{{ $errors->first("image") }}</p>
                                             <div id="imageHelp" class="form-text">
                                                 Gunakan gambar dengan rasio 1 : 1 untuk mendapatkan hasil yang maksimal
