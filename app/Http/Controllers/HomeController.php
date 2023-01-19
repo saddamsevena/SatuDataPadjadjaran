@@ -95,7 +95,6 @@ class HomeController extends Controller
             $user->update([
                 'name' => $request->name,
                 'email' => $request->email,
-                'image' => $request->old('image'),
                 'password' => Hash::make($request->password),
             ]);
         }
@@ -105,16 +104,12 @@ class HomeController extends Controller
                 'name' => $request->name,
                 'email' => $request->email,
                 'image' => $request->file('image')->store('img/profile', 'public'),
-                'password' => $request->old('password'),
             ]);
         }
-
         else {
             $user->update([
-                'name' => $request->old('name'),
-                'email' => $request->old('email'),
-                'image' => $request->old('image'),
-                'password' => $request->old('password'),
+                'name' => $request->name,
+                'email' => $request->email,
             ]);
         }
 

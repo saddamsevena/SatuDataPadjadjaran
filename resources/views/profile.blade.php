@@ -100,7 +100,7 @@ div.scroll {
 
                                         <div class="mb-3">
                                             <label class="form-label" for="password">Password</label>
-                                            <input value="" name="password" id="password" type="password" class="form-control" placeholder="Masukkan password baru">
+                                            <input value="" name="password" id="password" type="password" class="form-control" placeholder="Masukkan password anda" required>
                                             <p class="text-danger">{{ $errors->first("password") }}</p>
                                         </div>
 
