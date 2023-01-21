@@ -100,9 +100,11 @@
                                         <button type="submit" class="btn btn-danger">Batal Verifikasi Akun</button>
                                     </form>
                                 @endif
-                                <a href="/home/admin/deleteUsers/{{$user->id}}" class="btn btn-danger">
-                                    <i class="fa-solid fa-trash"></i>
-                                </a>
+                                <button class="btn btn-danger">
+                                    <a href="/home/admin/deleteUsers/{{$user->id}}">
+                                        <i class="fa-solid fa-trash"></i>Hapus Akun
+                                    </a>
+                                </button>
                             </div>
                         </td>
                     </tr>

@@ -27,7 +27,7 @@
 <div class="container-fluid py-4 content">
     <div class="container">
         <nav class="nav nav-pills flex-column flex-sm-row" id="dataList-tab" role="tablist">
-            <a class="flex-sm-fill text-sm-center nav-link" id="dataList-all-tab" data-bs-toggle="pill" data-bs-target="#dataList-all" type="button" role="tab" aria-controls="dataList-all" aria-selected="true">Semua</a>
+            <a class="flex-sm-fill text-sm-center nav-link active" id="dataList-all-tab" data-bs-toggle="pill" data-bs-target="#dataList-all" type="button" role="tab" aria-controls="dataList-all" aria-selected="true">Semua</a>
             <a class="flex-sm-fill text-sm-center nav-link" id="dataList-infografis-tab" data-bs-toggle="pill" data-bs-target="#dataList-infografis" type="button" role="tab" aria-controls="dataList-infografis" aria-selected="false">Infografis</a>
             <a class="flex-sm-fill text-sm-center nav-link" id="dataList-arsip-tab" data-bs-toggle="pill" data-bs-target="#dataList-arsip" type="button" role="tab" aria-controls="dataList-arsip" aria-selected="false">Arsip Lembaga</a>
             <a class="flex-sm-fill text-sm-center nav-link" id="dataList-kajian-tab" data-bs-toggle="pill" data-bs-target="#dataList-kajian" type="button" role="tab" aria-controls="dataList-kajian" aria-selected="false">Kajian</a>
