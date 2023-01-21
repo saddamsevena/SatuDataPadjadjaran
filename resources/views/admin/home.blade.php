@@ -141,14 +141,14 @@
                                 <img src="{{ asset('https://satudatapadjadjaran.site/storage/' . $data->image) }}" width="100" height="auto" class="img-thumbnail border-0 rounded-start zoom" alt="Header {{$data->nama}}">
                             @endif
                         </td>
-                        <td><div class="text-truncate">{{$data->deskripsi}}</div></td>
+                        <td>{{$data->deskripsi}}</td>
                         <td>{{$data->kategori}}</td>
                         <td>{{$data->sumber}}</td>
                         <td>{{$data->penerbit}}</td>
                         <td>{{$data->created_at}}</td>
                         <td>{{$data->status}}</td>
                         <td>
-                            <div class="btn-toolbar d-flex justify-content-center align-items-center">
+                            <div class="btn-group-vertical d-flex justify-content-center align-items-center">
                                 @if($data->status == "Checking")
                                     <form method="POST" action="/home/admin/approvalData/{{$data->id}}">
                                         @csrf
