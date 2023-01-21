@@ -86,6 +86,7 @@ class HomeController extends Controller
             $user->update([
                 'name' => $request->name,
                 'email' => $request->email,
+                'image' => $request->file('image')->store('img/profile', 'public'),
                 'password' => Hash::make($request->password),
             ]);
         }

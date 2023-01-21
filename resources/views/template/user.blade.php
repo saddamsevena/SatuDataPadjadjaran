@@ -49,19 +49,19 @@
     <body class="d-flex flex-column">
         <nav class="navbar navbarcustom sticky-top navbar-expand-lg">
             <div class="container-fluid align-items-center">
-                <img src="{{ asset('img/logo/bem-kema2.png') }}" class="navbar-brand" width="42" alt="Logo">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <a href="{{ route('home') }}" class="navbar-brand"><img src="{{ asset('img/logo/bem-kema2.png') }}" width="42" alt="Logo"></a>
+                <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-between align-items-center" id="navbar">
                     <ul class="navbar-nav text-end p-2">
-                        <li class="nav-item">
-                            <a class="nav-link fs-5 fw-normal text-light" aria-current="page" href="/">Beranda</a>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link fs-5 fw-normal text-light" aria-current="page" href="{{ route('home') }}">Beranda</a>
                         </li>
-                        <li class="nav-item dropdown">
+                        <li class="nav-item mx-3 dropdown">
                             <a class="nav-link fs-5 fw-normal text-light" aria-current="page" href="{{ route('katalog.home') }}">Katalog Data</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item mx-3">
                             <a class="nav-link fs-5 fw-normal text-light" aria-current="page" href="{{ route('about') }}">About</a>
                         </li>
                     </ul>
@@ -189,7 +189,7 @@
             </div>
         </main>
         <!-- START FOOTER -->
-        <div class="container-fluid bg-light mt-auto">
+        <div class="container-fluid bg-light mt-auto d-none d-lg-block">
             <div class="container d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
                 <p class="col-md-4 mb-0 text-muted text-center">© 2022 BEM KEMA Universitas Padjadjaran</p>
                 <div class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto">

@@ -39,10 +39,10 @@
     <div class="tab-content" id="dataList-tabContent">
         <div class="tab-pane fade show active" id="dataList-all" role="tabpanel" aria-labelledby="dataList-all-tab" tabindex="0">
             <div class="container">
-                <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-5 g-1 g-sm-1 g-md-2 g-lg-3">
+                <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-5 g-3 g-sm-3 g-md-3 g-lg-3">
                     @foreach($datas as $data)
                         @if($data->status == "Accepted")
-                            <div class="col-sm-12 col-md-6 ">
+                            <div class="col-sm-12 col-md-6">
                                 <div class="card">
                                     @if($data->image == NULL)
                                         <img src="{{ asset('img/no-image.png') }}" class="card-img-top img-fluid" alt="Header {{$data->nama}}">
