@@ -72,7 +72,7 @@
                             <td>User</td>
                         @endif
                         <td>
-                            <div class="btn-toolbar d-flex justify-content-center align-items-center">
+                            <div class="btn-group-vertical d-flex justify-content-center align-items-center">
                                 @if($user->role == 0)
                                     <form action="/home/admin/makeAdmin/{{$user->id}}" method="POST">
                                         {{ csrf_field() }}
@@ -100,11 +100,9 @@
                                         <button type="submit" class="btn btn-danger">Batal Verifikasi Akun</button>
                                     </form>
                                 @endif
-                                <button>
-                                    <a href="/home/admin/deleteUsers/{{$user->id}}" class="btn btn-danger">
-                                        <i class="fa-solid fa-trash"></i>Hapus Akun
-                                    </a>
-                                </button>
+                                <a href="/home/admin/deleteUsers/{{$user->id}}" class="btn btn-danger">
+                                    <i class="fa-solid fa-trash"></i>Hapus Akun
+                                </a>
                             </div>
                         </td>
                     </tr>
@@ -143,7 +141,7 @@
                                 <img src="{{ asset('https://satudatapadjadjaran.site/storage/' . $data->image) }}" width="100" height="auto" class="img-thumbnail border-0 rounded-start zoom" alt="Header {{$data->nama}}">
                             @endif
                         </td>
-                        <td class="text-truncate">{{$data->deskripsi}}</td>
+                        <td><div class="text-truncate">{{$data->deskripsi}}</div></td>
                         <td>{{$data->kategori}}</td>
                         <td>{{$data->sumber}}</td>
                         <td>{{$data->penerbit}}</td>
