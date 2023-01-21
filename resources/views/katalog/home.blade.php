@@ -11,6 +11,11 @@
 .content {
     background-color: #EEEFF7;
 }
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
 @endsection
 
 @section('content')
@@ -37,7 +42,7 @@
                 <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-5 g-1 g-sm-1 g-md-2 g-lg-3">
                     @foreach($datas as $data)
                         @if($data->status == "Accepted")
-                            <div class="col">
+                            <div class="col-sm-12 col-md-6 ">
                                 <div class="card">
                                     @if($data->image == NULL)
                                         <img src="{{ asset('img/no-image.png') }}" class="card-img-top img-fluid" alt="Header {{$data->nama}}">
