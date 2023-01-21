@@ -55,7 +55,7 @@ body {
                                     <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" autofocus>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Daftar</button>
-                                <a class="btn btn-warning" href="{{ route('login') }}" role="button">Sign In</a>
+                                <a class="btn btn-outline-warning" href="{{ route('login') }}" role="button">Sign In</a>
                             </form>
                         </div>
                         <div class="col-6 border-start d-flex justify-content-center align-items-center">

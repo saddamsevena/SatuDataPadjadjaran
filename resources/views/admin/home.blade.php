@@ -72,47 +72,37 @@
                             <td>User</td>
                         @endif
                         <td>
-                            <div class="row justify-content-center">
+                            <div class="btn-group-vertical d-flex justify-content-center align-items-center">
                                 @if($user->role == 0)
-                                    <div class="col-sm-auto">
-                                        <form action="/home/admin/makeAdmin/{{$user->id}}" method="POST">
-                                            {{ csrf_field() }}
-                                            <input type="hidden" name="isAdmin" value=1>
-                                            <button type="submit" class="btn btn-success">Jadikan admin</button>
-                                        </form>
-                                    </div>
+                                    <form action="/home/admin/makeAdmin/{{$user->id}}" method="POST">
+                                        {{ csrf_field() }}
+                                        <input type="hidden" name="isAdmin" value=1>
+                                        <button type="submit" class="btn btn-success">Jadikan admin</button>
+                                    </form>
                                 @else
-                                    <div class="col-sm-auto">
-                                        <form action="/home/admin/makeAdmin/{{$user->id}}" method="POST">
-                                            {{ csrf_field() }}
-                                            <input type="hidden" name="isAdmin" value=0>
-                                            <button type="submit" class="btn btn-danger">Hapus admin</button>
-                                        </form>
-                                    </div>
+                                    <form action="/home/admin/makeAdmin/{{$user->id}}" method="POST">
+                                        {{ csrf_field() }}
+                                        <input type="hidden" name="isAdmin" value=0>
+                                        <button type="submit" class="btn btn-danger">Hapus admin</button>
+                                    </form>
                                 @endif
 
                                 @if($user->is_active == 0)
-                                    <div class="col-sm-auto">
-                                        <form action="/home/admin/verificateUsers/{{$user->id}}" method="POST">
-                                            {{ csrf_field() }}
-                                            <input type="hidden" name="verified" value=1>
-                                            <button type="submit" class="btn btn-success">Verifikasi Akun</button>
-                                        </form>
-                                    </div>
+                                    <form action="/home/admin/verificateUsers/{{$user->id}}" method="POST">
+                                        {{ csrf_field() }}
+                                        <input type="hidden" name="verified" value=1>
+                                        <button type="submit" class="btn btn-success">Verifikasi Akun</button>
+                                    </form>
                                 @else
-                                    <div class="col-sm-auto">
-                                        <form action="/home/admin/verificateUsers/{{$user->id}}" method="POST">
-                                            {{ csrf_field() }}
-                                            <input type="hidden" name="verified" value=0>
-                                            <button type="submit" class="btn btn-danger">Batal Verifikasi Akun</button>
-                                        </form>
-                                    </div>
+                                    <form action="/home/admin/verificateUsers/{{$user->id}}" method="POST">
+                                        {{ csrf_field() }}
+                                        <input type="hidden" name="verified" value=0>
+                                        <button type="submit" class="btn btn-danger">Batal Verifikasi Akun</button>
+                                    </form>
                                 @endif
-                                <div class="col-auto">
-                                    <a href="/home/admin/deleteUsers/{{$user->id}}" class="btn btn-danger">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </a>
-                                </div>
+                                <a href="/home/admin/deleteUsers/{{$user->id}}" class="btn btn-danger">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
                             </div>
                         </td>
                     </tr>
@@ -134,10 +124,7 @@
                         <th>Kategori</th>
                         <th>Sumber</th>
                         <th>Penerbit</th>
-                        <th>Kata Kunci</th>
-                        <th>Tautan Data</th>
                         <th>Tanggal Rilis</th>
-                        <th>Tanggal Diperbaharui</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -158,10 +145,7 @@
                         <td>{{$data->kategori}}</td>
                         <td>{{$data->sumber}}</td>
                         <td>{{$data->penerbit}}</td>
-                        <td>{{$data->kata_kunci}}</td>
-                        <td>{{$data->tautan}}</td>
                         <td>{{$data->created_at}}</td>
-                        <td>{{$data->updated_at}}</td>
                         <td>{{$data->status}}</td>
                         <td>
                             <div class="btn-group-vertical d-flex justify-content-center align-items-center">

@@ -39,7 +39,7 @@ body {
                                     <input id="password" type="password" class="form-control" name="password" required autofocus>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Sign In</button>
-                                <a class="btn btn-warning" href="{{ route('register') }}" role="button">Buat Akun</a>
+                                <a class="btn btn-outline-warning" href="{{ route('register') }}" role="button">Buat Akun</a>
                             </form>
                         </div>
                     </div>
