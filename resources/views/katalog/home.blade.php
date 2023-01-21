@@ -37,7 +37,7 @@
     </div>
     <hr>
     <div class="tab-content" id="dataList-tabContent">
-        <div class="tab-pane fade show" id="dataList-all" role="tabpanel" aria-labelledby="dataList-all-tab" tabindex="0">
+        <div class="tab-pane fade show active" id="dataList-all" role="tabpanel" aria-labelledby="dataList-all-tab" tabindex="0">
             <div class="container">
                 <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-5 g-1 g-sm-1 g-md-2 g-lg-3">
                     @foreach($datas as $data)

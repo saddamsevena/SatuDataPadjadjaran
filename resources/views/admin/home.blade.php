@@ -100,8 +100,8 @@
                                         <button type="submit" class="btn btn-danger">Batal Verifikasi Akun</button>
                                     </form>
                                 @endif
-                                <button class="btn btn-danger">
-                                    <a href="/home/admin/deleteUsers/{{$user->id}}">
+                                <button>
+                                    <a href="/home/admin/deleteUsers/{{$user->id}}" class="btn btn-danger">
                                         <i class="fa-solid fa-trash"></i>Hapus Akun
                                     </a>
                                 </button>
@@ -143,7 +143,7 @@
                                 <img src="{{ asset('https://satudatapadjadjaran.site/storage/' . $data->image) }}" width="100" height="auto" class="img-thumbnail border-0 rounded-start zoom" alt="Header {{$data->nama}}">
                             @endif
                         </td>
-                        <td>{{$data->deskripsi}}</td>
+                        <td class="text-truncate">{{$data->deskripsi}}</td>
                         <td>{{$data->kategori}}</td>
                         <td>{{$data->sumber}}</td>
                         <td>{{$data->penerbit}}</td>
