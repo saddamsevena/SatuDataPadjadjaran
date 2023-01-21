@@ -72,7 +72,7 @@
                             <td>User</td>
                         @endif
                         <td>
-                            <div class="btn-group-vertical d-flex justify-content-center align-items-center">
+                            <div class="btn-toolbar d-flex justify-content-center align-items-center">
                                 @if($user->role == 0)
                                     <form action="/home/admin/makeAdmin/{{$user->id}}" method="POST">
                                         {{ csrf_field() }}
@@ -150,7 +150,7 @@
                         <td>{{$data->created_at}}</td>
                         <td>{{$data->status}}</td>
                         <td>
-                            <div class="btn-group-vertical d-flex justify-content-center align-items-center">
+                            <div class="btn-toolbar d-flex justify-content-center align-items-center">
                                 @if($data->status == "Checking")
                                     <form method="POST" action="/home/admin/approvalData/{{$data->id}}">
                                         @csrf
