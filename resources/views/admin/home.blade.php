@@ -118,15 +118,14 @@
                 <thead class="table-success">
                     <tr>
                         <th>No</th>
-                        <th>Judul</th>
+                        <th style="width:10%;">Judul</th>
                         <th>Gambar</th>
-                        <th>Deskripsi</th>
                         <th>Kategori</th>
                         <th>Sumber</th>
                         <th>Penerbit</th>
                         <th>Tanggal Rilis</th>
                         <th>Status</th>
-                        <th>Action</th>
+                        <th style="width:15%;">Action</th>
                     </tr>
                 </thead>
                 <tbody class="table-group-divider">
@@ -141,7 +140,6 @@
                                 <img src="{{ asset('https://satudatapadjadjaran.site/storage/' . $data->image) }}" width="100" height="auto" class="img-thumbnail border-0 rounded-start zoom" alt="Header {{$data->nama}}">
                             @endif
                         </td>
-                        <td>{{$data->deskripsi}}</td>
                         <td>{{$data->kategori}}</td>
                         <td>{{$data->sumber}}</td>
                         <td>{{$data->penerbit}}</td>

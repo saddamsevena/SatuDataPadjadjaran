@@ -43,7 +43,7 @@
                     @foreach($datas as $data)
                         @if($data->status == "Accepted")
                             <div class="col-sm-12 col-md-6">
-                                <div class="card">
+                                <div class="card h-100">
                                     @if($data->image == NULL)
                                         <img src="{{ asset('img/no-image.png') }}" class="card-img-top img-fluid" alt="Header {{$data->nama}}">
                                     @else
@@ -79,11 +79,11 @@
         </div>
         <div class="tab-pane fade" id="dataList-infografis" role="tabpanel" aria-labelledby="dataList-infografis-tab" tabindex="0">
             <div class="container">
-                <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-5 g-1 g-sm-1 g-md-2 g-lg-3">
+                <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-5 g-3 g-sm-3 g-md-3 g-lg-3">
                     @foreach($datas as $data)
                         @if($data->status == "Accepted" && $data->kategori == "Infografis")
-                            <div class="col">
-                                <div class="card">
+                            <div class="col col-sm-12 col-md-6">
+                                <div class="card h-100">
                                     @if($data->image == NULL)
                                         <img src="{{ asset('img/no-image.png') }}" class="card-img-top img-fluid" alt="Header {{$data->nama}}">
                                     @else
@@ -119,11 +119,11 @@
         </div>
         <div class="tab-pane fade" id="dataList-arsip" role="tabpanel" aria-labelledby="dataList-arsip-tab" tabindex="0">
             <div class="container">
-                <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-5 g-1 g-sm-1 g-md-2 g-lg-3">
+                <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-5 g-3 g-sm-3 g-md-3 g-lg-3">
                     @foreach($datas as $data)
                         @if($data->status == "Accepted" && $data->kategori == "Arsip Lembaga")
-                            <div class="col">
-                                <div class="card">
+                            <div class="col col-sm-12 col-md-6">
+                                <div class="card h-100">
                                     @if($data->image == NULL)
                                         <img src="{{ asset('img/no-image.png') }}" class="card-img-top img-fluid" alt="Header {{$data->nama}}">
                                     @else
@@ -159,11 +159,11 @@
         </div>
         <div class="tab-pane fade" id="dataList-kajian" role="tabpanel" aria-labelledby="dataList-kajian-tab" tabindex="0">
             <div class="container">
-                <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-5 g-1 g-sm-1 g-md-2 g-lg-3">
+                <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-5 g-3 g-sm-3 g-md-3 g-lg-3">
                     @foreach($datas as $data)
                         @if($data->status == "Accepted" && $data->kategori == "Kajian")
-                            <div class="col">
-                                <div class="card">
+                            <div class="col col-sm-12 col-md-6">
+                                <div class="card h-100">
                                     @if($data->image == NULL)
                                         <img src="{{ asset('img/no-image.png') }}" class="card-img-top img-fluid" alt="Header {{$data->nama}}">
                                     @else
@@ -199,11 +199,11 @@
         </div>
         <div class="tab-pane fade" id="dataList-database" role="tabpanel" aria-labelledby="dataList-database-tab" tabindex="0">
             <div class="container">
-                <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-5 g-1 g-sm-1 g-md-2 g-lg-3">
+                <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-5 g-3 g-sm-3 g-md-3 g-lg-3">
                     @foreach($datas as $data)
                         @if($data->status == "Accepted" && $data->kategori == "Database")
-                            <div class="col">
-                                <div class="card">
+                            <div class="col col-sm-12 col-md-6">
+                                <div class="card h-100">
                                     @if($data->image == NULL)
                                         <img src="{{ asset('img/no-image.png') }}" class="card-img-top img-fluid" alt="Header {{$data->nama}}">
                                     @else
@@ -239,11 +239,11 @@
         </div>
         <div class="tab-pane fade" id="dataList-lainnya" role="tabpanel" aria-labelledby="dataList-lainnya-tab" tabindex="0">
             <div class="container">
-                <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-5 g-1 g-sm-1 g-md-2 g-lg-3">
+                <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-5 g-3 g-sm-3 g-md-3 g-lg-3">
                     @foreach($datas as $data)
                         @if($data->status == "Accepted" && $data->kategori == "Lainnya")
-                            <div class="col">
-                                <div class="card">
+                            <div class="col col-sm-12 col-md-6">
+                                <div class="card h-100">
                                     @if($data->image == NULL)
                                         <img src="{{ asset('img/no-image.png') }}" class="card-img-top img-fluid" alt="Header {{$data->nama}}">
                                     @else

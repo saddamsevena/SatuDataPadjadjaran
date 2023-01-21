@@ -19,11 +19,11 @@
         <p class="fs-1 fw-bold">{{$datas->nama}}</p>
     </div>
 </div>
-<div class="contaner-fluid p-3 bg-white">
+<div class="contaner-fluid bg-white">
     <div class="d-flex justify-content-center">
-        <div class="container col-lg-8">
-            <div class="row gx-sm-2 gx-md-3 gx-lg-5 row-cols-1 row-cols-lg-2  p-2">
-                <div class="col-lg-3 p-2 d-flex flex-column justify-content-center">
+        <div class="container col-lg-8 mt-3">
+            <div class="row gx-sm-2 gx-md-3 gx-lg-5 row-cols-1 row-cols-lg-2">
+                <div class="col-lg-3 d-flex flex-column justify-content-start">
                     @if($datas->image == NULL)
                         <img src="{{ asset('img/no-image.png') }}" class="img-thumbnail border-0 rounded-start" alt="Header {{$datas->nama}}">
                     @else
@@ -36,8 +36,6 @@
                         <p class="text-end fw-normal mt-0 mb-0">{{$datas->penerbit}}</p>
                         <p class="text-start fw-bold mt-0 mb-0">Sumber Data</p>
                         <p class="text-end fw-normal mt-0 mb-0">{{$datas->sumber}}</p>
-                        <p class="text-start fw-bold mt-0 mb-0">Author</p>
-                        <p class="text-end fw-normal mt-0 mb-0">{{$datas->penerbit}}</p>
                         <p class="text-start fw-bold mt-0 mb-0">Kategori</p>
                         <p class="text-end fw-normal mt-0 mb-0">{{$datas->kategori}}</p>
                     </div>
@@ -47,7 +45,7 @@
                 </div>
                 <div class="col-lg-9 d-flex flex-column align-content-between">
                     <div class="row">
-                        <p class="text-center fs-5 fw-bold mt-5">Deskripsi Data</p>
+                        <p class="text-center fs-5 fw-bold">Deskripsi Data</p>
                         <p class="fw-normal" style="text-align:justify;">{{$datas->deskripsi}}</p>
                     </div>
                     <div class="row">
