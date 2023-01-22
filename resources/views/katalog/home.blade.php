@@ -16,6 +16,13 @@
     height: 15vw;
     object-fit: contain;
 }
+
+@media screen and (max-width: 768px){
+    .card-img-top {
+        width: 100%;
+        height: 100%;
+    }
+}
 @endsection
 
 @section('content')
@@ -49,7 +56,7 @@
                                     @else
                                         <img src="{{ asset('https://satudatapadjadjaran.site/storage/' . $data->image) }}" class="card-img-top img-fluid" alt="Header {{$data->nama}}">
                                     @endif
-                                    <div class="card-body">
+                                    <div class="card-body d-flex flex-column">
                                         <h5 class="card-title text-center">{{$data->nama}}</h5>
                                         <p class="card-text text-truncate text-center">{{$data->deskripsi}}</p>
                                         <p class="card-text">
@@ -60,7 +67,7 @@
                                             Sumber : {{$data->sumber}}
                                             <br>
                                         </p>
-                                        <div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
+                                        <div class="btn-toolbar justify-content-center mt-auto" role="toolbar" aria-label="Toolbar with button groups">
                                             <div class="btn-group" role="group" aria-label="First group">
                                                 <button class="btn btn-outline-primary"><a href="{{$data->tautan}}" class="nav-link">Tautan</a></button>
                                                 <button class="btn btn-outline-primary"><a href="{{ route('katalog.detail', $data->id) }}" class="nav-link">Lihat Detail</a></button>    
@@ -89,7 +96,7 @@
                                     @else
                                         <img src="{{ asset('https://satudatapadjadjaran.site/storage/' . $data->image) }}" class="card-img-top img-fluid" alt="Header {{$data->nama}}">
                                     @endif
-                                    <div class="card-body">
+                                    <div class="card-body d-flex flex-column">
                                         <h5 class="card-title text-center">{{$data->nama}}</h5>
                                         <p class="card-text text-truncate text-center">{{$data->deskripsi}}</p>
                                         <p class="card-text">
@@ -100,7 +107,7 @@
                                             Sumber : {{$data->sumber}}
                                             <br>
                                         </p>
-                                        <div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
+                                        <div class="btn-toolbar justify-content-center mt-auto" role="toolbar" aria-label="Toolbar with button groups">
                                             <div class="btn-group" role="group" aria-label="First group">
                                                 <button class="btn btn-outline-primary"><a href="{{$data->tautan}}" class="nav-link">Tautan</a></button>
                                                 <button class="btn btn-outline-primary"><a href="{{ route('katalog.detail', $data->id) }}" class="nav-link">Lihat Detail</a></button>    
@@ -129,7 +136,7 @@
                                     @else
                                         <img src="{{ asset('https://satudatapadjadjaran.site/storage/' . $data->image) }}" class="card-img-top img-fluid" alt="Header {{$data->nama}}">
                                     @endif
-                                    <div class="card-body">
+                                    <div class="card-body d-flex flex-column">
                                         <h5 class="card-title text-center">{{$data->nama}}</h5>
                                         <p class="card-text text-truncate text-center">{{$data->deskripsi}}</p>
                                         <p class="card-text">
@@ -140,7 +147,7 @@
                                             Sumber : {{$data->sumber}}
                                             <br>
                                         </p>
-                                        <div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
+                                        <div class="btn-toolbar justify-content-center mt-auto" role="toolbar" aria-label="Toolbar with button groups">
                                             <div class="btn-group" role="group" aria-label="First group">
                                                 <button class="btn btn-outline-primary"><a href="{{$data->tautan}}" class="nav-link">Tautan</a></button>
                                                 <button class="btn btn-outline-primary"><a href="{{ route('katalog.detail', $data->id) }}" class="nav-link">Lihat Detail</a></button>    
@@ -169,7 +176,7 @@
                                     @else
                                         <img src="{{ asset('https://satudatapadjadjaran.site/storage/' . $data->image) }}" class="card-img-top img-fluid" alt="Header {{$data->nama}}">
                                     @endif
-                                    <div class="card-body">
+                                    <div class="card-body d-flex flex-column">
                                         <h5 class="card-title text-center">{{$data->nama}}</h5>
                                         <p class="card-text text-truncate text-center">{{$data->deskripsi}}</p>
                                         <p class="card-text">
@@ -180,7 +187,7 @@
                                             Sumber : {{$data->sumber}}
                                             <br>
                                         </p>
-                                        <div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
+                                        <div class="btn-toolbar justify-content-center mt-auto" role="toolbar" aria-label="Toolbar with button groups">
                                             <div class="btn-group" role="group" aria-label="First group">
                                                 <button class="btn btn-outline-primary"><a href="{{$data->tautan}}" class="nav-link">Tautan</a></button>
                                                 <button class="btn btn-outline-primary"><a href="{{ route('katalog.detail', $data->id) }}" class="nav-link">Lihat Detail</a></button>    
@@ -209,7 +216,7 @@
                                     @else
                                         <img src="{{ asset('https://satudatapadjadjaran.site/storage/' . $data->image) }}" class="card-img-top img-fluid" alt="Header {{$data->nama}}">
                                     @endif
-                                    <div class="card-body">
+                                    <div class="card-body d-flex flex-column">
                                         <h5 class="card-title text-center">{{$data->nama}}</h5>
                                         <p class="card-text text-truncate text-center">{{$data->deskripsi}}</p>
                                         <p class="card-text">
@@ -220,7 +227,7 @@
                                             Sumber : {{$data->sumber}}
                                             <br>
                                         </p>
-                                        <div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
+                                        <div class="btn-toolbar justify-content-center mt-auto" role="toolbar" aria-label="Toolbar with button groups">
                                             <div class="btn-group" role="group" aria-label="First group">
                                                 <button class="btn btn-outline-primary"><a href="{{$data->tautan}}" class="nav-link">Tautan</a></button>
                                                 <button class="btn btn-outline-primary"><a href="{{ route('katalog.detail', $data->id) }}" class="nav-link">Lihat Detail</a></button>    
@@ -249,7 +256,7 @@
                                     @else
                                         <img src="{{ asset('https://satudatapadjadjaran.site/storage/' . $data->image) }}" class="card-img-top img-fluid" alt="Header {{$data->nama}}">
                                     @endif
-                                    <div class="card-body">
+                                    <div class="card-body d-flex flex-column">
                                         <h5 class="card-title text-center">{{$data->nama}}</h5>
                                         <p class="card-text text-truncate text-center">{{$data->deskripsi}}</p>
                                         <p class="card-text">
@@ -260,7 +267,7 @@
                                             Sumber : {{$data->sumber}}
                                             <br>
                                         </p>
-                                        <div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
+                                        <div class="btn-toolbar justify-content-center mt-auto" role="toolbar" aria-label="Toolbar with button groups">
                                             <div class="btn-group" role="group" aria-label="First group">
                                                 <button class="btn btn-outline-primary"><a href="{{$data->tautan}}" class="nav-link">Tautan</a></button>
                                                 <button class="btn btn-outline-primary"><a href="{{ route('katalog.detail', $data->id) }}" class="nav-link">Lihat Detail</a></button>    

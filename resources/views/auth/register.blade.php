@@ -39,12 +39,12 @@ body {
                                 <div class="mb-2">
                                     <label for="npm" class="form-label">NPM</label>
                                     <input id="npm" type="text" class="form-control" name="npm" required autocomplete="false" autofocus aria-describedby="npmHelp">
-                                    <div id="npmHelp" class="form-text">Masukkan 14 Digin NPM Kamu</div>
+                                    <div id="npmHelp" class="form-text">Masukkan 12 Digit NPM Kamu</div>
                                 </div>
                                 <div class="mb-2">
                                     <label for="ktm" class="form-label">KTM</label>
                                     <input id="ktm" type="file" class="form-control" name="ktm" required autocomplete="false" autofocus aria-describedby="ktmHelp" accept="image/*">
-                                    <div id="ktmHelp" class="form-text">Upload KTM Kamu</div>
+                                    <div id="ktmHelp" class="form-text">Upload KTM Kamu, <p class="text-muted">Max File 2 MB</p></div>
                                 </div>
                                 <div class="mb-2">
                                     <label for="password" class="form-label">Password</label>

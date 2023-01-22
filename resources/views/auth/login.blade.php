@@ -32,7 +32,7 @@ body {
                                 <div class="mb-3">
                                     <label for="npm" class="form-label">NPM</label>
                                     <input id="npm" type="text" class="form-control @error('npm') is-invalid @enderror" name="npm" required autocomplete="false" autofocus aria-describedby="npmHelp">
-                                    <div id="npmHelp" class="form-text">Masukkan 14 Digin NPM Kamu</div>
+                                    <div id="npmHelp" class="form-text">Masukkan 12 Digit NPM Kamu</div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="password" class="form-label">Password</label>

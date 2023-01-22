@@ -31,7 +31,7 @@ class AdminController extends Controller
         User::where('id',$id)->update([
             'role'=>$request->isAdmin,
         ]);
-        toast('Berhasil menambah admin!','success');
+        toast('Berhasil mengubah status admin!','success');
         return redirect()->to(route('admin.home'))->withErrors(['msg' => 'Data telah diupdate.']);
     }
 
@@ -47,7 +47,7 @@ class AdminController extends Controller
         User::where('id',$id)->update([
             'is_active'=> $request->verified,
         ]);
-        toast('User berhasil diverifikasi!','success');
+        toast('Status User berhasil diubah!','success');
         return redirect()->to(route('admin.home'))->withErrors(['msg' => 'Data telah diupdate.']);
     }
 
@@ -69,7 +69,7 @@ class AdminController extends Controller
     public function deleteData($id)
     {
         DB::table('datas')->where('id',$id)->delete();
-        toast('Data dihapus!','error');
+        toast('Data dihapus!','warning');
         return redirect(route('admin.home'));
     }
     

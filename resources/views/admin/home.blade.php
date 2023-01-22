@@ -72,7 +72,7 @@
                             <td>User</td>
                         @endif
                         <td>
-                            <div class="btn-group-vertical d-flex justify-content-center align-items-center">
+                            <div class="justify-content-center align-items-center">
                                 @if($user->role == 0)
                                     <form action="/home/admin/makeAdmin/{{$user->id}}" method="POST">
                                         {{ csrf_field() }}
@@ -146,32 +146,32 @@
                         <td>{{$data->created_at}}</td>
                         <td>{{$data->status}}</td>
                         <td>
-                            <div class="btn-group-vertical d-flex justify-content-center align-items-center">
+                            <div class="justify-content-center align-items-center">
                                 @if($data->status == "Checking")
                                     <form method="POST" action="/home/admin/approvalData/{{$data->id}}">
-                                        @csrf
+                                        {{ csrf_field() }}
                                         <select name="status" id="status" class="form-control" hidden>
                                             <option value="Accepted" selected>Accepted</option>
                                         </select>
                                         <button type="submit" class="btn btn-outline-success">Setujui</button>
                                     </form>
                                     <form method="POST" action="/home/admin/approvalData/{{$data->id}}">
-                                        @csrf
+                                        {{ csrf_field() }}
                                         <select name="status" id="status" class="form-control" hidden>
                                             <option value="Blocked" selected>Tolak</option>
                                         </select>
                                         <button type="submit" class="btn btn-outline-danger">Tolak</button>
                                     </form>
                                 @else($data->status == "Accepted")
-                                    <form method="POST" action="/home/admin/approvalData/{{$data->id}}">
-                                        @csrf
+                                    <form method="POST" action="/home/admin/approvalData/{{$data->id}}" class="w-100">
+                                        {{ csrf_field() }}
                                         <select name="status" id="status" class="form-control" hidden>
                                             <option value="Checking" selected>Tunda</option>
                                         </select>
                                         <button type="submit" class="btn btn-outline-warning">Tunda</button>
                                     </form>
                                 @endif
-                                <button class="btn btn-outline-info"><a href="{{ route ('admin.edit.data', $data->id) }}" class="nav-link">Update</a></button>
+                                <button class="btn btn-outline-primary"><a href="{{ route ('admin.edit.data', $data->id) }}" class="nav-link">Update</a></button>
                                 <button class="btn btn-danger"><a href="/home/admin/deleteData/{{$data->id}}" class="nav-link">Hapus</a></button>
                             </div>
                         </td>
